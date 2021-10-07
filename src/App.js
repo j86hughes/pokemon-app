@@ -5,30 +5,48 @@ var P = new Pokedex();
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
-  useEffect(() => {
-    const getPokemon = async () => {
-      var interval = {
-        limit: 150,
-        offset: 0,
-      };
-      const pokemonList = await P.getPokemonsList(interval);
-      if (pokemonList?.results) {
-        let ourList = [];
-        for (const pokemonItem of pokemonList.results) {
-          let pokemon = await P.getPokemonByName(pokemonItem.name);
-          if (pokemon) {
-            ourList.push(pokemon);
-          }
-        }
-        setPokemon(ourList);
-      }
-    };
+  const [loading, setLoading] = useState(false);
 
-    getPokemon();
+  const getPokemon = async ({ limit = 150, offset = 0 }) => {
+    setLoading(true);
+    const pokemonList = await P.getPokemonsList({
+      limit,
+      offset,
+    });
+    if (pokemonList?.results) {
+      let ourList = [];
+      for (const pokemonItem of pokemonList.results) {
+        let pokemon = await P.getPokemonByName(pokemonItem.name);
+        if (pokemon) {
+          ourList.push(pokemon);
+        }
+      }
+      setPokemon(ourList);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getPokemon({});
   }, []);
+
+  if (loading) {
+    return <div>loading...</div>;
+  }
 
   return (
     <div className="App">
+      <button
+        onClick={() =>
+          getPokemon({
+            limit: 12,
+            offset: Math.floor(Math.random() * 150),
+          })
+        }
+      >
+        Surprise me!
+      </button>
+      <button onClick={() => getPokemon({})}>Show all!</button>
       {pokemon?.map((pokemonItem) => {
         return (
           <div key={pokemonItem.name}>

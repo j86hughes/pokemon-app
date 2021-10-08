@@ -1,5 +1,19 @@
 .App {
   text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 90%;
 }
 
 .App-logo {
@@ -36,3 +50,58 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://wallpapercave.com/wp/wp8813112.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+
+#root {
+  display: flex;
+    width: 90%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+  font-family: "Pokemon";
+  color: gold;
+  text-shadow: 1px 3px cornflowerblue;
+  font-weight: 100;
+}
+
+.container div {
+  background-color: white;
+  opacity: 0.9;
+  margin: 1%;
+}
+
+.pokemon-name {
+  color: black;
+  font-family: 'VT323', monospace;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+.randomizer {
+  background-color: cornflowerblue;
+}
+
+@font-face {
+  font-family: "Pokemon"; 
+  src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot"); src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff") format("woff"), url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.svg#Pokemon") format("svg"); }
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+

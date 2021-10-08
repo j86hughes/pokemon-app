@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const title = <h1>Pokemon Pokedex Encyclopedia!</h1>;
+ReactDOM.render(title, document.getElementById('root'));
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

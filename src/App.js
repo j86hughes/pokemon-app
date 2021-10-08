@@ -59,7 +59,7 @@ const App = () => {
     return <div>loading...</div>;
   }
 
-  const yah = 'feast'
+  const yah = 'feast'   
 
   return (
     <div className="App">

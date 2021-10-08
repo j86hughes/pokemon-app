@@ -6,7 +6,7 @@ const P = new Pokedex();
 
 const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
-  return item ? item : null;
+  return item;
 };
 
 const App = () => {

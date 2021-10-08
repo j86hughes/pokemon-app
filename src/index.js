@@ -4,9 +4,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-const title = <h1>Pokemon Pokedex Encyclopedia!</h1>;
-ReactDOM.render(title, document.getElementById('root'));
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -59,6 +59,8 @@ const App = () => {
     return <div>loading...</div>;
   }
 
+  const yah = 'feast'
+
   return (
     <div className="App">
       <h1>Pokémon Pokedex Encyclopedia !</h1>

@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-var Pokedex = require("pokedex-promise-v2");
-var P = new Pokedex();
+import { React, useEffect, useState } from 'react';
+import './App.css';
+
+const Pokedex = require('pokedex-promise-v2');
+
+const P = new Pokedex();
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -14,14 +16,17 @@ function App() {
       offset,
     });
     if (pokemonList?.results) {
-      let ourList = [];
-      for (const pokemonItem of pokemonList.results) {
-        let pokemon = await P.getPokemonByName(pokemonItem.name);
-        if (pokemon) {
-          ourList.push(pokemon);
-        }
-      }
-      setPokemon(ourList);
+      const pokemonListWithDetails = await Promise.all(
+        pokemonList.results?.map(async (element) => {
+          const item = await P.getPokemonByName(element.name);
+          if (item) {
+            return item;
+          }
+          return null;
+        }),
+      );
+
+      setPokemon(pokemonListWithDetails);
       setLoading(false);
     }
   };
@@ -37,24 +42,24 @@ function App() {
   return (
     <div className="App">
       <button
-        onClick={() =>
-          getPokemon({
-            limit: 12,
-            offset: Math.floor(Math.random() * 150),
-          })
-        }
+        type="button"
+        alt="Surprise me!"
+        onClick={() => getPokemon({
+          limit: 12,
+          offset: Math.floor(Math.random() * 150),
+        })}
       >
         Surprise me!
       </button>
-      <button onClick={() => getPokemon({})}>Show all!</button>
-      {pokemon?.map((pokemonItem) => {
-        return (
-          <div key={pokemonItem.name}>
-            <img src={pokemonItem.sprites.front_default} />
-            <div>{pokemonItem.name}</div>
-          </div>
-        );
-      })}
+      <button type="button" onClick={() => getPokemon({})}>
+        Show all!
+      </button>
+      {pokemon?.map((pokemonItem) => (
+        <div key={pokemonItem.name}>
+          <img alt={pokemonItem.name} src={pokemonItem.sprites.front_default} />
+          <div>{pokemonItem.name}</div>
+        </div>
+      ))}
     </div>
   );
 }

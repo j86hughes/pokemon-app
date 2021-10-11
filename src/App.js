@@ -1,83 +1,90 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-var Pokedex = require("pokedex-promise-v2");
-var P = new Pokedex();
+import React, { useEffect, useState } from 'react';
+import Pokedex from 'pokedex-promise-v2';
+import './App.css';
 
-// const title = <h1>Pokemon Pokedex Encyclopedia!</h1>;
-// ReactDOM.render(title, document.getElementById('root'));
+const P = new Pokedex();
 
-function App() {
+const getPokemonDetails = async (pokemon) => {
+  const item = await P.getPokemonByName(pokemon.name);
+  return item;
+};
 
-  
+const App = () => {
   const [pokemon, setPokemon] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const totalPokemon = 898;
+
+  const getRandomPokemon = async () => {
+    setLoading(true);
+
+    const pokemonList = await P.getPokemonsList({
+      limit: totalPokemon,
+      offset: 0,
+    });
+
+    const randomPokemonArray = [];
+    for (let i = 1; i < 13; i += 1) {
+      randomPokemonArray.push(pokemonList.results[Math.floor(Math.random() * totalPokemon)]);
+    }
+
+    const pokemonListWithDetails = await Promise.all(
+      randomPokemonArray.map(getPokemonDetails),
+    );
+
+    setPokemon(pokemonListWithDetails);
+    setLoading(false);
+  };
+
+  const getPokemon = async () => {
+    setLoading(true);
+    const pokemonList = await P.getPokemonsList({
+      limit: totalPokemon,
+      offset: 0,
+    });
+    if (pokemonList?.results) {
+      const pokemonListWithDetails = await Promise.all(
+        pokemonList.results?.map(getPokemonDetails),
+      );
+
+      setPokemon(pokemonListWithDetails);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const getPokemon = async () => {
-      var interval = {
-        limit: 150,
-        offset: 0,
-      };
-      
-      
-      const pokemonList = await P.getPokemonsList(interval);
-
-      if (pokemonList?.results) {
-        let ourList = [];
-        for (const pokemonItem of pokemonList.results) {
-          let pokemon = await P.getPokemonByName(pokemonItem.name);
-          if (pokemon) {
-            ourList.push(pokemon);
-            
-          }
-          
-        }
-        setPokemon(ourList);
-        
-      }
-      
-    };
-    
     getPokemon();
-    
-    
-  },
-  []);
-  // const randList = () => Pokedex.sort(() => Math.random() - 0.5);
-  
+  }, []);
 
-//   function shuffleArray(array) {
-//     for (let i = array.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [array[i], array[j]] = [array[j], array[i]];
-//     }
-// }
+  if (loading) {
+    return <div>loading...</div>;
+  }
 
   return (
     <div className="App">
-      
       <h1>Pokémon Pokedex Encyclopedia !</h1>
-      {/* <div className="randomizer" onClick={randList}>Random</div> */}
+      <button
+        type="button"
+        alt="Surprise me!"
+        onClick={getRandomPokemon}
+      >
+        Surprise me!
+      </button>
+      <button type="button" onClick={() => getPokemon()}>
+        Show all!
+      </button>
       <div className="container">
-      
-
-      {pokemon?.map((pokemonItem) => {
-        return (
+        {pokemon?.map((pokemonItem) => (
           <div key={pokemonItem.name}>
-            <img src={pokemonItem.sprites.front_default} />
-            {/* <div className="pokemon-number"></div> */}
-            <div className="pokemon-name">{pokemonItem.name}</div>
+            <img
+              alt={pokemonItem.name}
+              src={pokemonItem.sprites.front_default}
+            />
+            <div>{pokemonItem.name}</div>
           </div>
-        );
-      })}
+        ))}
       </div>
     </div>
   );
-}
-
-// const handleClick = () => alert("Hello world!");
-// const button = <button onClick={handleClick}>Click here</button>;
-
-// const randList = () => pokemonList.sort(() => Math.random() - 0.5);
-// const div = <div onClick={randList}>Random</div>;
-       
+};
 
 export default App;

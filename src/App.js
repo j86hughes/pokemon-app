@@ -56,7 +56,7 @@ const App = () => {
   }, []);
 
   if (loading) {
-    return <div>loading...</div>;
+    return <div className="pokeball" />;
   }
 
   return (

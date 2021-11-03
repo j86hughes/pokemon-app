@@ -8,6 +8,7 @@ import App from './App';
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <h1>mental mate</h1>
   </React.StrictMode>,
   document.getElementById('root'),
 );

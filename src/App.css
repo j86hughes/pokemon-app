@@ -14,6 +14,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 90%;
+  color: 'black';
 }
 
 .App-logo {
@@ -62,7 +63,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: white;
+  color: 'black';
 }
 
 #root {

@@ -15,6 +15,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   width: 90%;
   color: 'black';
+  background-color: white;
 }
 
 .App-logo {
@@ -26,17 +27,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -83,7 +73,7 @@ h1 {
   font-weight: 100;
 }
 
-.container div {
+.container {
   background-color: white;
   opacity: 0.9;
   margin: 1%;
@@ -143,7 +133,30 @@ h1 {
     #36454F 50%,
     white 50%
   );
-} 
+}
+
+.typesContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.grassType {
+  display: flex;
+  background-color: green;
+}
+
+.poisonType {
+  display: flex;
+  background-color: purple;
+}
+
+.fireType {
+  display: flex;
+  background-color: red;
+}
 
 @font-face {
   font-family: "Pokemon"; 

@@ -73,8 +73,13 @@ const App = () => {
         Show all!
       </button>
       <div className="container">
-        {pokemon?.map((cunt, idex) => (
-          <PokemonCard key={idex} pokemonItem={cunt} yah='alwite' />
+        {pokemon?.map((cunt) => (
+          <PokemonCard
+            pokemonItem={cunt}
+            key={cunt.name}
+            yah="alwite"
+            kimchi="HMMMMMMM"
+          />
         ))}
       </div>
     </div>

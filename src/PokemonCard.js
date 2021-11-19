@@ -12,24 +12,37 @@ const getClassName = (type) => {
   }
 };
 
-const PokemonCard = ({ pokemonItem, yah, kimchi }) => {
+const PokemonCard = ({ pokemonItem }) => {
   let typesArray = pokemonItem.types;
 
+  const pokemonImage =
+    pokemonItem.sprites?.other?.["official-artwork"]?.front_default;
+
   return (
-    <div key={pokemonItem.name}>
-      <img alt={pokemonItem.name} src={pokemonItem.sprites.front_default} />
-      <div>{pokemonItem.name}</div>
-      <div className="typesContainer">
-        {typesArray.map((item) => {
-          return (
-            <div
-              className={getClassName(item.type.name)}
-              key={item.type.name}
-            >
-              {item.type.name}
-            </div>
-          );
-        })}
+    <div className="pokemonCardContainer" key={pokemonItem.name}>
+      {pokemonImage && (
+        <img
+          className="pokemonImage"
+          height={200}
+          width={200}
+          alt={pokemonItem.name}
+          src={pokemonImage}
+        />
+      )}
+      <div className="copyContainer">
+        <div>{pokemonItem.name}</div>
+        <div className="typesContainer">
+          {typesArray.map((item) => {
+            return (
+              <div
+                className={getClassName(item.type.name)}
+                key={item.type.name}
+              >
+                {item.type.name}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   width: 90%;
   color: 'black';
-  background-color: white;
+  /* background-color: white; */
 }
 
 .App-logo {
@@ -73,18 +73,22 @@ h1 {
   font-weight: 100;
 }
 
-.container {
+.container div {
   background-color: white;
   opacity: 0.9;
   margin: 1%;
-}
-
-.pokemon-name {
   color: black;
   font-family: 'VT323', monospace;
   text-transform: uppercase;
   font-weight: 100;
 }
+
+/* .pokemon-name {
+  color: black;
+  font-family: 'VT323', monospace;
+  text-transform: uppercase;
+  font-weight: 100;
+} */
 
 .pokeball {
   position: fixed;
@@ -143,20 +147,94 @@ h1 {
   align-items: center;
 }
 
-.grassType {
+.typesContainer .grassType {
   display: flex;
-  background-color: green;
+  background-color: forestgreen;
+  color: white;
 }
 
-.poisonType {
+.typesContainer .poisonType {
   display: flex;
   background-color: purple;
+  color: white;
 }
 
-.fireType {
+.typesContainer .fireType {
   display: flex;
   background-color: red;
+  color: white;
 }
+
+.typesContainer .waterType {
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.typesContainer .flyingType {
+  background-color: lightskyblue;
+}
+
+.typesContainer .bugType {
+  background-color: darkolivegreen;
+  color: white;
+}
+
+.typesContainer .normalType {
+  background-color: grey;
+  color: white;
+}
+
+.typesContainer .electricType {
+  background-color: yellow;
+}
+
+.typesContainer .groundType {
+  background-color: goldenrod;
+}
+
+.typesContainer .fairyType {
+  background-color: pink;
+}
+
+.typesContainer .fightingType {
+  background-color: brown;
+  color: white;
+}
+
+.typesContainer .psychicType {
+  background-color: deeppink;
+}
+
+.typesContainer .rockType {
+  background-color: lightyellow;
+}
+
+.typesContainer .steelType {
+  background-color: silver;
+}
+
+.typesContainer .iceType {
+  background-color: lavender;
+}
+
+.typesContainer .ghostType {
+  background-color: indigo;
+  color: white;
+}
+
+.typesContainer .dragonType {
+  background-color: plum;
+}
+
+.typesContainer .darkType {
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
 
 @font-face {
   font-family: "Pokemon"; 

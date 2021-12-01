@@ -12,6 +12,16 @@ const getClassName = (type) => {
   }
 };
 
+const getPokemonNumber = (number) => {
+  if (number < 10) {
+    return `#00${number}`;
+  }
+  if (number < 100) {
+    return `#0${number}`;
+  }
+  return `#${number}`;
+}
+
 const PokemonCard = ({ pokemonItem }) => {
   let typesArray = pokemonItem.types;
 
@@ -30,6 +40,7 @@ const PokemonCard = ({ pokemonItem }) => {
         />
       )}
       <div className="copyContainer">
+        <div>{getPokemonNumber(pokemonItem.id)}</div>
         <div>{pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}</div>
         <div className="typesContainer">
           {typesArray.map((item) => {

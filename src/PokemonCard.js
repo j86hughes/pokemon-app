@@ -30,7 +30,7 @@ const PokemonCard = ({ pokemonItem }) => {
         />
       )}
       <div className="copyContainer">
-        <div>{pokemonItem.name}</div>
+        <div>{pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}</div>
         <div className="typesContainer">
           {typesArray.map((item) => {
             return (
@@ -38,7 +38,7 @@ const PokemonCard = ({ pokemonItem }) => {
                 className={getClassName(item.type.name)}
                 key={item.type.name}
               >
-                {item.type.name}
+                {item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}
               </div>
             );
           })}

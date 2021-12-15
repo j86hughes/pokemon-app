@@ -9,6 +9,38 @@ const getClassName = (type) => {
       return "poisonType";
     case "fire":
       return "fireType";
+    case "water":
+      return "waterType";
+    case "flying":
+      return "flyingType";
+    case "bug":
+      return "bugType";
+    case "normal":
+      return "normalType";
+    case "electric":
+      return "electricType";
+    case "ground":
+      return "groundType";
+    case "fairy":
+      return "fairyType";
+    case "fighting":
+      return "fightingType";
+    case "psychic":
+      return "psychicType";
+    case "rock":
+      return "rockType";
+    case "steel":
+      return "steelType";
+    case "ice":
+      return "iceType";
+    case "ghost":
+      return "ghostType";
+    case "dragon":
+      return "dragonType";
+    case "dark":
+      return "darkType";
+    default:
+      console.log("N3IN!")
   }
 };
 
@@ -40,8 +72,8 @@ const PokemonCard = ({ pokemonItem }) => {
         />
       )}
       <div className="copyContainer">
-        <div>{getPokemonNumber(pokemonItem.id)}</div>
-        <div>{pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}</div>
+        <div className="pokemonId">{getPokemonNumber(pokemonItem.id)}</div>
+        <div className="pokemonName">{pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}</div>
         <div className="typesContainer">
           {typesArray.map((item) => {
             return (

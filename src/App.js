@@ -11,6 +11,24 @@ const getPokemonDetails = async (pokemon) => {
 };
 
 const App = () => {
+
+
+
+  // let test = document.getElementsByClassName("pokemonCardContainer");
+
+  // // This handler will be executed only once when the cursor
+  // // moves over the unordered list
+  // test.addEventListener("mouseover", function( event ) {
+  //   // highlight the mouseenter target
+  //   event.target.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
+  
+  //   // reset the color after a short delay
+  //   setTimeout(function() {
+  //     event.target.style.transform = "";
+  //   }, 500);
+  // }, false);
+
+
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -66,7 +84,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Pokémon Pokedex Encyclopedia !</h1>
-      <button type="button" alt="Surprise me!" onClick={getRandomPokemon}>
+      <button type="button" alt="Surprise me!" onClick={getRandomPokemon} > 
         Surprise me!
       </button>
       <button type="button" onClick={() => getPokemon()}>

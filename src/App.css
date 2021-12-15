@@ -1,45 +1,10 @@
-.App {
-  text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-}
-
 
 .container {
+  background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 90%;
+  padding: 32px;
   color: 'black';
-  background-color: white;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 body {
@@ -54,30 +19,19 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: 'black';
-}
-
-#root {
-  display: flex;
-    width: 90%;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+  font-family: 'Exo', sans-serif;
 }
 
 h1 {
   font-family: "Pokemon";
-  color: gold;
-  text-shadow: 1px 3px cornflowerblue;
-  font-weight: 100;
+  color: #ffcc03;
+  text-shadow: -1px -3px #2a75bb, 1px -3px #3c5aa6, -1px 3px #2a75bb, 1px 3px #3c5aa6;
+  text-align: center;
+  font-size: 3rem;
 }
 
-.container {
-  background-color: white;
-  opacity: 0.9;
-  margin: 1%;
-}
+/* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
+
 
 .pokemon-name {
   color: black;
@@ -135,27 +89,227 @@ h1 {
   );
 }
 
+.pokemonCardContainer {
+  display: 'flex';
+  margin: 16px;
+}
+.pokemonCardContainer:hover{
+  animation-name: bounce;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+
+.copyContainer {
+  display: 'flex';
+  background-color: white;
+  flex: 1;
+  flex-direction: column;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 16px;
+  padding-left: 3%;
+}
+
+.pokemonImage {
+  background-color: #F2F2F2;
+  border-radius: 3%;
+  cursor: pointer;
+}
+
+.pokemonId {
+  color: #919191;
+  font-weight: 600;
+  font-size: 80%;
+  
+}
+
+.pokemonName {
+  font-size: 115%;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #313131;
+}
+
 .typesContainer {
   display: flex;
   flex: 1;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 11px;
+  line-height: 18px;
 }
 
-.grassType {
-  display: flex;
-  background-color: green;
+.typesContainer .grassType {
+  background-color: #9bcc50;
+  color: #212121;
+  margin-right: 1%;
+  border-radius: 3px;
+  width: 40%;
+  text-align: center;
 }
 
-.poisonType {
-  display: flex;
-  background-color: purple;
+.typesContainer .poisonType {
+  background-color: #b97fc9;
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
 }
 
-.fireType {
-  display: flex;
-  background-color: red;
+.typesContainer .fireType {
+  background-color: #fd7d24;
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .waterType {
+  background-color: #4592c4;
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .flyingType {
+  background: linear-gradient(
+    180deg, #3dc7ef 50%, #bdb9b8 50%);
+  color: #212121;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .bugType {
+  background-color: #729f3f;
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .normalType {
+  background-color: #a4acaf;
+  color: #212121;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .electricType {
+  background-color: #eed535;
+  color: #212121;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .groundType {
+  background: linear-gradient(
+    180deg, #f7de3f 50%, #ab9842 50%);
+  color: #212121;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .fairyType {
+  background-color: #fdb9e9;
+  color: #212121;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .fightingType {
+  background-color: #d56723;
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .psychicType {
+  background-color: #f366b9;
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .rockType {
+  background-color: #a38c21;
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .steelType {
+  background-color: #9eb7b8;
+  color: #212121;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .iceType {
+  background-color: #51c4e7;
+  color: #212121;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .ghostType {
+  background-color: #7b62a3;
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .dragonType {
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
+}
+
+.typesContainer .darkType {
+  background-color: #707070;
+  color: white;
+  margin-right: 1%;
+  border-radius: 3%;
+  width: 40%;
+  text-align: center;
 }
 
 @font-face {
@@ -164,3 +318,4 @@ h1 {
 
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap');

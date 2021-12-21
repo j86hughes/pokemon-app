@@ -83,13 +83,31 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Pokémon Pokedex Encyclopedia !</h1>
-      <button type="button" alt="Surprise me!" onClick={getRandomPokemon} > 
-        Surprise me!
+      <h1>Pokédex</h1>
+      <button className="randomizer" type="button" alt="Surprise me!" onClick={getRandomPokemon} > 
+        Surprise Me!
       </button>
-      <button type="button" onClick={() => getPokemon()}>
+      <div className="custom-select-wrapper" 
+      // style={visibility: visible}
+      >
+        <select id="sortOrder" 
+        // style="display: none"
+        >
+          <option value="noSort">Sort results by...</option>
+          <option value="numberAsc">Lowest Number (First)</option>
+          <option value="numberDesc">Highest Number (First)</option>
+          <option value="nameAsc">A-Z</option>
+          <option value="nameDesc">Z-A</option>
+        </select>
+        <div className="custom-select-menu" tabindex="0">
+          <label className="styled-select button-black" >
+            {/* ::before */}
+          </label>
+        </div>
+      </div>
+      {/* <button type="button" onClick={() => getPokemon()}>
         Show all!
-      </button>
+      </button> */}
       <div className="container">
         {pokemon?.map((cunt) => (
           <PokemonCard

@@ -2,8 +2,8 @@
 .container {
   background-color: white;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 32px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 16px;
   color: 'black';
 }
 
@@ -14,23 +14,82 @@ body {
   align-content: center;
   justify-content: center;
   align-items: center;
-  background-image: url("https://wallpapercave.com/wp/wp8813112.jpg");
+  background-image: white;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: 'black';
   font-family: 'Exo', sans-serif;
+  background:#fff url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png")
 }
 
 h1 {
-  font-family: "Pokemon";
-  color: #ffcc03;
-  text-shadow: -1px -3px #2a75bb, 1px -3px #3c5aa6, -1px 3px #2a75bb, 1px 3px #3c5aa6;
-  text-align: center;
-  font-size: 3rem;
+  color: #919191;
+  cursor: default;
+  font-size: 187.5%;
+  line-height: 125%;
+  font-weight: 100;
+  padding: 32px;
 }
 
 /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
+
+.randomizer {
+  background-color: #30a7d7;
+  color: white;
+  width: 35%;
+  font-size: 1.1rem;
+  font-family: 'Exo';
+  font-weight: 500;
+  padding: 1.4%;
+  border-radius: 5px;
+  border: none;
+  margin-left: 32px;
+  cursor: pointer;
+  transition: 100ms ease-in;
+}
+.randomizer:hover {
+  background-color: #1b82b1;
+}
+
+.custom-select-wrapper {
+  /* background-color: #313131; */
+  width: 40%;
+  float: right;
+  padding-right: 3%;
+}
+#sortOrder {
+  background-color: #313131;
+  font-family: Exo;
+  color: white;
+  width: 100%;
+  padding: 2.7% 0%;
+  border-radius: 5px;
+  font-size: 100%;
+  font-weight: 500;
+}
+ /* option {
+  background-color: #616161;
+} */
+ /* .custom-select-menu {
+  background-color: #313131;
+}
+.styled-select {
+  background-color: #313131;
+} */
+/* ul {
+  background-color: #616161;
+} */
+/* li {
+  background-color: #313131;
+}  */
+
+
+.custom-select-wrapper .custom-select-menu > ul {
+  background-color: #616161;
+}
+
+
 
 
 .pokemon-name {
@@ -148,7 +207,7 @@ h1 {
   line-height: 18px;
 }
 
-.typesContainer .grassType {
+.typesContainer .grass {
   background-color: #9bcc50;
   color: #212121;
   margin-right: 1%;
@@ -157,157 +216,157 @@ h1 {
   text-align: center;
 }
 
-.typesContainer .poisonType {
+.typesContainer .poison {
   background-color: #b97fc9;
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .fireType {
+.typesContainer .fire {
   background-color: #fd7d24;
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .waterType {
+.typesContainer .water {
   background-color: #4592c4;
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .flyingType {
+.typesContainer .flying {
   background: linear-gradient(
     180deg, #3dc7ef 50%, #bdb9b8 50%);
   color: #212121;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .bugType {
+.typesContainer .bug {
   background-color: #729f3f;
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .normalType {
+.typesContainer .normal {
   background-color: #a4acaf;
   color: #212121;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .electricType {
+.typesContainer .electric {
   background-color: #eed535;
   color: #212121;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .groundType {
+.typesContainer .ground {
   background: linear-gradient(
     180deg, #f7de3f 50%, #ab9842 50%);
   color: #212121;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .fairyType {
+.typesContainer .fairy {
   background-color: #fdb9e9;
   color: #212121;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .fightingType {
+.typesContainer .fighting {
   background-color: #d56723;
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .psychicType {
+.typesContainer .psychic {
   background-color: #f366b9;
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .rockType {
+.typesContainer .rock {
   background-color: #a38c21;
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .steelType {
+.typesContainer .steel {
   background-color: #9eb7b8;
   color: #212121;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .iceType {
+.typesContainer .ice {
   background-color: #51c4e7;
   color: #212121;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .ghostType {
+.typesContainer .ghost {
   background-color: #7b62a3;
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .dragonType {
+.typesContainer .dragon {
   background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }
 
-.typesContainer .darkType {
+.typesContainer .dark {
   background-color: #707070;
   color: white;
   margin-right: 1%;
-  border-radius: 3%;
+  border-radius: 3px;
   width: 40%;
   text-align: center;
 }

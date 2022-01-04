@@ -42,7 +42,7 @@ const App = () => {
   const getPokemon = async () => {
     setLoading(true);
     const pokemonList = await P.getPokemonsList({
-      limit: totalPokemon,
+      limit: 12,
       offset: 0,
     });
     if (pokemonList?.results) {
@@ -65,6 +65,30 @@ const App = () => {
 
   const handleSelectChange = async (event) => {
     let sortedPokemon = [];
+    if (event.target.value === "numberAsc") {
+      setLoading(true);
+      sortedPokemon = await pokemon.sort(function (a, b) {
+        if (a.id < b.id) {
+          return -1;
+        }
+        if (a.id > b.id) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    if (event.target.value === "numberDesc") {
+      setLoading(true);
+      sortedPokemon = await pokemon.sort(function (a, b) {
+        if (a.id < b.id) {
+          return 1;
+        }
+        if (a.id > b.id) {
+          return -1;
+        }
+        return 0;
+      });
+    }
     if (event.target.value === "nameAsc") {
       setLoading(true);
       sortedPokemon = await pokemon.sort(function (a, b) {
@@ -77,9 +101,22 @@ const App = () => {
         return 0;
       });
     }
+    if (event.target.value === "nameDesc") {
+      setLoading(true);
+      sortedPokemon = await pokemon.sort(function (a, b) {
+        if (a.name < b.name) {
+          return 1;
+        }
+        if (a.name > b.name) {
+          return -1;
+        }
+        return 0;
+      });
+    }
     setLoading(false);
     setPokemon(sortedPokemon);
   };
+
 
   return (
     <div className="App">

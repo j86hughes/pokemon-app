@@ -117,7 +117,6 @@ const App = () => {
     setPokemon(sortedPokemon);
   };
 
-
   return (
     <div className="App">
       <h1>Pokédex</h1>
@@ -129,10 +128,7 @@ const App = () => {
       >
         Surprise Me!
       </button>
-      <div
-        className="custom-select-wrapper"
-        // style={visibility: visible}
-      >
+      <div className="custom-select-wrapper">
         <select id="sortOrder" onChange={handleSelectChange}>
           <option value="noSort">Sort results by...</option>
           <option value="numberAsc">Lowest Number (First)</option>
@@ -140,21 +136,10 @@ const App = () => {
           <option value="nameAsc">A-Z</option>
           <option value="nameDesc">Z-A</option>
         </select>
-        <div className="custom-select-menu" tabindex="0">
-          <label className="styled-select button-black">{/* ::before */}</label>
-        </div>
       </div>
-      {/* <button type="button" onClick={() => getPokemon()}>
-        Show all!
-      </button> */}
       <div className="container">
         {pokemon?.map((cunt) => (
-          <PokemonCard
-            pokemonItem={cunt}
-            key={cunt.name}
-            yah="alwite"
-            kimchi="HMMMMMMM"
-          />
+          <PokemonCard pokemonItem={cunt} key={cunt.name} />
         ))}
       </div>
     </div>

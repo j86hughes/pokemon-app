@@ -32,8 +32,6 @@ h1 {
   padding: 32px;
 }
 
-/* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
-
 .randomizer {
   background-color: #30a7d7;
   color: white;
@@ -68,29 +66,10 @@ h1 {
   font-size: 100%;
   font-weight: 500;
 }
- /* option {
-  background-color: #616161;
-} */
- /* .custom-select-menu {
-  background-color: #313131;
-}
-.styled-select {
-  background-color: #313131;
-} */
-/* ul {
-  background-color: #616161;
-} */
-/* li {
-  background-color: #313131;
-}  */
-
 
 .custom-select-wrapper .custom-select-menu > ul {
   background-color: #616161;
 }
-
-
-
 
 .pokemon-name {
   color: black;
@@ -207,168 +186,103 @@ h1 {
   line-height: 18px;
 }
 
-.typesContainer .grass {
+.typesCard {
+  margin-right: 1%;
+  border-radius: 3px;
+  width: 40%;
+  text-align: center;
+}
+
+.grass {
   background-color: #9bcc50;
   color: #212121;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .poison {
+.poison {
   background-color: #b97fc9;
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .fire {
+.fire {
   background-color: #fd7d24;
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .water {
+.water {
   background-color: #4592c4;
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .flying {
+.flying {
   background: linear-gradient(
     180deg, #3dc7ef 50%, #bdb9b8 50%);
   color: #212121;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .bug {
+.bug {
   background-color: #729f3f;
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .normal {
+.normal {
   background-color: #a4acaf;
   color: #212121;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .electric {
+.electric {
   background-color: #eed535;
   color: #212121;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .ground {
+.ground {
   background: linear-gradient(
     180deg, #f7de3f 50%, #ab9842 50%);
   color: #212121;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .fairy {
+.fairy {
   background-color: #fdb9e9;
   color: #212121;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .fighting {
+.fighting {
   background-color: #d56723;
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .psychic {
+.psychic {
   background-color: #f366b9;
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .rock {
+.rock {
   background-color: #a38c21;
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .steel {
+.steel {
   background-color: #9eb7b8;
   color: #212121;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .ice {
+.ice {
   background-color: #51c4e7;
   color: #212121;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .ghost {
+.ghost {
   background-color: #7b62a3;
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .dragon {
+.dragon {
   background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
-.typesContainer .dark {
+.dark {
   background-color: #707070;
   color: white;
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
 }
 
 @font-face {

@@ -1,16 +1,14 @@
 import React from "react";
-import Home from "./pages/Home";
-import Test from "./pages/Test";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Pokedex from "./pages/Pokedex";
+import Pokemon from "./pages/Pokemon";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => (
   <Router>
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/test" element={<Test />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Pokedex />} />
+      <Route path="/:pokemon" element={<Pokemon />} />
+    </Routes>
   </Router>
 );
 

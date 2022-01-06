@@ -1,5 +1,7 @@
 import React from "react";
-import "./App.css";
+import { Link, useNavigate } from "react-router-dom";
+
+import "./home.css";
 
 const getPokemonNumber = (number) => {
   if (number < 10) {
@@ -9,16 +11,20 @@ const getPokemonNumber = (number) => {
     return `#0${number}`;
   }
   return `#${number}`;
-}
+};
 
 const PokemonCard = ({ pokemonItem }) => {
+  let navigate = useNavigate();
   let typesArray = pokemonItem.types;
-
   const pokemonImage =
     pokemonItem.sprites?.other?.["official-artwork"]?.front_default;
 
   return (
-    <div className="pokemonCardContainer" key={pokemonItem.name}>
+    <div
+      className="pokemonCardContainer"
+      key={pokemonItem.name}
+      onClick={() => navigate(`${pokemonItem.name}`)}
+    >
       {pokemonImage && (
         <img
           className="pokemonImage"
@@ -30,7 +36,9 @@ const PokemonCard = ({ pokemonItem }) => {
       )}
       <div className="copyContainer">
         <div className="pokemonId">{getPokemonNumber(pokemonItem.id)}</div>
-        <div className="pokemonName">{pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}</div>
+        <div className="pokemonName">
+          {pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}
+        </div>
         <div className="typesContainer">
           {typesArray.map((item) => {
             return (
@@ -38,7 +46,8 @@ const PokemonCard = ({ pokemonItem }) => {
                 className={`typesCard ${item.type.name}`}
                 key={item.type.name}
               >
-                {item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}
+                {item.type.name.charAt(0).toUpperCase() +
+                  item.type.name.slice(1)}
               </div>
             );
           })}

@@ -1,11 +1,19 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+
+import Bio from "./Bio";
 
 const Test = () => {
-  let params = useParams();
+  const params = useParams();
+  const { state } = useLocation();
+  const pokemonItem = state?.pokemonItem;
+  // console.log('YOHANS YALALALALALALALALALALA', state);
   return (
     <div>
-      {params.pokemon}
+      {pokemonItem?.name}
+      <div>
+      <Bio bioText="hello yaaalalalalalalalalal"/>
+      </div>
     </div>
   );
 };

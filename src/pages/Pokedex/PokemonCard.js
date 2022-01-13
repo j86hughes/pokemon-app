@@ -23,7 +23,7 @@ const PokemonCard = ({ pokemonItem }) => {
     <div
       className="pokemonCardContainer"
       key={pokemonItem.name}
-      onClick={() => navigate(`${pokemonItem.name}`)}
+      onClick={() => navigate(`/${pokemonItem.name}`, { state: { pokemonItem } })}
     >
       {pokemonImage && (
         <img

@@ -1,19 +1,29 @@
 import React from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-import Bio from "./Bio";
+import Heading from "./Heading";
+import Statssmall from "./Statssmall";
+import Nav from "./Nav";
+import Pagination from "./Pagination";
+import Stats from "./Stats"
+import Image from "./Image"
+import Info from "./Info"
 
 const Test = () => {
-  const params = useParams();
   const { state } = useLocation();
   const pokemonItem = state?.pokemonItem;
-  // console.log('YOHANS YALALALALALALALALALALA', state);
+  console.log(pokemonItem)
   return (
-    <div>
-      {pokemonItem?.name}
-      <div>
-      <Bio bioText="hello yaaalalalalalalalalal"/>
+    <div className="pokemonPage">
+      <Nav />
+      <Pagination />
+      <Heading />
+      <div className="col3">
+      <Image />
+      <Info />
+      <Statssmall />
       </div>
+      <Stats />
     </div>
   );
 };

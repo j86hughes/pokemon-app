@@ -199,21 +199,35 @@
   margin-left: 10%;
   margin-top: 5%;
   color: white;
- }
+  
+}
+ 
 .right{
   width: 30%;
   float: right;
   margin-top: 5%;
   color: white;
+  transition: 300ms ease;
+}
+.right:hover {
+  background-color: #30a7d7;
 }
   .previous {
     border-right: 4px solid #fff;
     background-color: #616161;
     width: 50%;
+    transition: 300ms ease;
+  }
+  .previous:hover {
+    background-color: #30a7d7;
   }
   .next {
     background-color: #616161;
-    width:  50%
+    width:  50%;
+    transition: 300ms ease;
+  }
+  .next:hover{
+    background-color: #30a7d7;;
   }
 
 .pokemon-name-heading{

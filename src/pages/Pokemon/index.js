@@ -12,10 +12,9 @@ import Info from "./Info";
 const Test = () => {
   const { state } = useLocation();
   const pokemonItem = state?.pokemonItem;
-  console.log(pokemonItem);
   return (
     <div className="pokemonPage">
-      <Nav pokemonItem={pokemonItem} />
+      <Nav />
       <Pagination pokemonItem={pokemonItem} />
       <Heading pokemonItem={pokemonItem} />
       <div className="col3" pokemonItem={pokemonItem} >
@@ -29,5 +28,6 @@ const Test = () => {
     </div>
   );
 };
+
 
 export default Test;

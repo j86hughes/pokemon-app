@@ -1,10 +1,7 @@
 import React from 'react';
-import { useLocation } from "react-router-dom";
 import './pokemon.css'
 
-const Nav = () => {
-    const { state } = useLocation();
-    // const pokemonItem = state?.pokemonItem;
+const Nav = ({ pokemonItem }) => {
     return (
         <nav className="main">
             {/* <div className="blocker" /> */}
@@ -16,5 +13,6 @@ const Nav = () => {
         </nav>
     );
 }
+
 
 export default Nav

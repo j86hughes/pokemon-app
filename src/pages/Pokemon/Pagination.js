@@ -1,12 +1,8 @@
 import React from 'react';
-import { useLocation } from "react-router-dom";
 import './pokemon.css'
 
-const Pagination  = () => {
-    const { state } = useLocation();
-    // const pokemonItem = state?.pokemonItem;
+const Pagination  = ({ pokemonItem }) => {
       return (
-  
         <section className=" pagination section pokedex-pokemon-header">
           <div className="pokedex-pokemon-pagination">
             <a href="/uk/pokedex/calyrex" className="previous">
@@ -28,4 +24,5 @@ const Pagination  = () => {
       );
     }
 
+    
   export default Pagination

@@ -1,11 +1,8 @@
 import React from 'react';
-import { useLocation } from "react-router-dom";
 import './pokemon.css'
 
 
-const Statssmall = () => {
-  const { state } = useLocation();
-  const pokemonItem = state?.pokemonItem;
+const Statssmall = (pokemonItem) => {
   let typesArray = pokemonItem.types;
     return(
         <div className='type-wrapper'>
@@ -25,5 +22,6 @@ const Statssmall = () => {
       </div>
     )
 }
+
 
 export default Statssmall

@@ -1,11 +1,8 @@
 import React from 'react';
-import { useLocation } from "react-router-dom";
 import './pokemon.css'
 
 
-const Stats = () => {
-  const { state } = useLocation();
-  const pokemonItem = state?.pokemonItem;
+const Stats = ({ pokemonItem }) => {
   let statsArray = pokemonItem.stats;
     return(
         <div className='stats-wrapper'>
@@ -25,6 +22,7 @@ const Stats = () => {
       </div>
     )
 }
+
 
 export default Stats
 

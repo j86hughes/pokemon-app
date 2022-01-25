@@ -11,6 +11,71 @@ const getPokemonDetails = async (pokemon) => {
   return item;
 };
 
+// const getGenderDetails = async (gender) => {
+//   const item = await P.getGenderByName(gender.name);
+//   return item;
+// };
+
+// const getGender = async () => {
+//   const genderList = await P.getGendersList({
+//     limit: totalPokemon,
+//     offset: 0,
+//   });
+//   if (genderList?.results) {
+//     const genderListWithDetails = await Promise.all(
+//       genderList.results?.map(getGenderDetails)
+//     );
+
+//     setPokemon(genderListWithDetails);
+//     setLoading(false);
+//   }
+// }
+
+// for(let i = 0; i < gender1.pokemon_species_details.length; i++){
+//   console.log([i])
+// }
+// if(gender1.pokemon_species_details[i].pokemon_species.name === pokemonItem.name){
+//    console.log(gender1.name)
+// }
+
+// const getGender = () => {
+//   P.getGenderByName("female")
+// .then((gender1) => {
+//   // console.log(gender1.name);
+//   console.log(gender1);
+// })
+// .catch((error) => {
+//   console.log('There was an ERROR: ', error);
+// });
+// }
+// getGender()
+
+// P.getGenderByName("male")
+// .then((gender2) => {
+//   console.log(gender2.name);
+// })
+// .catch((error) => {
+//   console.log('There was an ERROR: ', error);
+// });
+// P.getGenderByName("unknown")
+// .then((gender3) => {
+//   console.log(gender3);
+// })
+// .catch((error) => {
+//   console.log('There was an ERROR: ', error);
+// });
+
+// function doSomething() {
+//   return new Promise((resolve, reject) => {
+//     console.log("It is done.");
+//     if (Math.random() > .5) {
+//       resolve("SUCCESS")
+//     } else {
+//       reject("FAILURE")
+//     }
+//   })
+// };
+
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);

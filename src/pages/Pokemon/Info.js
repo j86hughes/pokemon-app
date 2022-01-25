@@ -2,6 +2,15 @@ import React from "react";
 import "./pokemon.css";
 
 const Info = ({ pokemonItem }) => {
+  const test = async () => {
+    await P.getGenderByName("male")
+      .then((response) => {
+        console.log('YOHANS YALALALALALALALALALALALALA', { response });
+      })
+      .catch((error) => {
+        console.log("There was an ERROR: ", error);
+      });
+  };
   return (
     <div className="infoDiv" height={200} width={400}>
       <div className="ulDiv1">

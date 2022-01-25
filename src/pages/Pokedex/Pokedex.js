@@ -38,25 +38,39 @@ const getPokemonDetails = async (pokemon) => {
 //    console.log(gender1.name)
 // }
 
-// const getGender = () => {
-//   P.getGenderByName("female")
-// .then((gender1) => {
-//   // console.log(gender1.name);
-//   console.log(gender1);
+// const getGender = async () => {
+//   await P.getGenderByName("female")
+// .then((response) => {
+//   console.log({response});
 // })
 // .catch((error) => {
 //   console.log('There was an ERROR: ', error);
 // });
 // }
-// getGender()
 
-// P.getGenderByName("male")
+
+// const test = async () => {
+//   await P.getGenderByName("male")
+//     .then((response) => {
+//       console.log('YOHANS YALALALALALALALALALALALALA', { response });
+//     })
+//     .catch((error) => {
+//       console.log("There was an ERROR: ", error);
+//     });
+// };
+
+
+
+
+// const test = async () => {
+//   await P.getGenderByName("male")
 // .then((gender2) => {
-//   console.log(gender2.name);
+//   console.log({gender2});
 // })
 // .catch((error) => {
 //   console.log('There was an ERROR: ', error);
-// });
+// })};
+// test()
 // P.getGenderByName("unknown")
 // .then((gender3) => {
 //   console.log(gender3);

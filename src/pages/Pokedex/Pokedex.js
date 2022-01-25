@@ -31,24 +31,24 @@ const getPokemonDetails = async (pokemon) => {
 //   }
 // }
 
-for(let i = 0; i < gender1.pokemon_species_details.length; i++){
-  console.log([i])
-}
-if(gender1.pokemon_species_details[i].pokemon_species.name === pokemonItem.name){
-   console.log(gender1.name)
-}
+// for(let i = 0; i < gender1.pokemon_species_details.length; i++){
+//   console.log([i])
+// }
+// if(gender1.pokemon_species_details[i].pokemon_species.name === pokemonItem.name){
+//    console.log(gender1.name)
+// }
 
-const getGender = () => {
-  P.getGenderByName("female")
-.then((gender1) => {
-  // console.log(gender1.name);
-  console.log(gender1);
-})
-.catch((error) => {
-  console.log('There was an ERROR: ', error);
-});
-}
-getGender()
+// const getGender = () => {
+//   P.getGenderByName("female")
+// .then((gender1) => {
+//   // console.log(gender1.name);
+//   console.log(gender1);
+// })
+// .catch((error) => {
+//   console.log('There was an ERROR: ', error);
+// });
+// }
+// getGender()
 
 // P.getGenderByName("male")
 // .then((gender2) => {

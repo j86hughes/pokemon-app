@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 import Heading from "./Heading";
-import Statssmall from "./Statssmall";
+import Type from "./Type";
 import Nav from "./Nav";
 import Pagination from "./Pagination";
 import Stats from "./Stats";
@@ -22,7 +22,7 @@ const Test = () => {
           src={pokemonItem.sprites?.other?.["official-artwork"]?.front_default}
         />
         <Info pokemonItem={pokemonItem} />
-        <Statssmall pokemonItem={pokemonItem} />
+        <Type pokemonItem={pokemonItem} />
       </div>
       <Stats pokemonItem={pokemonItem} />
     </div>

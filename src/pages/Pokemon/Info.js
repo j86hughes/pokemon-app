@@ -39,5 +39,4 @@ const Info = ({ pokemonItem }) => {
   );
 };
 
-
 export default Info;

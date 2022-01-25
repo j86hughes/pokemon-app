@@ -23,5 +23,4 @@ const Statssmall = (pokemonItem) => {
     )
 }
 
-
 export default Statssmall

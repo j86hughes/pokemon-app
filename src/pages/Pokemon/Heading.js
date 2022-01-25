@@ -1,10 +1,7 @@
 import React from 'react';
-import { useLocation } from "react-router-dom";
 import './pokemon.css'
 
-const Heading = () => {
-  const { state } = useLocation();
-  const pokemonItem = state?.pokemonItem;
+const Heading = ({ pokemonItem }) => {
   const getPokemonNumber = (number) => {
     if (number < 10) {
       return `#00${number}`;

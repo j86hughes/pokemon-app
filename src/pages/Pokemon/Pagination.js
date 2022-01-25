@@ -24,5 +24,5 @@ const Pagination  = ({ pokemonItem }) => {
       );
     }
 
-    
   export default Pagination
+  

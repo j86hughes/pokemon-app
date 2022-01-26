@@ -6,89 +6,26 @@ import "./home.css";
 
 const P = new Pokedex();
 
+const getGenderLists = async () => {
+  let maleList = [];
+  let femaleList = [];
+  try {
+    maleList = await P.getGenderByName("male");
+    femaleList = await P.getGenderByName("female");
+  } catch (error) {
+    console.log(error);
+  }
+
+  return {
+    maleList,
+    femaleList,
+  };
+};
+
 const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
   return item;
 };
-
-// const getGenderDetails = async (gender) => {
-//   const item = await P.getGenderByName(gender.name);
-//   return item;
-// };
-
-// const getGender = async () => {
-//   const genderList = await P.getGendersList({
-//     limit: totalPokemon,
-//     offset: 0,
-//   });
-//   if (genderList?.results) {
-//     const genderListWithDetails = await Promise.all(
-//       genderList.results?.map(getGenderDetails)
-//     );
-
-//     setPokemon(genderListWithDetails);
-//     setLoading(false);
-//   }
-// }
-
-// for(let i = 0; i < gender1.pokemon_species_details.length; i++){
-//   console.log([i])
-// }
-// if(gender1.pokemon_species_details[i].pokemon_species.name === pokemonItem.name){
-//    console.log(gender1.name)
-// }
-
-// const getGender = async () => {
-//   await P.getGenderByName("female")
-// .then((response) => {
-//   console.log({response});
-// })
-// .catch((error) => {
-//   console.log('There was an ERROR: ', error);
-// });
-// }
-
-
-// const test = async () => {
-//   await P.getGenderByName("male")
-//     .then((response) => {
-//       console.log('YOHANS YALALALALALALALALALALALALA', { response });
-//     })
-//     .catch((error) => {
-//       console.log("There was an ERROR: ", error);
-//     });
-// };
-
-
-
-
-// const test = async () => {
-//   await P.getGenderByName("male")
-// .then((gender2) => {
-//   console.log({gender2});
-// })
-// .catch((error) => {
-//   console.log('There was an ERROR: ', error);
-// })};
-// test()
-// P.getGenderByName("unknown")
-// .then((gender3) => {
-//   console.log(gender3);
-// })
-// .catch((error) => {
-//   console.log('There was an ERROR: ', error);
-// });
-
-// function doSomething() {
-//   return new Promise((resolve, reject) => {
-//     console.log("It is done.");
-//     if (Math.random() > .5) {
-//       resolve("SUCCESS")
-//     } else {
-//       reject("FAILURE")
-//     }
-//   })
-// };
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -120,6 +57,8 @@ const Home = () => {
   };
 
   const getPokemon = async () => {
+    const genderLists = await getGenderLists();
+
     setLoading(true);
     const pokemonList = await P.getPokemonsList({
       limit: 12,
@@ -129,6 +68,22 @@ const Home = () => {
       const pokemonListWithDetails = await Promise.all(
         pokemonList.results?.map(getPokemonDetails)
       );
+
+      pokemonListWithDetails.forEach((item) => {
+        item.gender = [];
+
+        genderLists?.maleList?.pokemon_species_details.forEach((genderItem) => {
+          if (genderItem?.pokemon_species?.name === item.name) {
+            item.gender.push("male");
+          }
+        });
+
+        genderLists?.femaleList?.pokemon_species_details.forEach((genderItem) => {
+          if (genderItem?.pokemon_species?.name === item.name) {
+            item.gender.push("female");
+          }
+        });
+      });
 
       setPokemon(pokemonListWithDetails);
       setLoading(false);

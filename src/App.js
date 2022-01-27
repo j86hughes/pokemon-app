@@ -1,13 +1,14 @@
 import React from "react";
 import Pokedex from "./pages/Pokedex";
 import Pokemon from "./pages/Pokemon";
+import Nav from "./Nav/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const Tits = () => <div>TITS</div>;
 
 const App = () => (
   <>
-    <div>2 l8 m8</div>
+    <Nav />
     <Router>
       <Routes>
         <Route path="/" element={<Pokedex />} />

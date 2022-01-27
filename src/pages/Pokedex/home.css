@@ -1,4 +1,3 @@
-
 .container {
   background-color: white;
   display: grid;
@@ -50,7 +49,7 @@ h1 {
   background-color: #1b82b1;
 }
 
-.custom-select-wrapper {
+.selectWrapper {
   /* background-color: #313131; */
   width: 40%;
   float: right;
@@ -67,16 +66,16 @@ h1 {
   font-weight: 500;
 }
 
-.custom-select-wrapper .custom-select-menu > ul {
+/* .custom-select-wrapper .custom-select-menu > ul {
   background-color: #616161;
-}
+} */
 
-.pokemon-name {
+/* .pokemon-name {
   color: black;
   font-family: 'VT323', monospace;
   text-transform: uppercase;
   font-weight: 100;
-}
+} */
 
 .pokeball {
   position: fixed;

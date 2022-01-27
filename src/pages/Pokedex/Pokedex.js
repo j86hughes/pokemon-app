@@ -163,7 +163,7 @@ const Home = () => {
       >
         Surprise Me!
       </button>
-      <div className="custom-select-wrapper">
+      <div className="selectWrapper">
         <select id="sortOrder" onChange={handleSelectChange}>
           <option value="noSort">Sort results by...</option>
           <option value="numberAsc">Lowest Number (First)</option>

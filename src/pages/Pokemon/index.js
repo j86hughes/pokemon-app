@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import Heading from "./Heading";
 import Type from "./Type";
-import Nav from "./Nav";
+// import Nav from "./Nav";
 import Pagination from "./Pagination";
 import Stats from "./Stats";
 import Image from "./Image";
@@ -13,9 +13,10 @@ const Test = () => {
   const { state } = useLocation();
   const pokemonItem = state?.pokemonItem;
   return (
-    <div className="pokemonPage">
-      <Nav />
+    <div className="pokemon-page">
+      {/* <Nav /> */}
       <Pagination pokemonItem={pokemonItem} />
+      <div className="container">
       <Heading pokemonItem={pokemonItem} />
       <div className="col3" pokemonItem={pokemonItem} >
         <Image
@@ -25,6 +26,7 @@ const Test = () => {
         <Type pokemonItem={pokemonItem} />
       </div>
       <Stats pokemonItem={pokemonItem} />
+      </div>
     </div>
   );
 };

@@ -3,10 +3,10 @@ import './pokemon.css'
 
 const Image = ({ src, name }) => {
   return (
-    <div className='imageDiv'>
+    <div className='image-div'>
       {src && (
         <img
-          className="pokemonImage"
+          className="pokemon-image"
           height={400}
           width={400}
           alt={name}

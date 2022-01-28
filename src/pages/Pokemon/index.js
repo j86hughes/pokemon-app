@@ -16,9 +16,9 @@ const Test = () => {
     <div className="pokemon-page">
       {/* <Nav /> */}
       <Pagination pokemonItem={pokemonItem} />
-      <div className="container">
+      <div className="pokemon-container">
       <Heading pokemonItem={pokemonItem} />
-      <div className="col3" pokemonItem={pokemonItem} >
+      <div className="row3" pokemonItem={pokemonItem} >
         <Image
           src={pokemonItem.sprites?.other?.["official-artwork"]?.front_default}
         />

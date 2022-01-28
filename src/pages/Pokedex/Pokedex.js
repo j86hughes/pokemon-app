@@ -6,6 +6,7 @@ import "./home.css";
 
 const P = new Pokedex();
 
+
 const getGenderLists = async () => {
   let maleList = [];
   let femaleList = [];
@@ -22,10 +23,13 @@ const getGenderLists = async () => {
   };
 };
 
+
 const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
   return item;
 };
+
+
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -61,13 +65,37 @@ const Home = () => {
 
     setLoading(true);
     const pokemonList = await P.getPokemonsList({
-      limit: 12,
+      limit: totalPokemon,
       offset: 0,
     });
     if (pokemonList?.results) {
+      // let totalArray = []
       const pokemonListWithDetails = await Promise.all(
         pokemonList.results?.map(getPokemonDetails)
       );
+      // totalArray.push(pokemonListWithDetails)
+
+      // let statsArr = []
+      // for (let i = 0; i < totalArray[0].length; i++) {
+      //   statsArr.push(totalArray[0][i].stats)
+      // } 
+      //  let stArr = [];
+      //  for(let statArr of statsArr){
+      //    for(let i = 0; i < statArr.length; i++){
+      //    stArr.push(statArr[i].base_stat)
+      //    }
+      //  } console.log(stArr)
+
+      //  255 is the Maximum value of pokemon stats
+      // There are 15 li bars
+      // 255 / 15 = 17?
+      // So each li bar's max value would be 17?
+
+
+       
+
+
+
 
       pokemonListWithDetails.forEach((item) => {
         item.gender = [];
@@ -172,7 +200,7 @@ const Home = () => {
           <option value="nameDesc">Z-A</option>
         </select>
       </div>
-      <div className="container">
+      <div className="pokedexContainer">
         {pokemon?.map((cunt) => (
           <PokemonCard pokemonItem={cunt} key={cunt.name} />
         ))}

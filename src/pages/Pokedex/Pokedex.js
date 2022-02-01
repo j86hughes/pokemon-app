@@ -4,6 +4,7 @@ import Pokedex from "pokedex-promise-v2";
 import PokemonCard from "./PokemonCard";
 import "./home.css";
 
+
 const P = new Pokedex();
 
 
@@ -86,10 +87,8 @@ const Home = () => {
       //    }
       //  } console.log(stArr)
 
-      //  255 is the Maximum value of pokemon stats
-      // There are 15 li bars
-      // 255 / 15 = 17?
-      // So each li bar's max value would be 17?
+    
+
 
 
        

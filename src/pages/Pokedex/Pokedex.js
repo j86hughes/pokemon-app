@@ -27,6 +27,9 @@ const getGenderLists = async () => {
 
 const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
+  // console.log(Math.round((item.stats[0].base_stat) / 17))
+  // console.log(item.base_stat)
+  // console.log(Math.round((item.base_stat) / 17))
   return item;
 };
 

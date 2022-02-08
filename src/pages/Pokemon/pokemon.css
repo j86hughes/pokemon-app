@@ -223,7 +223,7 @@ h1 {
     width: 70%;
     display: flex;
   }
-  /* .stat-ul-parent{
+  .stat-ul-parent{
     list-style: none;
   }
   .stat-ul-child{
@@ -231,11 +231,11 @@ h1 {
     list-style: none;
     padding: 0%;
   }
-  .stat-li-child{
+  .stat-li{
     background: transparent;
     border-bottom: 0.25em solid #a4a4a4;
     height: 0.5em;;
-  } */
+  }
   .stat-name{
     margin-right: 10px;
   }

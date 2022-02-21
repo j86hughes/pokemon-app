@@ -13,7 +13,22 @@ const getPokemonNumber = (number) => {
   return `#${number}`;
 };
 
+// let weightArray = []
 const PokemonCard = ({ pokemonItem }) => {
+
+  // let weightArray = [];
+  // for(let i = 0; i < 898; i++){
+  //   weightArray.push(pokemonItem.weight)
+  // }
+  // let weightArray = []
+  // weightArray.push(pokemonItem.weight)
+  // console.log(weightArray)
+  // console.log(weightArray)
+  // let weightsArray = weightArray.push(pokemonItem.weight)
+  // console.log(Math.max(...weightsArray))
+
+  // console.log(pokemonItem.weight)
+
   let navigate = useNavigate();
   let typesArray = pokemonItem.types;
   const pokemonImage =

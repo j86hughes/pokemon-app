@@ -23,9 +23,12 @@ const getGenderLists = async () => {
 };
 
 const getPokemonDetails = async (pokemon) => {
+
   const item = await P.getPokemonByName(pokemon.name);
   return item;
 };
+
+
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -37,7 +40,7 @@ const Home = () => {
     setLoading(true);
 
     const pokemonList = await P.getPokemonsList({
-      limit: totalPokemon,
+      limit: 12,
       offset: 0,
     });
 
@@ -61,7 +64,7 @@ const Home = () => {
 
     setLoading(true);
     const pokemonList = await P.getPokemonsList({
-      limit: 12,
+      limit: totalPokemon,
       offset: 0,
     });
     if (pokemonList?.results) {
@@ -152,8 +155,66 @@ const Home = () => {
     setPokemon(sortedPokemon);
   };
 
+  let weightArray = []
+  for (let i = 0; i < 12; i++) {
+    Array.from(weightArray.push(pokemon[i].weight))
+  }
+  // console.log(weightArray[0].length)
+
+
+  // for (let i = 0; i < weightArray.length; i++) {
+  //   console.log(weightArray[i].toString().length)
+  // }
+
+  //   let decimal0 = weightArray[91].toString()
+  //   console.log(decimal0.length)
+  //   console.log(decimal0)
+  //   console.log(decimal0.slice(0, 0) + '.' + decimal0.slice(0));
+
+  //   let decimal1 = weightArray[0].toString()
+  //   console.log(decimal1.length)
+  //   console.log(decimal1)
+  //   console.log(decimal1.slice(0, 1) + '.' + decimal1.slice(1));
+
+  //   let decimal2 = weightArray[5].toString()
+  //   console.log(decimal2.length)
+  //   console.log(decimal2)
+  //   console.log(decimal2.slice(0, 2) + '.' + decimal2.slice(2));
+
+  //   let decimal3 = weightArray[796].toString()
+  //   console.log(decimal3.length)
+  //   console.log(decimal3)
+  //   console.log(decimal3.slice(0, 3) + '.' + decimal3.slice(3));
+  // }
+  // console.log(Math.max(...weightArray))
+
+
+  let decimalArray = []
+  for (let i = 0; i < weightArray.length; i++) {
+    if (weightArray[i].toString().length === 1) {
+      decimalArray.push((weightArray[i].toString().slice(0, 0) + '.' + weightArray[i].toString().slice(0)));
+      decimalArray.push(weightArray[i])
+    }
+    if (weightArray[i].toString().length === 2) {
+      decimalArray.push((weightArray[i].toString().slice(0, 1) + '.' + weightArray[i].toString().slice(1)));
+      decimalArray.push(weightArray[i])
+    }
+    if (weightArray[i].toString().length === 3) {
+      decimalArray.push((weightArray[i].toString().slice(0, 2) + '.' + weightArray[i].toString().slice(2)));
+      decimalArray.push(weightArray[i])
+    }
+    if (weightArray[i].toString().length === 4) {
+      decimalArray.push((weightArray[i].toString().slice(0, 3) + '.' + weightArray[i].toString().slice(3)));
+      decimalArray.push(weightArray[i])
+    }
+  }
+  console.log(decimalArray)
+
+
+
   return (
     <div className="App">
+
       <h1>Pokédex</h1>
       <button
         className="randomizer"

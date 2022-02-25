@@ -14,7 +14,6 @@ const P = new Pokedex();
 const Pokemon = () => {
   const { name } = useParams();
   const [pokemon, setPokemon] = useState();
-  const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const getPokemonDetails = async (name) => {
@@ -40,18 +39,18 @@ const Pokemon = () => {
 
   return (
     <div className="pokemon-page">
-      <Pagination pokemonItem={pokemonItem} />
+      <Pagination pokemonItem={pokemon} />
       <div className="pokemon-container">
-        <Heading pokemonItem={pokemonItem} />
+        <Heading pokemonItem={pokemon} />
         <div className="main-contents">
-          <div className="row3" pokemonItem={pokemonItem} >
+          <div className="row3" pokemonItem={pokemon} >
             <Image
-              src={pokemonItem.sprites?.other?.["official-artwork"]?.front_default}
+              src={pokemon.sprites?.other?.["official-artwork"]?.front_default}
             />
-            <Info pokemonItem={pokemonItem} />
-            <Type pokemonItem={pokemonItem} />
+            <Info pokemonItem={pokemon} />
+            <Type pokemonItem={pokemon} />
           </div>
-          <Stats pokemonItem={pokemonItem} />
+          <Stats pokemonItem={pokemon} />
         </div>
       </div>
     </div>

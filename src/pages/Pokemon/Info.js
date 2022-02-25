@@ -12,32 +12,32 @@ const Info = ({ pokemonItem }) => {
       });
   };
   return (
-    <div className="infoDiv" height={200} width={400}>
-      <div className="ulDiv1">
-        <ul className="infoUl1">
-          <li className="infoLi">
-            <span className="infoLabel">Height</span>
-            <span className="infoValue">{pokemonItem.height}</span>
+    <div className="info-div" height={200} width={400}>
+      <div className="ul-div1">
+        <ul className="info-ul1">
+          <li className="info-li">
+            <span className="info-label">Height</span>
+            <span className="info-value">{pokemonItem.height}</span>
           </li>
-          <li className="infoLi">
-            <span className="infoLabel">Weight</span>
-            <span className="infoValue">{pokemonItem.weight}</span>
+          <li className="info-li">
+            <span className="info-label">Weight</span>
+            <span className="info-value">{pokemonItem.weight}</span>
           </li>
-          <li className="infoLi">
-            <span className="infoLabel">Gender</span>
-            <span className="infoValue">Iconblahblah</span>
+          <li className="info-li">
+            <span className="info-label">Gender</span>
+            <span className="info-value">Iconblahblah</span>
           </li>
         </ul>
       </div>
-      <div className="ulDiv2">
-        <ul className="infoUl2">
-          <li className="infoLi">
-            <span className="infoLabel">Category</span>
-            <span className="infoValue">Blah</span>
+      <div className="ul-div2">
+        <ul className="info-ul2">
+          <li className="info-li">
+            <span className="info-label">Category</span>
+            <span className="info-value">Blah</span>
           </li>
-          <li className="infoLi">
-            <span className="infoLabel">Abilities</span>
-            <span className="infoValue">
+          <li className="info-li">
+            <span className="info-label">Abilities</span>
+            <span className="info-value">
               {pokemonItem.abilities[0].ability.name.charAt(0).toUpperCase() +
                 pokemonItem.abilities[0].ability.name.slice(1)}
             </span>

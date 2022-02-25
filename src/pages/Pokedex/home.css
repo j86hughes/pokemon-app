@@ -1,5 +1,4 @@
-
-.container {
+.pokedexContainer {
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -50,8 +49,8 @@ h1 {
   background-color: #1b82b1;
 }
 
-.custom-select-wrapper {
-  /* background-color: #313131; */
+.selectWrapper {
+
   width: 40%;
   float: right;
   padding-right: 3%;
@@ -67,16 +66,6 @@ h1 {
   font-weight: 500;
 }
 
-.custom-select-wrapper .custom-select-menu > ul {
-  background-color: #616161;
-}
-
-.pokemon-name {
-  color: black;
-  font-family: 'VT323', monospace;
-  text-transform: uppercase;
-  font-weight: 100;
-}
 
 .pokeball {
   position: fixed;
@@ -90,7 +79,7 @@ h1 {
   white 50%
   );
   top: 40%;
-  /* margin:auto; */
+
   animation:  spin infinite 10s linear;
 }
 @keyframes spin {
@@ -108,7 +97,7 @@ h1 {
   width: 20vw;
   background-color: #36454F;
   top: 50%;
-  /* margin: auto; */
+
 }
 .pokeball::after {
   position: absolute;

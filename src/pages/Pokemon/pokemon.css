@@ -58,6 +58,126 @@ h1 {
     font-family: 'Exo', sans-serif;
   }
 
+  .pokeball {
+    position: fixed;
+    border: 3px solid #36454F;
+    border-radius: 50%;
+    background-color: white;
+    width: 20vw;
+    height: 20vw;
+    background-image: linear-gradient(
+    red 50%,
+    white 50%
+    );
+    top: 40%;
+    /* margin:auto; */
+    animation:  spin infinite 10s linear;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .pokeball::before {
+    position: absolute;
+    content: "";
+    height: 1vw;
+    width: 20vw;
+    background-color: #36454F;
+    top: 50%;
+    /* margin: auto; */
+  }
+  .pokeball::after {
+    position: absolute;
+    content: "";
+    height: 5vw;
+    width: 5vw;
+    background-color: white;
+    top: 40%;
+    right: 35%;
+    border-radius: 50%;
+    border: 1px solid #36454F;
+    background-image: radial-gradient(
+      #36454F 50%,
+      white 50%
+    );
+  }
+
+  .container {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 16px;
+    color: 'black';
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-image: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: 'black';
+    font-family: 'Exo', sans-serif;
+    background:#fff url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
+  }
+  
+  h1 {
+    color: #919191;
+    cursor: default;
+    font-size: 187.5%;
+    line-height: 125%;
+    font-weight: 100;
+    padding: 32px;
+  }
+  
+  .randomizer {
+    background-color: #30a7d7;
+    color: white;
+    width: 35%;
+    font-size: 1.1rem;
+    font-family: 'Exo';
+    font-weight: 500;
+    padding: 1.4%;
+    border-radius: 5px;
+    border: none;
+    margin-left: 32px;
+    cursor: pointer;
+    transition: 100ms ease-in;
+  }
+  .randomizer:hover {
+    background-color: #1b82b1;
+  }
+  
+  .custom-select-wrapper {
+    /* background-color: #313131; */
+    width: 40%;
+    float: right;
+    padding-right: 3%;
+  }
+  #sortOrder {
+    background-color: #313131;
+    font-family: Exo;
+    color: white;
+    width: 100%;
+    padding: 2.7% 0%;
+    border-radius: 5px;
+    font-size: 100%;
+    font-weight: 500;
+  }
+  
+  .custom-select-wrapper .custom-select-menu > ul {
+    background-color: #616161;
+  }
+  
   .pokemon-name {
     color: black;
     font-family: 'VT323', monospace;

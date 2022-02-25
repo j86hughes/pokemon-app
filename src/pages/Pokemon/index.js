@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Pokedex from "pokedex-promise-v2";
 
 import Heading from "./Heading";
 import Type from "./Type";
@@ -8,19 +9,35 @@ import Stats from "./Stats";
 import Image from "./Image";
 import Info from "./Info";
 
-const Pokemon = () => {
+const P = new Pokedex();
 
-  const getPokemonDetails = async (pokemon) => {
-    const item = await P.getPokemonByName(pokemon.name);
-    console.log(item)
-    return item;
+const Pokemon = () => {
+  const { name } = useParams();
+  const [pokemon, setPokemon] = useState();
+  const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  const getPokemonDetails = async (name) => {
+    setLoading(true);
+    const item = await P.getPokemonByName(name);
+    setPokemon(item);
+    setLoading(false)
   };
+
   useEffect(() => {
-    getPokemonDetails();
-  }, []);
+    if (name) {
+      getPokemonDetails(name);
+    }
+  }, [name]);
   
-  const { state } = useLocation();
-  const pokemonItem = state?.pokemonItem;
+  if (loading) {
+    return <div className="pokeball" />;
+  }
+
+  if (!pokemon) {
+    return null;
+  }
+
   return (
     <div className="pokemon-page">
       <Pagination pokemonItem={pokemonItem} />

@@ -24,25 +24,25 @@ const Pokemon = () => {
     setLoading(false)
   };
 
-  if (loading) {
-    return <div className="pokeball" />;
-  }
-
   useEffect(() => {
     if (name) {
       getPokemonDetails(name);
     }
   }, [name]);
 
-  if (!pokemon) {
-    return null;
+  if (loading || !pokemon) {
+    return <div className="pokeball" />;
   }
+
+  // if (!pokemon) {
+  //   return null;
+  // }
 
   return (
     <div className="pokemonPage">
       <div>{count}</div>
       <button onClick={() => setCount(count + 1)}>YALALALALALALALALA</button>
-      <Nav />
+      {/* <Nav /> */}
       <Pagination pokemonItem={pokemon} />
       <Heading pokemonItem={pokemon} />
       <div className="col3" pokemonItem={pokemon}>

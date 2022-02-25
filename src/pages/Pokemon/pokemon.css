@@ -24,6 +24,53 @@
     font-family: 'Exo', sans-serif;
   }
 
+  .pokeball {
+    position: fixed;
+    border: 3px solid #36454F;
+    border-radius: 50%;
+    background-color: white;
+    width: 20vw;
+    height: 20vw;
+    background-image: linear-gradient(
+    red 50%,
+    white 50%
+    );
+    top: 40%;
+    /* margin:auto; */
+    animation:  spin infinite 10s linear;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .pokeball::before {
+    position: absolute;
+    content: "";
+    height: 1vw;
+    width: 20vw;
+    background-color: #36454F;
+    top: 50%;
+    /* margin: auto; */
+  }
+  .pokeball::after {
+    position: absolute;
+    content: "";
+    height: 5vw;
+    width: 5vw;
+    background-color: white;
+    top: 40%;
+    right: 35%;
+    border-radius: 50%;
+    border: 1px solid #36454F;
+    background-image: radial-gradient(
+      #36454F 50%,
+      white 50%
+    );
+  }
 
   .container {
     background-color: white;

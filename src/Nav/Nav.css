@@ -1,0 +1,39 @@
+Nav {
+    background: #FFF;
+    border-bottom: 2px solid #f0f0f0;
+    height: 87px;
+    width: 100%;
+    box-sizing: border-box;
+    /* grid-column: span 3; */
+  }
+  #home-tab, #pokedex-tab, #about-tab{
+    border-bottom: 3px solid;
+  }
+  #home-tab, #pokedex-tab{
+    border-right: 3px solid;
+  }
+  #home-tab{
+    border-color: red;
+    transition: 3ms ease;
+    cursor: pointer;
+  }
+  #home-tab:hover{
+    background-color: red;
+  }
+  #pokedex-tab{
+    border-color: yellow;
+    transition: 3ms ease;
+    cursor: pointer;
+  }
+  #pokedex-tab:hover{
+    background-color: yellow;
+  }
+  #about-tab{
+    border-color: grey;
+    transition: 3ms ease;
+    cursor: pointer;
+  }
+  #about-tab:hover{
+    background-color: grey;
+  }
+  

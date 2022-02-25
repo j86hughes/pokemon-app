@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
-
 import PokemonCard from "./PokemonCard";
 import "./home.css";
+
 
 const P = new Pokedex();
 
@@ -26,6 +26,7 @@ const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
   return item;
 };
+
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -163,7 +164,7 @@ const Home = () => {
       >
         Surprise Me!
       </button>
-      <div className="custom-select-wrapper">
+      <div className="selectWrapper">
         <select id="sortOrder" onChange={handleSelectChange}>
           <option value="noSort">Sort results by...</option>
           <option value="numberAsc">Lowest Number (First)</option>
@@ -172,9 +173,9 @@ const Home = () => {
           <option value="nameDesc">Z-A</option>
         </select>
       </div>
-      <div className="container">
-        {pokemon?.map((cunt) => (
-          <PokemonCard pokemonItem={cunt} key={cunt.name} />
+      <div className="pokedexContainer">
+        {pokemon?.map((poke) => (
+          <PokemonCard pokemonItem={poke} key={poke.name} />
         ))}
       </div>
     </div>

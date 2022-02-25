@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import "./home.css";
 
 const getPokemonNumber = (number) => {
@@ -14,6 +13,7 @@ const getPokemonNumber = (number) => {
 };
 
 const PokemonCard = ({ pokemonItem }) => {
+  
   let navigate = useNavigate();
   let typesArray = pokemonItem.types;
   const pokemonImage =

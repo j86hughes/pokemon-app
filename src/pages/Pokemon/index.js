@@ -29,14 +29,14 @@ const Pokemon = () => {
       getPokemonDetails(name);
     }
   }, [name]);
-
-  if (loading || !pokemon) {
+  
+  if (loading) {
     return <div className="pokeball" />;
   }
 
-  // if (!pokemon) {
-  //   return null;
-  // }
+  if (!pokemon) {
+    return null;
+  }
 
   return (
     <div className="pokemonPage">

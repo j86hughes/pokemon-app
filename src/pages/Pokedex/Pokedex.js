@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
 import PokemonCard from "./PokemonCard";
-import "./home.css";
-
+import "./Pokedex.css";
 
 const P = new Pokedex();
 
@@ -28,7 +27,7 @@ const getPokemonDetails = async (pokemon) => {
 };
 
 
-const Home = () => {
+const PokedexPage = () => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -154,7 +153,7 @@ const Home = () => {
   };
 
   return (
-    <div className="App">
+    <div className="pokedexContainer">
       <h1>Pokédex</h1>
       <button
         className="randomizer"
@@ -173,7 +172,7 @@ const Home = () => {
           <option value="nameDesc">Z-A</option>
         </select>
       </div>
-      <div className="pokedexContainer">
+      <div className="pokedexResultsContainer">
         {pokemon?.map((poke) => (
           <PokemonCard pokemonItem={poke} key={poke.name} />
         ))}
@@ -182,4 +181,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default PokedexPage;

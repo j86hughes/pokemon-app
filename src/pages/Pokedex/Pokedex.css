@@ -1,34 +1,30 @@
 .pokedexContainer {
-  background-color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding: 16px;
-  color: 'black';
-}
-
-body {
+  max-width: 1024px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
   align-items: center;
-  background-image: white;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: 'black';
-  font-family: 'Exo', sans-serif;
-  background:#fff url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png")
 }
 
-h1 {
-  color: #919191;
-  cursor: default;
-  font-size: 187.5%;
-  line-height: 125%;
-  font-weight: 100;
-  padding: 32px;
+.pokedexResultsContainer {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1f;
+}
+@media (min-width: 511px) {
+  .pokedexResultsContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 769px) {
+  .pokedexResultsContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1025px) {
+  .pokedexResultsContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 85.4%;
+  }
 }
 
 .randomizer {
@@ -50,7 +46,6 @@ h1 {
 }
 
 .selectWrapper {
-
   width: 40%;
   float: right;
   padding-right: 3%;
@@ -118,7 +113,20 @@ h1 {
 
 .pokemonCardContainer {
   display: 'flex';
-  margin: 16px;
+  width: 100%;
+  flex: 1;
+  flex-direction: column;
+  margin: 16px
+}
+@media (min-width: 511px) {
+  .pokemonCardContainer {
+    width: 88%;
+  }
+}
+@media (min-width: 769px) {
+  .pokemonCardContainer {
+    /* width: 75.49%; */
+  }
 }
 .pokemonCardContainer:hover{
   animation-name: bounce;
@@ -132,9 +140,9 @@ h1 {
   100% { transform: translateY(0); }
 }
 
-
 .copyContainer {
   display: 'flex';
+  width: auto;
   background-color: white;
   flex: 1;
   flex-direction: column;
@@ -146,16 +154,20 @@ h1 {
 }
 
 .pokemonImage {
+  width: 100%;
+  height: auto;
+  /* height: 100%; */
   background-color: #F2F2F2;
   border-radius: 3%;
   cursor: pointer;
+  /* height: 100%; */
+  /* width: auto; */
 }
 
 .pokemonId {
   color: #919191;
   font-weight: 600;
   font-size: 80%;
-  
 }
 
 .pokemonName {

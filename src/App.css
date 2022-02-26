@@ -1,0 +1,29 @@
+body {
+  margin: 0%;
+}
+
+.appContentContainer {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: #fff
+    url("./public/img/body_bg.png");
+}
+
+.appRoutesContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  max-width: 1280px;
+  width: 100%;
+  background: #fff
+    url("./public/img/container_bg.png");
+}

@@ -3,20 +3,20 @@ import Pokedex from "./pages/Pokedex";
 import Pokemon from "./pages/Pokemon";
 import Nav from "./Nav/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-const Tits = () => <div>TITS</div>;
+import "./App.css";
 
 const App = () => (
-  <>
-    <Nav />
-    <Router>
-      <Routes>
-        <Route path="/" element={<Pokedex />} />
-        <Route path="/:name" element={<Pokemon />} />
-        <Route path="/tits" element={<Tits />} />
-      </Routes>
-    </Router>
-  </>
+  <div className="appContentContainer">
+    <Nav/>
+    <div className="appRoutesContainer">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Pokedex />} />
+          <Route path="/:name" element={<Pokemon />} />
+        </Routes>
+      </Router>
+    </div>
+  </div>
 );
 
 export default App;

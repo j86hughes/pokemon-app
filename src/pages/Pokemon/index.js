@@ -38,7 +38,7 @@ const Pokemon = () => {
   }
 
   return (
-    <div className="pokemon-page">
+    <div>
       <Pagination pokemonItem={pokemon} />
       <div className="pokemon-container">
         <Heading pokemonItem={pokemon} />

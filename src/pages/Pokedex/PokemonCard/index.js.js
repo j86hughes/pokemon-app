@@ -1,6 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./Pokedex.css";
+import { createUseStyles } from "react-jss";
+import styles from "./styles";
+
+const useStyles = createUseStyles(styles);
 
 const getPokemonNumber = (number) => {
   if (number < 10) {
@@ -13,7 +16,7 @@ const getPokemonNumber = (number) => {
 };
 
 const PokemonCard = ({ pokemonItem }) => {
-  
+  const classes = useStyles();
   let navigate = useNavigate();
   let typesArray = pokemonItem.types;
   const pokemonImage =
@@ -21,36 +24,35 @@ const PokemonCard = ({ pokemonItem }) => {
 
   return (
     <div
-      className="pokemonCardContainer"
+      className={classes.pokemonCardContainer}
       key={pokemonItem.name}
       onClick={() => navigate(`/${pokemonItem.name}`)}
     >
       {pokemonImage && (
         <img
-          className="pokemonImage"
+          className={classes.pokemonImage}
           height={200}
           width={200}
           alt={pokemonItem.name}
           src={pokemonImage}
         />
       )}
-      <div className="copyContainer">
-        <div className="pokemonId">{getPokemonNumber(pokemonItem.id)}</div>
-        <div className="pokemonName">
+      <div className={classes.copyContainer}>
+        <div className={classes.pokemonId}>
+          {getPokemonNumber(pokemonItem.id)}
+        </div>
+        <div className={classes.pokemonName}>
           {pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}
         </div>
-        <div className="typesContainer">
-          {typesArray.map((item) => {
-            return (
-              <div
-                className={`typesCard ${item.type.name}`}
-                key={item.type.name}
-              >
-                {item.type.name.charAt(0).toUpperCase() +
-                  item.type.name.slice(1)}
-              </div>
-            );
-          })}
+        <div className={classes.typesContainer}>
+          {typesArray.map((item) => (
+            <div
+              className={[classes.typesCard, classes[item.type.name]].join(" ")}
+              key={item.type.name}
+            >
+              {item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}
+            </div>
+          ))}
         </div>
       </div>
     </div>

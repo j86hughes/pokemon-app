@@ -1,5 +1,5 @@
 import React from 'react';
-import './pokemon.css'
+// import './pokemon.css'
 
 const StatBar = ({ numOfBarsColored, statName }) => {
   const numThing = numOfBarsColored

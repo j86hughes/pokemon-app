@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
-import PokemonCard from "./PokemonCard";
-import "./Pokedex.css";
+import PokemonCard from "./PokemonCard/index.js";
+import { createUseStyles } from "react-jss";
+import styles from "./styles";
 
 const P = new Pokedex();
+
+const useStyles = createUseStyles(styles);
 
 const getGenderLists = async () => {
   let maleList = [];
@@ -26,8 +29,8 @@ const getPokemonDetails = async (pokemon) => {
   return item;
 };
 
-
 const PokedexPage = () => {
+  const classes = useStyles();
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -78,11 +81,13 @@ const PokedexPage = () => {
           }
         });
 
-        genderLists?.femaleList?.pokemon_species_details.forEach((genderItem) => {
-          if (genderItem?.pokemon_species?.name === item.name) {
-            item.gender.push("female");
+        genderLists?.femaleList?.pokemon_species_details.forEach(
+          (genderItem) => {
+            if (genderItem?.pokemon_species?.name === item.name) {
+              item.gender.push("female");
+            }
           }
-        });
+        );
       });
 
       setPokemon(pokemonListWithDetails);
@@ -153,7 +158,7 @@ const PokedexPage = () => {
   };
 
   return (
-    <div className="pokedexContainer">
+    <div className={classes.pokedexContainer}>
       <h1>Pokédex</h1>
       <button
         className="randomizer"
@@ -163,7 +168,7 @@ const PokedexPage = () => {
       >
         Surprise Me!
       </button>
-      <div className="selectWrapper">
+      <div className={classes.selectWrapper}>
         <select id="sortOrder" onChange={handleSelectChange}>
           <option value="noSort">Sort results by...</option>
           <option value="numberAsc">Lowest Number (First)</option>
@@ -172,7 +177,7 @@ const PokedexPage = () => {
           <option value="nameDesc">Z-A</option>
         </select>
       </div>
-      <div className="pokedexResultsContainer">
+      <div className={classes.pokedexResultsContainer}>
         {pokemon?.map((poke) => (
           <PokemonCard pokemonItem={poke} key={poke.name} />
         ))}

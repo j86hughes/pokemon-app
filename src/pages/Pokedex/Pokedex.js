@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
 import PokemonCard from "./PokemonCard";
 import "./home.css";
+import Pokeball from "../../components/Pokeball/Pokeball"
 
 
 const P = new Pokedex();
@@ -96,7 +97,7 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <div className="pokeball" />;
+    return <Pokeball />;
   }
 
   const handleSelectChange = async (event) => {

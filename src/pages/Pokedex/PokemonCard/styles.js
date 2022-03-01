@@ -1,9 +1,9 @@
+import breakpoints from "../../../utils/styles/breakpoints";
+
 export default {
   pokemonCardContainer: {
-    display: 'flex',
-    width: "100%",
+    display: "flex",
     flex: 1,
-    flexDirection: "column",
     margin: 16,
     "&:hover": {
       animationName: "bounce",
@@ -11,23 +11,16 @@ export default {
       animationIterationCount: 1,
       animationTimingFunction: "linear",
     },
-    // "@keyframes bounce": {
-    //   0%   { transform: translateY(0), }
-    //   50%  { transform: translateY(-3px), }
-    //   100% { transform: translateY(0), }
-    // }
-  },
-  "@media (min-width: 511px)": {
-    pokemonCardContainer: {
+    [breakpoints.xs]: {
+      width: "100%",
+      flexDirection: "column",
+    },
+    [breakpoints.sm]: {
       width: "88%",
     },
   },
-  "@media (min-width: 769px)": {
-    pokemonCardContainer: {
-    }
-  },
   copyContainer: {
-    display: 'flex',
+    display: "flex",
     width: "auto",
     backgroundColor: "white",
     flex: 1,
@@ -41,38 +34,45 @@ export default {
   pokemonImage: {
     width: "100%",
     height: "auto",
-    /* height: 100%, */
     backgroundColor: "#F2F2F2",
     borderRadius: "3%",
     cursor: "pointer",
-    /* height: 100%, */
-    /* width: auto, */
   },
   pokemonId: {
+    fontFamily: "Exo",
     color: "#919191",
     fontWeight: 600,
     fontSize: "80%",
+    marginTop: 2,
   },
   pokemonName: {
-    fontSize: "115%",
-    marginBottom: 5,
+    fontFamily: "Exo",
+    fontSize: 22,
+    marginTop: 5,
     fontWeight: 500,
     color: "#313131",
   },
   typesContainer: {
     display: "flex",
     flex: 1,
+    marginTop: 5,
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "flex-start",
     fontSize: 11,
-    lineHeight: 18,
   },
   typesCard: {
-    marginRight: "1%",
+    fontFamily: "Exo",
+    fontSize: 11,
+    marginRight: 4,
     borderRadius: 3,
-    width: "40%",
+    width: 38,
+    maxWidth: 110,
     textAlign: "center",
+    paddingtop: 2,
+    paddingBottom: 2,
+    paddingLeft: 16,
+    paddingRight: 16,
   },
   grass: {
     backgroundColor: "#9bcc50",

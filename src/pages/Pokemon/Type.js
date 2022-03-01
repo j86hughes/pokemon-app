@@ -1,6 +1,4 @@
 import React from 'react';
-// import './pokemon.css'
-
 
 const Type = ({pokemonItem}) => {
   let typesArray = pokemonItem.types;

@@ -160,22 +160,24 @@ const PokedexPage = () => {
   return (
     <div className={classes.pokedexContainer}>
       <h1>Pokédex</h1>
-      <button
-        className="randomizer"
-        type="button"
-        alt="Surprise me!"
-        onClick={getRandomPokemon}
-      >
-        Surprise Me!
-      </button>
-      <div className={classes.selectWrapper}>
-        <select id="sortOrder" onChange={handleSelectChange}>
-          <option value="noSort">Sort results by...</option>
-          <option value="numberAsc">Lowest Number (First)</option>
-          <option value="numberDesc">Highest Number (First)</option>
-          <option value="nameAsc">A-Z</option>
-          <option value="nameDesc">Z-A</option>
-        </select>
+      <div className={classes.filtersContainer}>
+        <button
+          className={classes.randomizer}
+          type="button"
+          alt="Surprise me!"
+          onClick={getRandomPokemon}
+        >
+          Surprise Me!
+        </button>
+        <div className={classes.selectWrapper}>
+          <select id="#sortOrder" className={classes.sortOrder} onChange={handleSelectChange}>
+            <option value="noSort">Sort results by...</option>
+            <option value="numberAsc">Lowest Number (First)</option>
+            <option value="numberDesc">Highest Number (First)</option>
+            <option value="nameAsc">A-Z</option>
+            <option value="nameDesc">Z-A</option>
+          </select>
+        </div>
       </div>
       <div className={classes.pokedexResultsContainer}>
         {pokemon?.map((poke) => (

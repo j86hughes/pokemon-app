@@ -1,8 +1,9 @@
 import React from "react";
 import "./pokemon.css";
 
+
 const Info = ({ pokemonItem }) => {
-  const test = async () => {
+  async () => {
     await P.getGenderByName("male")
       .then((response) => {
         console.log('YOHANS YALALALALALALALALALALALALA', { response });
@@ -11,21 +12,61 @@ const Info = ({ pokemonItem }) => {
         console.log("There was an ERROR: ", error);
       });
   };
+
+  async () => {
+    await P.getItemCategoryByName("stat-boosts")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log('There was an ERROR: ', error);
+      });
+  }
+
+
+
+  console.log(pokemonItem)
+
+  let height = pokemonItem.height
+  let weight = pokemonItem.weight
+
+
+
+
+
+
+
+  let genderArr = pokemonItem.gender
+  let gender = genderArr.length > 1 ? (genderArr[0] + ' ' + genderArr[1]) : genderArr[0]
+  console.log(genderArr[0])
+
+  
+
+
+
+
+  let ability = pokemonItem.abilities[0].ability.name
+  const decimalize = num => {
+    return (num / 10).toFixed(1)
+  }
+
+
+
   return (
     <div className="info-div" height={200} width={400}>
       <div className="ul-div1">
         <ul className="info-ul1">
           <li className="info-li">
             <span className="info-label">Height</span>
-            <span className="info-value">{pokemonItem.height}</span>
+            <span>{decimalize(height)} m</span>
           </li>
           <li className="info-li">
             <span className="info-label">Weight</span>
-            <span className="info-value">{pokemonItem.weight}</span>
+            <span>{decimalize(weight)} kg</span>
           </li>
           <li className="info-li">
             <span className="info-label">Gender</span>
-            <span className="info-value">Iconblahblah</span>
+            <span className="info-value" id="info-gender">{gender}</span>
           </li>
         </ul>
       </div>
@@ -37,9 +78,8 @@ const Info = ({ pokemonItem }) => {
           </li>
           <li className="info-li">
             <span className="info-label">Abilities</span>
-            <span className="info-value">
-              {pokemonItem.abilities[0].ability.name.charAt(0).toUpperCase() +
-                pokemonItem.abilities[0].ability.name.slice(1)}
+            <span className="info-value" id="info-abilities">
+              {ability.replace('-', ' ')}
             </span>
           </li>
         </ul>

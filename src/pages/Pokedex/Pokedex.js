@@ -4,6 +4,7 @@ import Pokedex from "pokedex-promise-v2";
 import PokemonCard from "./PokemonCard";
 import "./home.css";
 
+
 const P = new Pokedex();
 
 const getGenderLists = async () => {
@@ -15,12 +16,30 @@ const getGenderLists = async () => {
   } catch (error) {
     console.log(error);
   }
-
   return {
     maleList,
     femaleList,
   };
 };
+// console.log(getGenderLists())
+
+
+// const getSpeciesList = async () => {
+//   let speciesList = []
+//   try {
+//     speciesList = await P.getPokemonSpeciesByName("wormadam")
+
+//   } catch (error) {
+//     console.log(error)
+//   }
+//   return {
+//     speciesList
+//   }
+// }
+// console.log(getSpeciesList())
+
+
+
 
 const getPokemonDetails = async (pokemon) => {
 
@@ -155,11 +174,11 @@ const Home = () => {
     setPokemon(sortedPokemon);
   };
 
-  let weightArray = []
-  for (let i = 0; i < 12; i++) {
-    Array.from(weightArray.push(pokemon[i].weight))
-  }
-  console.log(weightArray[0].toString().length)
+  // let weightArray = []
+  // for (let i = 0; i < 12; i++) {
+  //   Array.from(weightArray.push(pokemon[i].weight))
+  // }
+  // console.log(weightArray[0].toString().length)
 
 
   // for (let i = 0; i < weightArray.length; i++) {
@@ -189,34 +208,34 @@ const Home = () => {
   // console.log(Math.max(...weightArray))
 
 
-  let decimalArray = []
-  for (let i = 0; i < weightArray.length; i++) {
-    if (weightArray[i].toString().length === 1) {
-      decimalArray.push((weightArray[i].toString().slice(0, 0) + '.' + weightArray[i].toString().slice(0)));
-      // decimalArray.push(weightArray[i])
-    }
-    if (weightArray[i].toString().length === 2) {
-      decimalArray.push((weightArray[i].toString().slice(0, 1) + '.' + weightArray[i].toString().slice(1)));
-      // decimalArray.push(weightArray[i])
-    }
-    if (weightArray[i].toString().length === 3) {
-      decimalArray.push((weightArray[i].toString().slice(0, 2) + '.' + weightArray[i].toString().slice(2)));
-      // decimalArray.push(weightArray[i])
-    }
-    if (weightArray[i].toString().length === 4) {
-      decimalArray.push((weightArray[i].toString().slice(0, 3) + '.' + weightArray[i].toString().slice(3)));
-      // decimalArray.push(weightArray[i])
-    }
-  }
+  // let decimalArray = []
+  // for (let i = 0; i < weightArray.length; i++) {
+  //   if (weightArray[i].toString().length === 1) {
+  //     decimalArray.push((weightArray[i].toString().slice(0, 0) + '.' + weightArray[i].toString().slice(0)));
+  //     // decimalArray.push(weightArray[i])
+  //   }
+  //   if (weightArray[i].toString().length === 2) {
+  //     decimalArray.push((weightArray[i].toString().slice(0, 1) + '.' + weightArray[i].toString().slice(1)));
+  //     // decimalArray.push(weightArray[i])
+  //   }
+  //   if (weightArray[i].toString().length === 3) {
+  //     decimalArray.push((weightArray[i].toString().slice(0, 2) + '.' + weightArray[i].toString().slice(2)));
+  //     // decimalArray.push(weightArray[i])
+  //   }
+  //   if (weightArray[i].toString().length === 4) {
+  //     decimalArray.push((weightArray[i].toString().slice(0, 3) + '.' + weightArray[i].toString().slice(3)));
+  //     // decimalArray.push(weightArray[i])
+  //   }
+  // }
 
-    for (let i = 0, j = 0; i < 4 && j < 4; i++) {
-    if (weightArray[i].toString().length === i) {
-      decimalArray.push((weightArray[i].toString().slice(0, j) + '.' + weightArray[i].toString().slice((j+1))));
-      decimalArray.push(weightArray[i])
-    }
-  }
+  //   for (let i = 0, j = 0; i < 4 && j < 4; i++) {
+  //   if (weightArray[i].toString().length === i) {
+  //     decimalArray.push((weightArray[i].toString().slice(0, j) + '.' + weightArray[i].toString().slice((j+1))));
+  //     decimalArray.push(weightArray[i])
+  //   }
+  // }
 
-  console.log(decimalArray)
+  // console.log(decimalArray)
 
 
 

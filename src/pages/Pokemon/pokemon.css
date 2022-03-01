@@ -240,6 +240,12 @@ h1 {
   .info-value{
     color: black;
   }
+  #info-abilities{
+    text-transform: capitalize;
+  }
+  #info-gender{
+    text-transform: capitalize;
+  }
  .ul-div1 {
      width: 50%;
  } 

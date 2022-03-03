@@ -19,6 +19,14 @@ const Pokemon = () => {
   const getPokemonDetails = async (name) => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
+    item.prevPokemon = await P.getPokemonByName(item.id - 1)
+    item.nextPokemon = await P.getPokemonByName(item.id + 1)
+    if (item.id === 1) {
+      item.prevPokemon = await P.getPokemonByName(item.id + 897)
+    }
+    if (item.id = 898) {
+      item.nextPokemon = await P.getPokemonByName(item.id - 897)
+    }
     setPokemon(item);
     setLoading(false)
   };
@@ -28,7 +36,7 @@ const Pokemon = () => {
       getPokemonDetails(name);
     }
   }, [name]);
-  
+
   if (loading) {
     return <div className="pokeball" />;
   }

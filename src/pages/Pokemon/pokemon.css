@@ -232,7 +232,10 @@ h1 {
     float: right;
     margin-right: 48px;
     margin-top: 80px;
-    background-color: #30a7d7
+    background-color: #30a7d7;
+    font-family: 'Exo', sans-serif;
+    font-size: 125%;
+    color: #212121;
   }
   .info-label{
     color: white;

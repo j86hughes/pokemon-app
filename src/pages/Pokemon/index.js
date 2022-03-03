@@ -8,6 +8,7 @@ import Pagination from "./Pagination";
 import Stats from "./Stats";
 import Image from "./Image";
 import Info from "./Info";
+import Pokeball from "../../components/Pokeball/Pokeball"
 
 const P = new Pokedex();
 
@@ -30,7 +31,7 @@ const Pokemon = () => {
   }, [name]);
   
   if (loading) {
-    return <div className="pokeball" />;
+    return <Pokeball />;
   }
 
   if (!pokemon) {

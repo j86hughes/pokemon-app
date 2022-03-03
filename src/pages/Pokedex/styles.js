@@ -6,9 +6,18 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    [breakpoints.sm]: {
-      paddingLeft: 32,
-      paddingRight: 32,
+  },
+  titleContainer: {
+    fontFamily: "Exo",
+    display: "flex",
+    backgroundColor: "white",
+    width: "100%",
+    fontWeight: 100,
+    fontSize: 30,
+    color: "#919191",
+    [breakpoints.md]: {
+      width: "85.4%",
+      paddingLeft: 16
     },
   },
   pokedexResultsContainer: {
@@ -18,13 +27,13 @@ const styles = {
     gridTemplateColumns: "1f",
     [breakpoints.sm]: {
       gridTemplateColumns: "1fr 1fr",
+      width: "85.4%",
     },
     [breakpoints.md]: {
       gridTemplateColumns: "1fr 1fr 1fr",
     },
     [breakpoints.lg]: {
       gridTemplateColumns: "1fr 1fr 1fr 1fr",
-      width: "85.4%",
     },
   },
   filtersContainer: {
@@ -34,13 +43,13 @@ const styles = {
     alignItems: "center",
     width: "100%",
     backgroundColor: "white",
+    paddingBottom: 28,
     [breakpoints.md]: {
+      padding: 8,
+      width: "85.4%",
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
-    },
-    [breakpoints.lg]: {
-      width: "85.4%",
     },
   },
   randomizer: {

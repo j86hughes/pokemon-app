@@ -40,8 +40,8 @@ export default {
   navItem: {
     marginTop: 8,
     display: "flex",
+    flexDirection: "column",
     color: "#464646",
-    justifyContent: "center",
     alignItems: "center",
     height: "100%",
     backgroundColor: "white",
@@ -53,9 +53,15 @@ export default {
     borderBottomStyle: "solid",
   },
   linkName: {
+    display: "flex",
     fontFamily: "arial",
     fontSize: 14,
     textAlign: "center",
+  },
+  iconPlaceholder: {
+    display: "flex",
+    height: 46,
+    width: "100%",
   },
   home: {
     borderBottomColor: "#919191",

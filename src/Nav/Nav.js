@@ -58,6 +58,7 @@ const Nav = () => {
                 }}
                 key={item.class}
               >
+                <div className={classes.iconPlaceholder}/>
                 <a className={classes.linkName}>{item.title}</a>
               </div>
             );

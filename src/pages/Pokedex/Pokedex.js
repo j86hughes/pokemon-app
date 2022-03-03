@@ -159,7 +159,9 @@ const PokedexPage = () => {
 
   return (
     <div className={classes.pokedexContainer}>
-      <h1>Pokédex</h1>
+      <div className={classes.titleContainer}>
+        <p className={classes.title}>Pokédex</p>
+      </div>
       <div className={classes.filtersContainer}>
         <button
           className={classes.randomizer}
@@ -170,7 +172,11 @@ const PokedexPage = () => {
           Surprise Me!
         </button>
         <div className={classes.selectWrapper}>
-          <select id="#sortOrder" className={classes.sortOrder} onChange={handleSelectChange}>
+          <select
+            id="#sortOrder"
+            className={classes.sortOrder}
+            onChange={handleSelectChange}
+          >
             <option value="noSort">Sort results by...</option>
             <option value="numberAsc">Lowest Number (First)</option>
             <option value="numberDesc">Highest Number (First)</option>

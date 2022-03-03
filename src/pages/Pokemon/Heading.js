@@ -1,22 +1,44 @@
-import React from 'react';
-// import './pokemon.css'
+import React from "react";
+import { createUseStyles } from "react-jss";
 
-const Heading = ({ pokemonItem }) => {
-  const getPokemonNumber = (number) => {
-    if (number < 10) {
-      return `#00${number}`;
-    }
-    if (number < 100) {
-      return `#0${number}`;
-    }
-    return `#${number}`;
-  };
-  return (
-      <div className='pokemon-name-heading'>
-      <span className='pokemon-name'>{pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}</span> 
-      <span className='pokemon-id'>{getPokemonNumber(pokemonItem.id)}</span>
-      </div>
-  )
+const useStyles = createUseStyles({
+  headingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: 40,
+  },
+  pokemonName: {
+    fontSize: 32,
+    fontFamily: "Exo",
+  },
+  pokemonId: {
+    fontSize: 32,
+    fontFamily: "Exo",
+    marginLeft: 16,
+    color: "#616161"
+  },
+});
+
+const getPokemonNumber = (number) => {
+  if (number < 10) {
+    return `#00${number}`;
+  }
+  if (number < 100) {
+    return `#0${number}`;
+  }
+  return `#${number}`;
 };
 
-export default Heading
+const Heading = ({ pokemonItem }) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.headingContainer}>
+      <div className={classes.pokemonName}>
+        {pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}
+      </div>
+      <div className={classes.pokemonId}>{getPokemonNumber(pokemonItem.id)}</div>
+    </div>
+  );
+};
+
+export default Heading;

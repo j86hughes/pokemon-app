@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import "./home.css";
 
 const getPokemonNumber = (number) => {
@@ -13,10 +12,8 @@ const getPokemonNumber = (number) => {
   return `#${number}`;
 };
 
-// let weightArray = []
 const PokemonCard = ({ pokemonItem }) => {
-
-
+  
   let navigate = useNavigate();
   let typesArray = pokemonItem.types;
   const pokemonImage =
@@ -26,7 +23,7 @@ const PokemonCard = ({ pokemonItem }) => {
     <div
       className="pokemonCardContainer"
       key={pokemonItem.name}
-      onClick={() => navigate(`/${pokemonItem.name}`, { state: { pokemonItem } })}
+      onClick={() => navigate(`/${pokemonItem.name}`)}
     >
       {pokemonImage && (
         <img
@@ -40,7 +37,7 @@ const PokemonCard = ({ pokemonItem }) => {
       <div className="copyContainer">
         <div className="pokemonId">{getPokemonNumber(pokemonItem.id)}</div>
         <div className="pokemonName">
-          {pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}
+          {pokemonItem.name}
         </div>
         <div className="typesContainer">
           {typesArray.map((item) => {

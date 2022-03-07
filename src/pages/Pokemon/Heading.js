@@ -13,7 +13,7 @@ const Heading = ({ pokemonItem }) => {
   };
   return (
       <div className='pokemon-name-heading'>
-      <span className='pokemon-name'>{pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}</span> 
+      <span className='pokemon-name'>{pokemonItem.name}</span> 
       <span className='pokemon-id'>{getPokemonNumber(pokemonItem.id)}</span>
       </div>
   )

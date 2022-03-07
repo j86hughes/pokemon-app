@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
-
 import PokemonCard from "./PokemonCard";
 import "./home.css";
+import Pokeball from "../../components/Pokeball/Pokeball"
 
 
 const P = new Pokedex();
@@ -16,21 +16,17 @@ const getGenderLists = async () => {
   } catch (error) {
     console.log(error);
   }
+
   return {
     maleList,
     femaleList,
   };
 };
 
-
-
-
 const getPokemonDetails = async (pokemon) => {
-
   const item = await P.getPokemonByName(pokemon.name);
   return item;
 };
-
 
 
 const Home = () => {
@@ -43,7 +39,7 @@ const Home = () => {
     setLoading(true);
 
     const pokemonList = await P.getPokemonsList({
-      limit: 12,
+      limit: totalPokemon,
       offset: 0,
     });
 
@@ -101,7 +97,7 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <div className="pokeball" />;
+    return <Pokeball />;
   }
 
   const handleSelectChange = async (event) => {
@@ -158,14 +154,8 @@ const Home = () => {
     setPokemon(sortedPokemon);
   };
 
- 
-
-
-
-
   return (
     <div className="App">
-
       <h1>Pokédex</h1>
       <button
         className="randomizer"
@@ -184,9 +174,9 @@ const Home = () => {
           <option value="nameDesc">Z-A</option>
         </select>
       </div>
-      <div className="container">
-        {pokemon?.map((cunt) => (
-          <PokemonCard pokemonItem={cunt} key={cunt.name} />
+      <div className="pokedexContainer">
+        {pokemon?.map((poke) => (
+          <PokemonCard pokemonItem={poke} key={poke.name} />
         ))}
       </div>
     </div>

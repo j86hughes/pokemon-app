@@ -1,34 +1,62 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Pokedex from "pokedex-promise-v2";
+import Pokeball from "../../components/Pokeball/Pokeball"
 import Heading from "./Heading";
 import Type from "./Type";
-// import Nav from "./Nav";
 import Pagination from "./Pagination";
 import Stats from "./Stats";
 import Image from "./Image";
 import Info from "./Info";
 
-const Test = () => {
-  const { state } = useLocation();
-  const pokemonItem = state?.pokemonItem;
+const P = new Pokedex();
+
+const Pokemon = () => {
+  const { name } = useParams();
+  const [pokemon, setPokemon] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const getPokemonDetails = async (name) => {
+    setLoading(true);
+    const item = await P.getPokemonByName(name);
+    item.prevPokemon = await P.getPokemonByName(item.id === 1 ? 898 : item.id - 1)
+    item.nextPokemon = await P.getPokemonByName(item.id === 898 ? 1 : item.id + 1)
+    setPokemon(item);
+    setLoading(false)
+  };
+
+  useEffect(() => {
+    if (name) {
+      getPokemonDetails(name);
+    }
+  }, [name]);
+
+  if (loading) {
+    return <Pokeball />;
+  }
+
+  if (!pokemon) {
+    return null;
+  }
+
   return (
     <div className="pokemon-page">
-      {/* <Nav /> */}
-      <Pagination pokemonItem={pokemonItem} />
-      <div className="container">
-      <Heading pokemonItem={pokemonItem} />
-      <div className="col3" pokemonItem={pokemonItem} >
-        <Image
-          src={pokemonItem.sprites?.other?.["official-artwork"]?.front_default}
-        />
-        <Info pokemonItem={pokemonItem} />
-        <Type pokemonItem={pokemonItem} />
-      </div>
-      <Stats pokemonItem={pokemonItem} />
+      <Pagination pokemonItem={pokemon} />
+      <div className="pokemon-container">
+        <Heading pokemonItem={pokemon} />
+        <div className="main-contents">
+          <div className="row3" pokemonItem={pokemon} >
+            <Image
+              src={pokemon.sprites?.other?.["official-artwork"]?.front_default}
+            />
+            <Info pokemonItem={pokemon} />
+            <Type pokemonItem={pokemon} />
+          </div>
+          <Stats pokemonItem={pokemon} />
+        </div>
       </div>
     </div>
   );
 };
 
-export default Test;
+export default Pokemon;

@@ -100,6 +100,7 @@ const Home = () => {
     return <Pokeball />;
   }
 
+
   const handleSelectChange = async (event) => {
     let sortedPokemon = [];
     if (event.target.value === "numberAsc") {

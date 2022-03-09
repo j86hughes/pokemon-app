@@ -1,18 +1,21 @@
 import React from "react";
 import "./pokemon.css";
+import Pokeball from "../../components/Pokeball/Pokeball"
 
 const Info = ({ pokemonItem }) => {
 
-  console.log(pokemonItem)
+ 
   let height = pokemonItem.height
   let weight = pokemonItem.weight
   let ability1 = pokemonItem.abilities[0].ability.name
-  console.log(pokemonItem.abilities)
-  // let ability2 = pokemonItem.abilities.length > 1 ? pokemonItem.abilities[1].ability.name : null
+  let ability2 = pokemonItem.abilities[1].ability.name
 
   const decimalize = num => {
     return (num / 10).toFixed(1)
   }
+
+    const thing = pokemonItem.gender.join(' ')
+
 
   return (
     <div className="info-div" height={200} width={400}>
@@ -32,13 +35,12 @@ const Info = ({ pokemonItem }) => {
         <ul className="info-ul2">
           <li className="info-li">
             <span className="info-label">Gender</span>
-            <span className="info-value" id="info-gender"></span>
+            <span className="info-value" id="info-gender">{thing}</span>
           </li>
           <li className="info-li">
             <span className="info-label">Abilities</span>
             <span className="info-value" id="info-abilities">
-              {ability1.replace('-', ' ')}
-              {/* {ability2.replace('-', ' ')} */}
+              {ability1.replace('-', ' ')} {ability2.replace('-', ' ')}
             </span>
           </li>
         </ul>

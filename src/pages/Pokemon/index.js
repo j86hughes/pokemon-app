@@ -21,6 +21,22 @@ const Pokemon = () => {
     const item = await P.getPokemonByName(name);
     item.prevPokemon = await P.getPokemonByName(item.id === 1 ? 898 : item.id - 1)
     item.nextPokemon = await P.getPokemonByName(item.id === 898 ? 1 : item.id + 1)
+    item.gender = []
+    const item1 = await P.getGenderByName('male');
+    const item2 = await P.getGenderByName('female')
+
+
+    item1?.pokemon_species_details.forEach((i) => {
+      if (i?.pokemon_species?.name === item.name) {
+        item.gender.push(item1.name);
+
+      }
+    });
+    item2?.pokemon_species_details.forEach((i) => {
+      if (i?.pokemon_species?.name === item.name) {
+        item.gender.push(item2.name);
+      }
+    });
     setPokemon(item);
     setLoading(false)
   };

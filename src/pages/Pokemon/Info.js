@@ -1,6 +1,5 @@
 import React from "react";
 import "./pokemon.css";
-import Pokeball from "../../components/Pokeball/Pokeball"
 
 const Info = ({ pokemonItem }) => {
 

@@ -4,6 +4,7 @@ import PokemonCard from "./PokemonCard";
 import "./home.css";
 import Pokeball from "../../components/Pokeball/Pokeball"
 
+
 const P = new Pokedex();
 
 const getGenderLists = async () => {

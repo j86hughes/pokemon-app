@@ -41,3 +41,11 @@ Nav {
   #about-tab:hover{
     background-color: grey;
   }
+
+  /* .nav-div {
+    grid-column: span 1;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  } */

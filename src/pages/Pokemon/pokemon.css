@@ -243,14 +243,6 @@ h1 {
     display: flex;
   }
 
-  .nav-div {
-    grid-column: span 1;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-  }
-
   .main-contents {
     display: grid;
   }

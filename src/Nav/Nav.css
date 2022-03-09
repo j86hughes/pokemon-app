@@ -9,6 +9,11 @@ Nav {
   #home-tab, #pokedex-tab, #about-tab{
     border-bottom: 3px solid;
   }
+  .content-wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
   #home-tab, #pokedex-tab{
     border-right: 3px solid;
   }

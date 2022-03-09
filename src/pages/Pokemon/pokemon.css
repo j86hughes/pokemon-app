@@ -38,11 +38,6 @@ h1 {
   padding: 32px;
 }
 
-/* .pokemon-page {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-} */
-
 .pokemon-id {
     color: #919191;
     font-weight: 400;
@@ -239,12 +234,6 @@ h1 {
 .col3 {
   grid-column: span 3;
 }
-
-  .content-wrapper {
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
 
   .type-wrapper{
     width: 40%;

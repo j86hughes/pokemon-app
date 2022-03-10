@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
 import PokemonCard from "./PokemonCard";
 import "./home.css";
-import Pokeball from "../../components/Pokeball/Pokeball"
-
+import Pokeball from "../../components/Pokeball/Pokeball";
 
 const P = new Pokedex();
 
@@ -27,7 +26,6 @@ const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
   return item;
 };
-
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -80,11 +78,13 @@ const Home = () => {
           }
         });
 
-        genderLists?.femaleList?.pokemon_species_details.forEach((genderItem) => {
-          if (genderItem?.pokemon_species?.name === item.name) {
-            item.gender.push("female");
+        genderLists?.femaleList?.pokemon_species_details.forEach(
+          (genderItem) => {
+            if (genderItem?.pokemon_species?.name === item.name) {
+              item.gender.push("female");
+            }
           }
-        });
+        );
       });
 
       setPokemon(pokemonListWithDetails);
@@ -99,7 +99,6 @@ const Home = () => {
   if (loading) {
     return <Pokeball />;
   }
-
 
   const handleSelectChange = async (event) => {
     let sortedPokemon = [];

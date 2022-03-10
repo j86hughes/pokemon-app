@@ -1,9 +1,9 @@
-import React from 'react';
-import './pokemon.css'
+import React from "react";
+import "./pokemon.css";
 
 const Image = ({ src, name }) => {
   return (
-    <div className='image-div'>
+    <div className="image-div">
       {src && (
         <img
           className="pokemon-image"
@@ -13,8 +13,8 @@ const Image = ({ src, name }) => {
           src={src}
         />
       )}
-    </div>  
-  )
+    </div>
+  );
 };
 
-export default Image
+export default Image;

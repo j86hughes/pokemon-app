@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 import Image from "./Image";
 
 const Evolution = () => {
+  return (
+    <div>
+      <Image />
+    </div>
+  );
+};
 
-  return (<div>
-    <Image />
-  </div>)
-}
-
-export default Evolution
+export default Evolution;

@@ -2,19 +2,16 @@ import React from "react";
 import "./pokemon.css";
 
 const Info = ({ pokemonItem }) => {
+  let height = pokemonItem.height;
+  let weight = pokemonItem.weight;
+  let ability1 = pokemonItem.abilities[0].ability.name;
+  let ability2 = pokemonItem.abilities[1].ability.name;
 
- 
-  let height = pokemonItem.height
-  let weight = pokemonItem.weight
-  let ability1 = pokemonItem.abilities[0].ability.name
-  let ability2 = pokemonItem.abilities[1].ability.name
+  const decimalize = (num) => {
+    return (num / 10).toFixed(1);
+  };
 
-  const decimalize = num => {
-    return (num / 10).toFixed(1)
-  }
-
-    const gender = pokemonItem.gender.join(' ')
-
+  const gender = pokemonItem.gender.join(" ");
 
   return (
     <div className="info-div" height={200} width={400}>
@@ -34,12 +31,14 @@ const Info = ({ pokemonItem }) => {
         <ul className="info-ul2">
           <li className="info-li">
             <span className="info-label">Gender</span>
-            <span className="info-value" id="info-gender">{gender}</span>
+            <span className="info-value" id="info-gender">
+              {gender}
+            </span>
           </li>
           <li className="info-li">
             <span className="info-label">Abilities</span>
             <span className="info-value" id="info-abilities">
-              {ability1.replace('-', ' ')} {ability2.replace('-', ' ')}
+              {ability1.replace("-", " ")} {ability2.replace("-", " ")}
             </span>
           </li>
         </ul>

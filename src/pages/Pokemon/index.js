@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Pokedex from "pokedex-promise-v2";
-import Pokeball from "../../components/Pokeball/Pokeball"
+import Pokeball from "../../components/Pokeball/Pokeball";
 import Heading from "./Heading";
 import Type from "./Type";
 import Pagination from "./Pagination";
@@ -19,17 +19,19 @@ const Pokemon = () => {
   const getPokemonDetails = async (name) => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
-    item.prevPokemon = await P.getPokemonByName(item.id === 1 ? 898 : item.id - 1)
-    item.nextPokemon = await P.getPokemonByName(item.id === 898 ? 1 : item.id + 1)
-    item.gender = []
-    const item1 = await P.getGenderByName('male');
-    const item2 = await P.getGenderByName('female')
-
+    item.prevPokemon = await P.getPokemonByName(
+      item.id === 1 ? 898 : item.id - 1
+    );
+    item.nextPokemon = await P.getPokemonByName(
+      item.id === 898 ? 1 : item.id + 1
+    );
+    item.gender = [];
+    const item1 = await P.getGenderByName("male");
+    const item2 = await P.getGenderByName("female");
 
     item1?.pokemon_species_details.forEach((i) => {
       if (i?.pokemon_species?.name === item.name) {
         item.gender.push(item1.name);
-
       }
     });
     item2?.pokemon_species_details.forEach((i) => {
@@ -38,7 +40,7 @@ const Pokemon = () => {
       }
     });
     setPokemon(item);
-    setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -61,7 +63,7 @@ const Pokemon = () => {
       <div className="pokemon-container">
         <Heading pokemonItem={pokemon} />
         <div className="main-contents">
-          <div className="row3" pokemonItem={pokemon} >
+          <div className="row3" pokemonItem={pokemon}>
             <Image
               src={pokemon.sprites?.other?.["official-artwork"]?.front_default}
             />
@@ -76,4 +78,3 @@ const Pokemon = () => {
 };
 
 export default Pokemon;
-

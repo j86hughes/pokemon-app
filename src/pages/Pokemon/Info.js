@@ -4,8 +4,12 @@ import "./pokemon.css";
 const Info = ({ pokemonItem }) => {
   let height = pokemonItem.height;
   let weight = pokemonItem.weight;
-  let ability1 = pokemonItem.abilities[0].ability.name;
-  let ability2 = pokemonItem.abilities[1].ability.name;
+
+  const abilities = pokemonItem.abilities?.map(({ ability }) => (
+    <span className="info-value" id="info-abilities">
+      {ability?.name.replaceAll("-", " ")}
+    </span>
+  ));
 
   const decimalize = (num) => {
     return (num / 10).toFixed(1);
@@ -37,9 +41,7 @@ const Info = ({ pokemonItem }) => {
           </li>
           <li className="info-li">
             <span className="info-label">Abilities</span>
-            <span className="info-value" id="info-abilities">
-              {ability1.replace("-", " ")} {ability2.replace("-", " ")}
-            </span>
+            {abilities}
           </li>
         </ul>
       </div>

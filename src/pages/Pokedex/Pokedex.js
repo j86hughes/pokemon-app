@@ -87,6 +87,12 @@ const Home = () => {
         );
       });
 
+      // Some Pokemon have 3 abilities:
+      // let Arr = []
+      // pokemonListWithDetails.forEach((pokemon) =>
+      //  Arr.push(pokemon.abilities.length))
+      //  console.log(Math.max(...Arr))
+      
       setPokemon(pokemonListWithDetails);
       setLoading(false);
     }

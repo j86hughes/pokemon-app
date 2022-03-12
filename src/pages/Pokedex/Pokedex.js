@@ -69,30 +69,6 @@ const Home = () => {
         pokemonList.results?.map(getPokemonDetails)
       );
 
-      pokemonListWithDetails.forEach((item) => {
-        item.gender = [];
-
-        genderLists?.maleList?.pokemon_species_details.forEach((genderItem) => {
-          if (genderItem?.pokemon_species?.name === item.name) {
-            item.gender.push("male");
-          }
-        });
-
-        genderLists?.femaleList?.pokemon_species_details.forEach(
-          (genderItem) => {
-            if (genderItem?.pokemon_species?.name === item.name) {
-              item.gender.push("female");
-            }
-          }
-        );
-      });
-
-      // Some Pokemon have 3 abilities:
-      // let Arr = []
-      // pokemonListWithDetails.forEach((pokemon) =>
-      //  Arr.push(pokemon.abilities.length))
-      //  console.log(Math.max(...Arr))
-      
       setPokemon(pokemonListWithDetails);
       setLoading(false);
     }

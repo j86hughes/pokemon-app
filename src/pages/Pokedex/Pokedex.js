@@ -6,22 +6,6 @@ import Pokeball from "../../components/Pokeball/Pokeball";
 
 const P = new Pokedex();
 
-const getGenderLists = async () => {
-  let maleList = [];
-  let femaleList = [];
-  try {
-    maleList = await P.getGenderByName("male");
-    femaleList = await P.getGenderByName("female");
-  } catch (error) {
-    console.log(error);
-  }
-
-  return {
-    maleList,
-    femaleList,
-  };
-};
-
 const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
   return item;
@@ -57,11 +41,9 @@ const Home = () => {
   };
 
   const getPokemon = async () => {
-    const genderLists = await getGenderLists();
-
     setLoading(true);
     const pokemonList = await P.getPokemonsList({
-      limit: totalPokemon,
+      limit: 12,
       offset: 0,
     });
     if (pokemonList?.results) {

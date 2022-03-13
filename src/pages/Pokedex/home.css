@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 16px;
-  color: 'black';
+  color: "black";
 }
 
 body {
@@ -17,9 +17,10 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: 'black';
-  font-family: 'Exo', sans-serif;
-  background:#fff url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png")
+  color: "black";
+  font-family: "Exo", sans-serif;
+  background: #fff
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
 }
 
 h1 {
@@ -36,7 +37,7 @@ h1 {
   color: white;
   width: 35%;
   font-size: 1.1rem;
-  font-family: 'Exo';
+  font-family: "Exo";
   font-weight: 500;
   padding: 1.4%;
   border-radius: 5px;
@@ -50,7 +51,6 @@ h1 {
 }
 
 .selectWrapper {
-
   width: 40%;
   float: right;
   padding-right: 3%;
@@ -66,75 +66,30 @@ h1 {
   font-weight: 500;
 }
 
-
-.pokeball {
-  position: fixed;
-  border: 3px solid #36454F;
-  border-radius: 50%;
-  background-color: white;
-  width: 20vw;
-  height: 20vw;
-  background-image: linear-gradient(
-  red 50%,
-  white 50%
-  );
-  top: 40%;
-
-  animation:  spin infinite 10s linear;
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.pokeball::before {
-  position: absolute;
-  content: "";
-  height: 1vw;
-  width: 20vw;
-  background-color: #36454F;
-  top: 50%;
-
-}
-.pokeball::after {
-  position: absolute;
-  content: "";
-  height: 5vw;
-  width: 5vw;
-  background-color: white;
-  top: 40%;
-  right: 35%;
-  /* margin:auto; */
-  border-radius: 50%;
-  border: 1px solid #36454F;
-  background-image: radial-gradient(
-    #36454F 50%,
-    white 50%
-  );
-}
-
 .pokemonCardContainer {
-  display: 'flex';
+  display: "flex";
   margin: 16px;
 }
-.pokemonCardContainer:hover{
+.pokemonCardContainer:hover {
   animation-name: bounce;
   animation-duration: 0.2s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
 @keyframes bounce {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-3px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-
 .copyContainer {
-  display: 'flex';
+  display: "flex";
   background-color: white;
   flex: 1;
   flex-direction: column;
@@ -146,7 +101,7 @@ h1 {
 }
 
 .pokemonImage {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   border-radius: 3%;
   cursor: pointer;
 }
@@ -155,7 +110,6 @@ h1 {
   color: #919191;
   font-weight: 600;
   font-size: 80%;
-  
 }
 
 .pokemonName {
@@ -203,8 +157,7 @@ h1 {
 }
 
 .flying {
-  background: linear-gradient(
-    180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
   color: #212121;
 }
 
@@ -224,8 +177,7 @@ h1 {
 }
 
 .ground {
-  background: linear-gradient(
-    180deg, #f7de3f 50%, #ab9842 50%);
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
   color: #212121;
 }
 
@@ -275,9 +227,20 @@ h1 {
 }
 
 @font-face {
-  font-family: "Pokemon"; 
-  src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot"); src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff") format("woff"), url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.svg#Pokemon") format("svg"); }
+  font-family: "Pokemon";
+  src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot");
+  src: url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.svg#Pokemon")
+      format("svg");
+}
 
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap");

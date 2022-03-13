@@ -13,7 +13,6 @@ const getPokemonNumber = (number) => {
 };
 
 const PokemonCard = ({ pokemonItem }) => {
-  
   let navigate = useNavigate();
   let typesArray = pokemonItem.types;
   const pokemonImage =
@@ -36,9 +35,7 @@ const PokemonCard = ({ pokemonItem }) => {
       )}
       <div className="copyContainer">
         <div className="pokemonId">{getPokemonNumber(pokemonItem.id)}</div>
-        <div className="pokemonName">
-          {pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}
-        </div>
+        <div className="pokemonName">{pokemonItem.name}</div>
         <div className="typesContainer">
           {typesArray.map((item) => {
             return (

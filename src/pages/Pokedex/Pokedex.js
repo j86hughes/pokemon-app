@@ -2,31 +2,14 @@ import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
 import PokemonCard from "./PokemonCard";
 import "./home.css";
-
+import Pokeball from "../../components/Pokeball/Pokeball";
 
 const P = new Pokedex();
-
-const getGenderLists = async () => {
-  let maleList = [];
-  let femaleList = [];
-  try {
-    maleList = await P.getGenderByName("male");
-    femaleList = await P.getGenderByName("female");
-  } catch (error) {
-    console.log(error);
-  }
-
-  return {
-    maleList,
-    femaleList,
-  };
-};
 
 const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
   return item;
 };
-
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -58,8 +41,6 @@ const Home = () => {
   };
 
   const getPokemon = async () => {
-    const genderLists = await getGenderLists();
-
     setLoading(true);
     const pokemonList = await P.getPokemonsList({
       limit: 12,
@@ -69,22 +50,6 @@ const Home = () => {
       const pokemonListWithDetails = await Promise.all(
         pokemonList.results?.map(getPokemonDetails)
       );
-
-      pokemonListWithDetails.forEach((item) => {
-        item.gender = [];
-
-        genderLists?.maleList?.pokemon_species_details.forEach((genderItem) => {
-          if (genderItem?.pokemon_species?.name === item.name) {
-            item.gender.push("male");
-          }
-        });
-
-        genderLists?.femaleList?.pokemon_species_details.forEach((genderItem) => {
-          if (genderItem?.pokemon_species?.name === item.name) {
-            item.gender.push("female");
-          }
-        });
-      });
 
       setPokemon(pokemonListWithDetails);
       setLoading(false);
@@ -96,7 +61,7 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <div className="pokeball" />;
+    return <Pokeball />;
   }
 
   const handleSelectChange = async (event) => {

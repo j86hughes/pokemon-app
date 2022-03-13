@@ -1,5 +1,5 @@
-import React from 'react';
-import './pokemon.css'
+import React from "react";
+import "./pokemon.css";
 
 const Heading = ({ pokemonItem }) => {
   const getPokemonNumber = (number) => {
@@ -12,11 +12,11 @@ const Heading = ({ pokemonItem }) => {
     return `#${number}`;
   };
   return (
-      <div className='pokemon-name-heading'>
-      <span className='pokemon-name'>{pokemonItem.name.charAt(0).toUpperCase() + pokemonItem.name.slice(1)}</span> 
-      <span className='pokemon-id'>{getPokemonNumber(pokemonItem.id)}</span>
-      </div>
-  )
+    <div className="pokemon-name-heading">
+      <span className="pokemon-name">{pokemonItem.name}</span>
+      <span className="pokemon-id">{getPokemonNumber(pokemonItem.id)}</span>
+    </div>
+  );
 };
 
-export default Heading
+export default Heading;

@@ -1,15 +1,24 @@
 import breakpoints from "../../../utils/styles/breakpoints";
 
 export default {
+  "@keyframes bounce": {
+    "0%": {
+      transform: "translateY(0)",
+    },
+    "50%": {
+      transform: "translateY(-3px)",
+    },
+    "100%": {
+      transform: "translateY(0)",
+    },
+  },
   pokemonCardContainer: {
     display: "flex",
     flex: 1,
     margin: 16,
     "&:hover": {
-      animationName: "bounce",
-      animationDuration: "0.2s",
-      animationIterationCount: 1,
-      animationTimingFunction: "linear",
+      animationDuration: "0.25s",
+      animationName: "$bounce",
     },
     [breakpoints.xs]: {
       width: "100%",
@@ -37,6 +46,14 @@ export default {
     backgroundColor: "#F2F2F2",
     borderRadius: "3%",
     cursor: "pointer",
+    // "&:hover": {
+    //   animationDelay: "-0.2s",
+    //   animationDuration: "1s",
+    //   animationIterationCount: "infinite",
+    //   animationName: "$bounce",
+    //   // backgroundColor: "red",
+    //   // display: "none",
+    // },
   },
   pokemonId: {
     fontFamily: "Exo",

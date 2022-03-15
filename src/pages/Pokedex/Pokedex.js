@@ -29,12 +29,12 @@ const getPokemonDetails = async (pokemon) => {
   return item;
 };
 
+const totalPokemon = 898;
+
 const PokedexPage = () => {
   const classes = useStyles();
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const totalPokemon = 898;
 
   const getRandomPokemon = async () => {
     setLoading(true);
@@ -60,8 +60,6 @@ const PokedexPage = () => {
   };
 
   const getPokemon = async () => {
-    const genderLists = await getGenderLists();
-
     setLoading(true);
     const pokemonList = await P.getPokemonsList({
       limit: 12,
@@ -71,24 +69,6 @@ const PokedexPage = () => {
       const pokemonListWithDetails = await Promise.all(
         pokemonList.results?.map(getPokemonDetails)
       );
-
-      pokemonListWithDetails.forEach((item) => {
-        item.gender = [];
-
-        genderLists?.maleList?.pokemon_species_details.forEach((genderItem) => {
-          if (genderItem?.pokemon_species?.name === item.name) {
-            item.gender.push("male");
-          }
-        });
-
-        genderLists?.femaleList?.pokemon_species_details.forEach(
-          (genderItem) => {
-            if (genderItem?.pokemon_species?.name === item.name) {
-              item.gender.push("female");
-            }
-          }
-        );
-      });
 
       setPokemon(pokemonListWithDetails);
       setLoading(false);

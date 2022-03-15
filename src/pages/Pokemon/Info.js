@@ -15,8 +15,6 @@ const Info = ({ pokemonItem }) => {
     return (num / 10).toFixed(1);
   };
 
-  const gender = pokemonItem.gender.join(" ");
-
   return (
     <div className="info-div" height={200} width={400}>
       <div className="ul-div1">
@@ -35,9 +33,15 @@ const Info = ({ pokemonItem }) => {
         <ul className="info-ul2">
           <li className="info-li">
             <span className="info-label">Gender</span>
-            <span className="info-value" id="info-gender">
-              {gender}
-            </span>
+            {pokemonItem.canBeMale ? (
+              <span className="info-value">Male</span>
+            ) : null}
+            {pokemonItem.canBeFemale ? (
+              <span className="info-value">Female</span>
+            ) : null}
+            {pokemonItem.unknown ? (
+              <span className="info-value">Unknown</span>
+            ) : null}
           </li>
           <li className="info-li">
             <span className="info-label">Abilities</span>

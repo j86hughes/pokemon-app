@@ -14,7 +14,7 @@ const Pagination = ({ pokemonItem }) => {
           <div className="left">
             <span className="icon icon_arrow_sm_left" />
             <span className="pokemon-number">{pokemonItem.prevPokemon.id}</span>
-            <span className="pokemon-name">{pokemonItem.prevPokemon.name}</span>
+            <span className="pokemon-name">{pokemonItem.prevPokemon.name.split('-')[0]}</span>
           </div>
         </div>
         <div
@@ -23,7 +23,7 @@ const Pagination = ({ pokemonItem }) => {
         >
           <div className="right">
             <span className="icon icon_arrow_sm_right" />
-            <span className="pokemon-name">{pokemonItem.nextPokemon.name}</span>
+            <span className="pokemon-name">{pokemonItem.nextPokemon.name.split('-')[0]}</span>
             <span className="pokemon-number">{pokemonItem.nextPokemon.id}</span>
           </div>
         </div>

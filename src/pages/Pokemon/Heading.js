@@ -13,7 +13,7 @@ const Heading = ({ pokemonItem }) => {
   };
   return (
     <div className="pokemon-name-heading">
-      <span className="pokemon-name">{pokemonItem.name}</span>
+      <span className="pokemon-name">{pokemonItem.name.split("-")[0]}</span>
       <span className="pokemon-id">{getPokemonNumber(pokemonItem.id)}</span>
     </div>
   );

@@ -51,6 +51,7 @@ const StatBar = ({ numOfBarsColored, statName, classes, isFirst }) => {
     const changeColor = i < numThing ? "#30a7d7" : "white";
     return (
       <div
+        key={`stat-${i}`}
         className={classes.bar}
         style={{ backgroundColor: changeColor }}
       />
@@ -89,6 +90,7 @@ const Stats = ({ pokemonItem }) => {
       <div className={classes.statsContainer}>
         {numsArray.map((num, index) => (
           <StatBar
+            key={`statbar-${num}-${index}`}
             isFirst={index ===  0}
             numOfBarsColored={num}
             statName={statsMapped[index]}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
 import PokemonCard from "./PokemonCard/index.js";
 import { createUseStyles } from "react-jss";
+import Pokeball from "../../components/Pokeball";
 import styles from "./styles";
 
 const P = new Pokedex();
@@ -75,14 +76,6 @@ const PokedexPage = () => {
     }
   };
 
-  useEffect(() => {
-    getPokemon();
-  }, []);
-
-  if (loading) {
-    return <div className="pokeball" />;
-  }
-
   const handleSelectChange = async (event) => {
     let sortedPokemon = [];
     if (event.target.value === "numberAsc") {
@@ -136,6 +129,14 @@ const PokedexPage = () => {
     setLoading(false);
     setPokemon(sortedPokemon);
   };
+
+  useEffect(() => {
+    getPokemon();
+  }, []);
+
+  if (loading) {
+    return <Pokeball />;
+  }
 
   return (
     <div className={classes.pokedexContainer}>

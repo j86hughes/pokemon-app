@@ -20,7 +20,7 @@ const Info = ({ pokemonItem }) => {
     return (num / 10).toFixed(1);
   };
 
-  const gender = pokemonItem?.gender?.join(" ");
+  const gender = pokemonItem.gender?.join(" ");
 
   return (
     <div className="info-div" height={200} width={400}>

@@ -1,21 +1,41 @@
 import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
-import PokemonCard from "./PokemonCard";
-import "./home.css";
-import Pokeball from "../../components/Pokeball/Pokeball";
+import PokemonCard from "./PokemonCard/index.js";
+import { createUseStyles } from "react-jss";
+import Pokeball from "../../components/Pokeball";
+import styles from "./styles";
 
 const P = new Pokedex();
+
+const useStyles = createUseStyles(styles);
+
+const getGenderLists = async () => {
+  let maleList = [];
+  let femaleList = [];
+  try {
+    maleList = await P.getGenderByName("male");
+    femaleList = await P.getGenderByName("female");
+  } catch (error) {
+    console.log(error);
+  }
+
+  return {
+    maleList,
+    femaleList,
+  };
+};
 
 const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
   return item;
 };
 
-const Home = () => {
+const totalPokemon = 898;
+
+const PokedexPage = () => {
+  const classes = useStyles();
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const totalPokemon = 898;
 
   const getRandomPokemon = async () => {
     setLoading(true);
@@ -55,14 +75,6 @@ const Home = () => {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    getPokemon();
-  }, []);
-
-  if (loading) {
-    return <Pokeball />;
-  }
 
   const handleSelectChange = async (event) => {
     let sortedPokemon = [];
@@ -118,27 +130,43 @@ const Home = () => {
     setPokemon(sortedPokemon);
   };
 
+  useEffect(() => {
+    getPokemon();
+  }, []);
+
+  if (loading) {
+    return <Pokeball />;
+  }
+
   return (
-    <div className="App">
-      <h1>Pokédex</h1>
-      <button
-        className="randomizer"
-        type="button"
-        alt="Surprise me!"
-        onClick={getRandomPokemon}
-      >
-        Surprise Me!
-      </button>
-      <div className="selectWrapper">
-        <select id="sortOrder" onChange={handleSelectChange}>
-          <option value="noSort">Sort results by...</option>
-          <option value="numberAsc">Lowest Number (First)</option>
-          <option value="numberDesc">Highest Number (First)</option>
-          <option value="nameAsc">A-Z</option>
-          <option value="nameDesc">Z-A</option>
-        </select>
+    <div className={classes.pokedexContainer}>
+      <div className={classes.titleContainer}>
+        <p className={classes.title}>Pokédex</p>
       </div>
-      <div className="pokedexContainer">
+      <div className={classes.filtersContainer}>
+        <button
+          className={classes.randomizer}
+          type="button"
+          alt="Surprise me!"
+          onClick={getRandomPokemon}
+        >
+          Surprise Me!
+        </button>
+        <div className={classes.selectWrapper}>
+          <select
+            id="#sortOrder"
+            className={classes.sortOrder}
+            onChange={handleSelectChange}
+          >
+            <option value="noSort">Sort results by...</option>
+            <option value="numberAsc">Lowest Number (First)</option>
+            <option value="numberDesc">Highest Number (First)</option>
+            <option value="nameAsc">A-Z</option>
+            <option value="nameDesc">Z-A</option>
+          </select>
+        </div>
+      </div>
+      <div className={classes.pokedexResultsContainer}>
         {pokemon?.map((poke) => (
           <PokemonCard pokemonItem={poke} key={poke.name} />
         ))}
@@ -147,4 +175,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default PokedexPage;

@@ -2,11 +2,16 @@ import React from "react";
 import "./pokemon.css";
 
 const Info = ({ pokemonItem }) => {
+
+  if (!pokemonItem) {
+    return null;
+  }
+
   let height = pokemonItem.height;
   let weight = pokemonItem.weight;
 
   const abilities = pokemonItem.abilities?.map(({ ability }) => (
-    <span className="info-value" id="info-abilities">
+    <span key={ability?.name} className="info-value" id="info-abilities">
       {ability?.name.replaceAll("-", " ")}
     </span>
   ));
@@ -15,7 +20,7 @@ const Info = ({ pokemonItem }) => {
     return (num / 10).toFixed(1);
   };
 
-  const gender = pokemonItem.gender.join(" ");
+  const gender = pokemonItem.gender?.join(" ");
 
   return (
     <div className="info-div" height={200} width={400}>

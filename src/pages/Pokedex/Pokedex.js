@@ -43,7 +43,7 @@ const Home = () => {
   const getPokemon = async () => {
     setLoading(true);
     const pokemonList = await P.getPokemonsList({
-      limit: 12,
+      limit: totalPokemon,
       offset: 0,
     });
     if (pokemonList?.results) {

@@ -25,20 +25,22 @@ const Pokemon = () => {
     item.nextPokemon = await P.getPokemonByName(
       item.id === 898 ? 1 : item.id + 1
     );
-    item.gender = [];
+
     const item1 = await P.getGenderByName("male");
     const item2 = await P.getGenderByName("female");
 
-    item1?.pokemon_species_details.forEach((i) => {
-      if (i?.pokemon_species?.name === item.name) {
-        item.gender.push(item1.name);
-      }
-    });
-    item2?.pokemon_species_details.forEach((i) => {
-      if (i?.pokemon_species?.name === item.name) {
-        item.gender.push(item2.name);
-      }
-    });
+    item.canBeMale =
+      item1?.pokemon_species_details.find(
+        (pokemon) => pokemon?.pokemon_species?.name === item.name
+      ) !== undefined;
+
+    item.canBeFemale =
+      item2?.pokemon_species_details.find(
+        (pokemon) => pokemon?.pokemon_species?.name === item.name
+      ) !== undefined;
+
+    item.unknown = !item.canBeMale && !item.canBeFemale;
+
     setPokemon(item);
     setLoading(false);
   };

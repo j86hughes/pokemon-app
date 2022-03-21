@@ -19,7 +19,6 @@ const Pokemon = () => {
   const getPokemonDetails = async (name) => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
-    console.log(typeof item.name)
     item.prevPokemon = await P.getPokemonByName(
       item.id === 1 ? 898 : item.id - 1
     );

@@ -1,5 +1,4 @@
 import React from "react";
-import { isElementOfType } from "react-dom/cjs/react-dom-test-utils.production.min";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
 import { formatName } from "../../utils";

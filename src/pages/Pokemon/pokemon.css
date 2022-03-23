@@ -173,7 +173,13 @@ h1 {
   border: 1px solid #36454f;
   background-image: radial-gradient(#36454f 50%, white 50%);
 }
-
+.Jim {
+  color: black;
+  background-color: yellow;
+  width: 300px;
+  height: 200px;
+  text-transform: capitalize;
+}
 .pagination {
   height: 150px;
   background-color: white;

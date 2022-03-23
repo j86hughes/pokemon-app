@@ -8,7 +8,22 @@ const P = new Pokedex();
 
 const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
+  const spec = await P.getPokemonSpeciesByName(pokemon.name);
+  item.evol = await fetch(spec.evolution_chain.url)
+    .then((response) => response.json())
+    .then((data) => data);
+  // console.log(item);
+  // console.log(item.evol.chain.evolves_to);
+  // console.log(
+  //   item.evol.chain.species.name,
+  //   item.evol.chain.evolves_to[0].species.name,
+  //   item.evol.chain.evolves_to[0].evolves_to[0].species.name
+  // );
+  const evolutionList = await P.getEvolutionChainsList()
+
+  console.log(evolutionList)
   return item;
+  
 };
 
 const Home = () => {
@@ -43,7 +58,7 @@ const Home = () => {
   const getPokemon = async () => {
     setLoading(true);
     const pokemonList = await P.getPokemonsList({
-      limit: totalPokemon,
+      limit: 12,
       offset: 0,
     });
     if (pokemonList?.results) {
@@ -140,6 +155,7 @@ const Home = () => {
       </div>
       <div className="pokedexContainer">
         {pokemon?.map((poke) => (
+          console.log(poke),
           <PokemonCard pokemonItem={poke} key={poke.name} />
         ))}
       </div>

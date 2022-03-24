@@ -19,6 +19,36 @@ const Pokemon = () => {
   const getPokemonDetails = async (name) => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
+    const spec = await P.getPokemonSpeciesByName(name);
+    const evolutionChainUrl = spec.evolution_chain.url;
+
+    ////////////////////////////////////////////////////////////////
+    // Get evolution details
+    let evolutionListNames = [];
+    const evolutionListPokemon = [];
+    const res = await fetch(evolutionChainUrl);
+    const evolutionChain = await res.json();
+
+    function recurse(info, theList) {
+      theList.push(info.species.name);
+      if (info.evolves_to[0]) {
+        recurse(info.evolves_to[0], theList);
+      }
+      return;
+    }
+
+    recurse(evolutionChain.chain, evolutionListNames);
+
+    await Promise.all(
+      evolutionListNames.map(async (name) => {
+        const item = await P.getPokemonByName(name);
+        evolutionListPokemon.push(item);
+      })
+    );
+
+    console.log("BEHOLD THE GLORY!!!", evolutionListPokemon);
+    /////////////////////////////////////////////////////////////////
+
     item.prevPokemon = await P.getPokemonByName(
       item.id === 1 ? 898 : item.id - 1
     );

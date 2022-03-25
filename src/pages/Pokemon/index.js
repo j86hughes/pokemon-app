@@ -8,10 +8,12 @@ import Pagination from "./Pagination";
 import Stats from "./Stats";
 import Image from "./Image";
 import Info from "./Info";
+import { useNavigate } from "react-router-dom";
 
 const P = new Pokedex();
 
 const Pokemon = () => {
+  let navigate = useNavigate();
   const { name } = useParams();
   const [pokemon, setPokemon] = useState();
   const [loading, setLoading] = useState(false);
@@ -107,7 +109,7 @@ const Pokemon = () => {
             <h2>Evolutions</h2>
           </span>
           <div className="Jimmers">
-            <div className="GIJOE">
+            <div className="GIJOE" onClick={() => navigate(`/${pokemon.evoListItems[0]?.name}`)}>
               <img
                 className="Jims"
                 height={200}
@@ -126,7 +128,10 @@ const Pokemon = () => {
                 {pokemon.evoListItems[0]?.types[1]?.type.name}
               </span>
             </div>
-            <div className="GIJOE">
+            <div
+              className="GIJOE"
+              onClick={() => navigate(`/${pokemon.evoListItems[1]?.name}`)}
+            >
               <img
                 className="Jims"
                 height={200}
@@ -146,7 +151,7 @@ const Pokemon = () => {
                 {pokemon.evoListItems[1]?.types[1]?.type.name}
               </span>
             </div>
-            <div className="GIJOE">
+            <div className="GIJOE" onClick={() => navigate(`/${pokemon.evoListItems[2]?.name}`)}>
               <img
                 className="Jims"
                 height={200}

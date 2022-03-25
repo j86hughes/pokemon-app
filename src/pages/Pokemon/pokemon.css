@@ -401,7 +401,9 @@ h1 {
   list-style: none;
   padding-left: 0px;
 }
-
+.types-card{
+  text-transform: capitalize;
+}
 .info-div {
   display: flex;
   box-sizing: border-box;

@@ -13,7 +13,7 @@ const Type = ({ pokemonItem }) => {
               className={`types-card ${item.type.name}`}
               key={item.type.name}
             >
-              {item.type.name.charAt(0).toUpperCase() + item.type.name.slice(1)}
+              {item.type.name}
             </div>
           );
         })}

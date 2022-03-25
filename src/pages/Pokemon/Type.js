@@ -2,12 +2,12 @@ import React from "react";
 import "./pokemon.css";
 
 const Type = ({ pokemonItem }) => {
-  let typesArray = pokemonItem.types;
+  let typesArray = pokemonItem?.types;
   return (
     <div className="type-wrapper">
       <h3>Type</h3>
       <div className="type-div">
-        {typesArray.map((item) => {
+        {typesArray?.map((item) => {
           return (
             <div
               className={`types-card ${item.type.name}`}

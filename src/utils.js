@@ -9,7 +9,7 @@ export const formatName = (name) => {
   if (name === "mr-mime") {
     return name.slice(0, 2) + ". " + name.slice(3);
   }
-  return name.split('-')[0];
+  return name?.split('-')[0];
 };
 
 export const formatNumber = (number) => {

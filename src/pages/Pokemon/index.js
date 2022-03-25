@@ -9,6 +9,7 @@ import Stats from "./Stats";
 import Image from "./Image";
 import Info from "./Info";
 import { useNavigate } from "react-router-dom";
+import { formatName, formatNumber } from "../../utils";
 
 const P = new Pokedex();
 
@@ -21,15 +22,15 @@ const Pokemon = () => {
   const getPokemonDetails = async (name) => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
-    console.log(item);
+    // console.log(item);
     const spec = await P.getPokemonSpeciesByName(name);
-    console.log(spec);
+    // console.log(spec);
 
     // await way with while loop:
     const evoChainUrl = spec.evolution_chain.url;
     const evo = await fetch(evoChainUrl);
     const evoObj = await evo.json();
-    console.log(evoObj);
+    // console.log(evoObj);
 
     const evoListNames = [];
     let evolves = evoObj.chain;
@@ -102,6 +103,7 @@ const Pokemon = () => {
           </div>
           <Stats pokemonItem={pokemon} />
         </div>
+
         <div className="Jim">
           <span className="Jimh2span">
             <h2>Evolutions</h2>
@@ -121,13 +123,16 @@ const Pokemon = () => {
                 }
               />
               <span>
-                <h3 className="gi">{pokemon.evoListItems[0]?.name}</h3>
-                <h3 className="ji">{pokemon.evoListItems[0]?.id}</h3>
+                <h3 className="gi">
+                  {formatName(pokemon.evoListItems[0]?.name)}
+                </h3>
+                <h3 className="ji">
+                  {formatNumber(pokemon.evoListItems[0]?.id)}
+                </h3>
               </span>
-              <span>
-                {pokemon.evoListItems[0]?.types[0].type.name}
-                {pokemon.evoListItems[0]?.types[1]?.type.name}
-              </span>
+              <Type
+                pokemonItem={pokemon.evoListItems[0]}
+              />
             </div>
 
             <div
@@ -144,13 +149,16 @@ const Pokemon = () => {
                 }
               />
               <span>
-                <h3 className="gi">{pokemon.evoListItems[1]?.name}</h3>
-                <h3 className="ji">{pokemon.evoListItems[1]?.id}</h3>
+                <h3 className="gi">
+                  {formatName(pokemon.evoListItems[1]?.name)}
+                </h3>
+                <h3 className="ji">
+                  {formatNumber(pokemon.evoListItems[1]?.id)}
+                </h3>
               </span>
-              <span>
-                {pokemon.evoListItems[1]?.types[0].type.name}
-                {pokemon.evoListItems[1]?.types[1]?.type.name}
-              </span>
+              <Type
+                pokemonItem={pokemon.evoListItems[1]}
+              />
             </div>
 
             <div
@@ -167,13 +175,16 @@ const Pokemon = () => {
                 }
               />
               <span>
-                <h3 className="gi">{pokemon.evoListItems[2]?.name}</h3>
-                <h3 className="ji">{pokemon.evoListItems[2]?.id}</h3>
+                <h3 className="gi">
+                  {formatName(pokemon.evoListItems[2]?.name)}
+                </h3>
+                <h3 className="ji">
+                  {formatNumber(pokemon.evoListItems[2]?.id)}
+                </h3>
               </span>
-              <span>
-                {pokemon.evoListItems[2]?.types[0].type.name}
-                {pokemon.evoListItems[2]?.types[1]?.type.name}
-              </span>
+              <Type
+                pokemonItem={pokemon.evoListItems[2]}
+              />
             </div>
           </div>
         </div>

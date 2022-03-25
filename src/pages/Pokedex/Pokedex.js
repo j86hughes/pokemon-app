@@ -8,20 +8,8 @@ const P = new Pokedex();
 
 const getPokemonDetails = async (pokemon) => {
   const item = await P.getPokemonByName(pokemon.name);
-  const spec = await P.getPokemonSpeciesByName(pokemon.name);
-  item.evol = await fetch(spec.evolution_chain.url)
-    .then((response) => response.json())
-    .then((data) => data);
-  // console.log(item);
-  // console.log(item.evol.chain.evolves_to);
-  // console.log(
-  //   item.evol.chain.species.name,
-  //   item.evol.chain.evolves_to[0].species.name,
-  //   item.evol.chain.evolves_to[0].evolves_to[0].species.name
-  // );
-  const evolutionList = await P.getEvolutionChainsList()
-
-  console.log(evolutionList)
+  // const spec = await P.getPokemonSpeciesByName(pokemon.name);
+  // console.log(spec)
   return item;
   
 };

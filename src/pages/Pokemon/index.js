@@ -19,103 +19,33 @@ const Pokemon = () => {
   const getPokemonDetails = async (name) => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
-    // console.log(item);
+    console.log(item);
     const spec = await P.getPokemonSpeciesByName(name);
     console.log(spec);
-    const evolutionChainUrl = spec.evolution_chain.url;
-    console.log("CAAAAAAAAAAAAANT", evolutionChainUrl);
-    const pleasenaaaaah = await fetch(evolutionChainUrl);
 
-    const evolves = [];
-    fetch(evolutionChainUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        let evoList = data.chain;
-        while (evoList) {
-          evolves.push(evoList.species.name);
-          evoList = evoList.evolves_to[0];
-        }
-      });
-    console.log(evolves);
+    // await way with while loop:
+    const evoChainUrl = spec.evolution_chain.url;
+    const evo = await fetch(evoChainUrl);
+    const evoObj = await evo.json();
 
-    // const cant74 = async (name) => {
-      // console.log("YAAAAAAAAAAAAAAAAAAAAAAAAH!");
-      // console.log(name);
-    // };
+    const evoListNames = [];
+    let evolves = evoObj.chain;
+    while (evolves) {
+      evoListNames.push(evolves.species.name);
+      evolves = evolves.evolves_to[0];
+    }
+    console.log(evoListNames);
 
-    // const evolutionListWithDetails = await Promise.all(evolves.map(cant74));
-    evolves.map((name) => console.log('FEAST', name));
+    let evoListItems = await Promise.all(
+      evoListNames.map(async (name) => {
+        const item = await P.getPokemonByName(name);
+        return item;
+      })
+    );
+    console.log(evoListItems);
 
-    //   console.log(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png`)
-    // }
-
-    // item?.map((poke) => console.log(poke));
-
-    //     const evoPokemons = item.evol.chain.map(evolution => getPokemonByName(evolution.thePath.name));
-
-    // const loadedPokemons = await Promise.all(evoPokemons) //waits to load them
-
-    // const pokemonFrontDefaults = loadedPokemons.map(pokemon => pokemon.path.frontDefault)
-
-    // item.evoImagePaths = pokemonFrontDefaults
-
-    // const interval = {
-    //   limit: 10,
-    //   offset: 34
-    // }
-    // const evols = await P.getEvolutionChainsList();
-    // console.log(evols)
-    // const evolsz = await Promise.all(evols);
-    // console.log(evolsz)
-    // console.log(evolsz);
-    // const evoArr = Array.from(evols.results);
-    // console.log(evoArr);
-
-    // const jim = evoArr.map((thing) => console.log(thing));
-
-    // console.log(jim);
-
-    // const arrOne = item?.evol?.chain?.species?.map((name) => name)
-    // console.log(arrOne)
-
-    //   .then((response) => response.json())
-    //   .then((data) => data);
-    // console.log(cant);
-
-    // const evolves = [];
-    // let nextPokemon = item;
-    // while (nextPokemon.evolvesTo) {
-    //   evolves.push(nextPokemon.evolvesTo[0]);
-    //   nextPokemon = nextPokemon.evolvesTo[0];
-    // }
-
-    // const evolves = [];
-
-    // console.log(evolves)
-    // item.evolves = evolves
-    // console.log(evolves)
-    // while (item.nextPokemon) {
-    //   evolves.push(item.evol?.chain?.evolves_to[0]?.species?.name);
-    //   item.nextPokemon =
-    //     item.evol?.chain?.evolves_to[0]?.evolves_to[0]?.species?.name;
-    // }
-    // console.log(evolves);
-    // console.log(item)
-    // console.log(item.nextPokemon)
-
-    // const evoPokemons = item.evol.chain.map(evolution => getPokemonByName(evolution.evol.chain.evolves_to[0].species.name));
-
-    // spec.image = item.sprites?.other?.["official-artwork"]?.front_default;
-    // console.log(spec);
-
-    // console.log(
-    //   item?.evol?.chain?.species?.name,
-    //   item?.evol?.chain?.evolves_to[0]?.species?.name,
-    //   item?.evol?.chain?.evolves_to[0]?.evolves_to[0]?.species?.name
-    // );
-
-    // const pokemonImage =
-    //   item.sprites?.other?.["official-artwork"]?.front_default;
+    item.evoListItems = evoListItems;
+    console.log(item.evoListItems);
 
     item.prevPokemon = await P.getPokemonByName(
       item.id === 1 ? 898 : item.id - 1
@@ -157,10 +87,6 @@ const Pokemon = () => {
     return null;
   }
 
-  // for(let i = 0; i < totalPokemon; i++){
-
-  // }
-
   return (
     <div className="pokemon-page">
       <Pagination pokemonItem={pokemon} />
@@ -177,49 +103,69 @@ const Pokemon = () => {
           <Stats pokemonItem={pokemon} />
         </div>
         <div className="Jim">
-          {pokemon?.evol?.chain?.evolves_to[0]?.species?.name?.length > 0 ? (
-            //       <img
-            //         src={
-            //           `${pokemon?.evol?.chain?.species?.name}`.sprites?.other?.[
-            //             "official-artwork"
-            //           ]?.front_default
-            //         }  height={200}
-            // width={200}
-            //       />
-            //     ) && (
-            //       <img
-            //         src={
-            //           (pokemon?.evol?.chain?.evolves_to[0]?.species?.name).sprites
-            //             ?.other?.["official-artwork"]?.front_default
-            //         }  height={200}
-            // width={200}
-            //       />
-            <img
-              height={200}
-              width={200}
-              src={pokemon.sprites?.other?.["official-artwork"]?.front_default}
-            />
-          ) : null}
-          <img
-            height={200}
-            width={200}
-            src={
-              pokemon.nextPokemon.sprites?.other?.["official-artwork"]
-                ?.front_default
-            }
-          />
+          <span className="Jimh2span">
+            <h2>Evolutions</h2>
+          </span>
+          <div className="Jimmers">
+            <div className="GIJOE">
+              <img
+                className="Jims"
+                height={200}
+                width={200}
+                src={
+                  pokemon.evoListItems[0]?.sprites?.other["official-artwork"]
+                    ?.front_default
+                }
+              />
+              <span>
+                <h3 className="gi">{pokemon.evoListItems[0]?.name}</h3>
+                <h3 className="ji">{pokemon.evoListItems[0]?.id}</h3>
+              </span>
+              <span>
+                {pokemon.evoListItems[0]?.types[0].type.name}
+                {pokemon.evoListItems[0]?.types[1]?.type.name}
+              </span>
+            </div>
+            <div className="GIJOE">
+              <img
+                className="Jims"
+                height={200}
+                width={200}
+                src={
+                  pokemon.evoListItems[1]?.sprites?.other["official-artwork"]
+                    ?.front_default
+                }
+              />
 
-          {pokemon?.evol?.chain?.evolves_to[0]?.evolves_to[0]?.species?.name
-            ?.length > 0 ? (
-            <img
-              src={
-                pokemon.evol.chain.evolves_to[0].evolves_to[0].species.name
-                  .sprites?.other?.["official-artwork"]?.front_default
-              }
-              height={200}
-              width={200}
-            />
-          ) : null}
+              <span>
+                <h3 className="gi">{pokemon.evoListItems[1]?.name}</h3>
+                <h3 className="ji">{pokemon.evoListItems[1]?.id}</h3>
+              </span>
+              <span>
+                {pokemon.evoListItems[1]?.types[0].type.name}
+                {pokemon.evoListItems[1]?.types[1]?.type.name}
+              </span>
+            </div>
+            <div className="GIJOE">
+              <img
+                className="Jims"
+                height={200}
+                width={200}
+                src={
+                  pokemon.evoListItems[2]?.sprites?.other["official-artwork"]
+                    ?.front_default
+                }
+              />
+              <span>
+                <h3 className="gi">{pokemon.evoListItems[2]?.name}</h3>
+                <h3 className="ji">{pokemon.evoListItems[2]?.id}</h3>
+              </span>
+              <span>
+                {pokemon.evoListItems[2]?.types[0].type.name}
+                {pokemon.evoListItems[2]?.types[1]?.type.name}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

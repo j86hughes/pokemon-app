@@ -175,10 +175,62 @@ h1 {
 }
 .Jim {
   color: black;
-  background-color: yellow;
-  width: 300px;
-  height: 200px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 400px;
   text-transform: capitalize;
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/body_gray_bg.png");
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_gray_bg.png");
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: transparent;
+  border-radius: 5px;
+  /* overflow: hidden;
+  position: relative; */
+}
+/* .Jim:after {
+  content: "";
+  position:absolute;
+  margin:-20px;
+  width:40px;
+  height:40px;
+  transform:rotate(45deg);
+  background-color: red;
+  box-shadow: 0 0 0 250px #522d5b;
+} */
+
+.Jims {
+  box-shadow: 0 4px 4px 0px #212121;
+  background-color: #616161;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+.Jimmers {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Jimh2span {
+  font-family: "Roboto", arial, sans-serif;
+  font-weight: 100;
+  color: #fff;
+  margin: 1em 0 0 1em;
+}
+.gi {
+  font-family: "Flexo-Medium", arial, sans-serif;
+  color: #fff;
+  font-size: 125%;
+}
+.ji {
+  font-family: "Flexo-Regular", arial, sans-serif;
+  color: #a4acaf;
+  font-size: 20px;
 }
 .pagination {
   height: 150px;

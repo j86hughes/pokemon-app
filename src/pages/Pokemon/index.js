@@ -29,6 +29,7 @@ const Pokemon = () => {
     const evoChainUrl = spec.evolution_chain.url;
     const evo = await fetch(evoChainUrl);
     const evoObj = await evo.json();
+    console.log(evoObj);
 
     const evoListNames = [];
     let evolves = evoObj.chain;
@@ -36,7 +37,6 @@ const Pokemon = () => {
       evoListNames.push(evolves.species.name);
       evolves = evolves.evolves_to[0];
     }
-    console.log(evoListNames);
 
     let evoListItems = await Promise.all(
       evoListNames.map(async (name) => {
@@ -44,10 +44,8 @@ const Pokemon = () => {
         return item;
       })
     );
-    console.log(evoListItems);
 
     item.evoListItems = evoListItems;
-    console.log(item.evoListItems);
 
     item.prevPokemon = await P.getPokemonByName(
       item.id === 1 ? 898 : item.id - 1
@@ -109,7 +107,10 @@ const Pokemon = () => {
             <h2>Evolutions</h2>
           </span>
           <div className="Jimmers">
-            <div className="GIJOE" onClick={() => navigate(`/${pokemon.evoListItems[0]?.name}`)}>
+            <div
+              className="GIJOE"
+              onClick={() => navigate(`/${pokemon.evoListItems[0]?.name}`)}
+            >
               <img
                 className="Jims"
                 height={200}
@@ -128,6 +129,7 @@ const Pokemon = () => {
                 {pokemon.evoListItems[0]?.types[1]?.type.name}
               </span>
             </div>
+
             <div
               className="GIJOE"
               onClick={() => navigate(`/${pokemon.evoListItems[1]?.name}`)}
@@ -141,7 +143,6 @@ const Pokemon = () => {
                     ?.front_default
                 }
               />
-
               <span>
                 <h3 className="gi">{pokemon.evoListItems[1]?.name}</h3>
                 <h3 className="ji">{pokemon.evoListItems[1]?.id}</h3>
@@ -151,7 +152,11 @@ const Pokemon = () => {
                 {pokemon.evoListItems[1]?.types[1]?.type.name}
               </span>
             </div>
-            <div className="GIJOE" onClick={() => navigate(`/${pokemon.evoListItems[2]?.name}`)}>
+
+            <div
+              className="GIJOE"
+              onClick={() => navigate(`/${pokemon.evoListItems[2]?.name}`)}
+            >
               <img
                 className="Jims"
                 height={200}

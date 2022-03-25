@@ -1,17 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
-import { formatName } from "../../utils";
+import { formatName, formatNumber } from "../../utils";
 
-const getPokemonNumber = (number) => {
-  if (number < 10) {
-    return `#00${number}`;
-  }
-  if (number < 100) {
-    return `#0${number}`;
-  }
-  return `#${number}`;
-};
 
 const PokemonCard = ({ pokemonItem }) => {
   let navigate = useNavigate();
@@ -36,7 +27,7 @@ const PokemonCard = ({ pokemonItem }) => {
         />
       )}
       <div className="copyContainer">
-        <div className="pokemonId">{getPokemonNumber(pokemonItem.id)}</div>
+        <div className="pokemonId">{formatNumber(pokemonItem.id)}</div>
         <div className="pokemonName">{name}</div>
         <div className="typesContainer">
           {typesArray.map((item) => {

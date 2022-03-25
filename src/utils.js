@@ -11,3 +11,13 @@ export const formatName = (name) => {
   }
   return name.split('-')[0];
 };
+
+export const formatNumber = (number) => {
+  if (number < 10) {
+    return `#00${number}`;
+  }
+  if (number < 100) {
+    return `#0${number}`;
+  }
+  return `#${number}`;
+};

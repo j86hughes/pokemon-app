@@ -105,7 +105,9 @@ const Pokemon = () => {
           <Stats pokemonItem={pokemon} />
         </div>
 
-        <Evolution pokemonItem={pokemon} />
+        {pokemon.evoListItems.length > 1 ? (
+          <Evolution pokemonItem={pokemon} />
+        ) : null}
       </div>
     </div>
   );

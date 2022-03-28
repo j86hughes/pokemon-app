@@ -4,7 +4,6 @@ import { formatName, formatNumber } from "../../utils";
 import Type from "./Type";
 import "./pokemon.css";
 
-
 const Evolution = ({ pokemonItem }) => {
   let navigate = useNavigate();
   const evolutions = pokemonItem?.evoListItems?.map((item) => (

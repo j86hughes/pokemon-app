@@ -10,11 +10,12 @@ import Image from "./Image";
 import Info from "./Info";
 import { useNavigate } from "react-router-dom";
 import { formatName, formatNumber } from "../../utils";
+import Evolution from "./Evolution";
 
 const P = new Pokedex();
 
 const Pokemon = () => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const { name } = useParams();
   const [pokemon, setPokemon] = useState();
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ const Pokemon = () => {
   const getPokemonDetails = async (name) => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
-    // console.log(item);
+    console.log(item);
     const spec = await P.getPokemonSpeciesByName(name);
     // console.log(spec);
 
@@ -104,90 +105,7 @@ const Pokemon = () => {
           <Stats pokemonItem={pokemon} />
         </div>
 
-        <div className="Jim">
-          <span className="Jimh2span">
-            <h2>Evolutions</h2>
-          </span>
-          <div className="Jimmers">
-            <div
-              className="GIJOE"
-              onClick={() => navigate(`/${pokemon.evoListItems[0]?.name}`)}
-            >
-              <img
-                className="Jims"
-                height={200}
-                width={200}
-                src={
-                  pokemon.evoListItems[0]?.sprites?.other["official-artwork"]
-                    ?.front_default
-                }
-              />
-              <span>
-                <h3 className="gi">
-                  {formatName(pokemon.evoListItems[0]?.name)}
-                </h3>
-                <h3 className="ji">
-                  {formatNumber(pokemon.evoListItems[0]?.id)}
-                </h3>
-              </span>
-              <Type
-                pokemonItem={pokemon.evoListItems[0]}
-              />
-            </div>
-
-            <div
-              className="GIJOE"
-              onClick={() => navigate(`/${pokemon.evoListItems[1]?.name}`)}
-            >
-              <img
-                className="Jims"
-                height={200}
-                width={200}
-                src={
-                  pokemon.evoListItems[1]?.sprites?.other["official-artwork"]
-                    ?.front_default
-                }
-              />
-              <span>
-                <h3 className="gi">
-                  {formatName(pokemon.evoListItems[1]?.name)}
-                </h3>
-                <h3 className="ji">
-                  {formatNumber(pokemon.evoListItems[1]?.id)}
-                </h3>
-              </span>
-              <Type
-                pokemonItem={pokemon.evoListItems[1]}
-              />
-            </div>
-
-            <div
-              className="GIJOE"
-              onClick={() => navigate(`/${pokemon.evoListItems[2]?.name}`)}
-            >
-              <img
-                className="Jims"
-                height={200}
-                width={200}
-                src={
-                  pokemon.evoListItems[2]?.sprites?.other["official-artwork"]
-                    ?.front_default
-                }
-              />
-              <span>
-                <h3 className="gi">
-                  {formatName(pokemon.evoListItems[2]?.name)}
-                </h3>
-                <h3 className="ji">
-                  {formatNumber(pokemon.evoListItems[2]?.id)}
-                </h3>
-              </span>
-              <Type
-                pokemonItem={pokemon.evoListItems[2]}
-              />
-            </div>
-          </div>
-        </div>
+        <Evolution pokemonItem={pokemon} />
       </div>
     </div>
   );

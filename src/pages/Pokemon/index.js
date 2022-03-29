@@ -3,19 +3,16 @@ import { useParams } from "react-router-dom";
 import Pokedex from "pokedex-promise-v2";
 import Pokeball from "../../components/Pokeball/Pokeball";
 import Heading from "./Heading";
-import Type from "./Type";
+import Type from "../../components/Type/Type"
 import Pagination from "./Pagination";
 import Stats from "./Stats";
 import Image from "./Image";
 import Info from "./Info";
-import { useNavigate } from "react-router-dom";
-import { formatName, formatNumber } from "../../utils";
 import Evolution from "./Evolution";
 
 const P = new Pokedex();
 
 const Pokemon = () => {
-  // let navigate = useNavigate();
   const { name } = useParams();
   const [pokemon, setPokemon] = useState();
   const [loading, setLoading] = useState(false);
@@ -25,7 +22,7 @@ const Pokemon = () => {
     const item = await P.getPokemonByName(name);
     console.log(item);
     const spec = await P.getPokemonSpeciesByName(name);
-    // console.log(spec);
+    console.log(spec);
 
     // await way with while loop:
     const evoChainUrl = spec.evolution_chain.url;
@@ -100,7 +97,7 @@ const Pokemon = () => {
               src={pokemon.sprites?.other?.["official-artwork"]?.front_default}
             />
             <Info pokemonItem={pokemon} />
-            <Type pokemonItem={pokemon} />
+            <Type pokemonItem={pokemon} isLarge={true} />
           </div>
           <Stats pokemonItem={pokemon} />
         </div>

@@ -21,6 +21,10 @@ const Pokemon = () => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
     const spec = await P.getPokemonSpeciesByName(name);
+    const cat = await fetch(item.species.url)
+    const catSpec = await cat.json()
+    item.category = catSpec.genera[7].genus
+  
 
     // await way with while loop:
     const evoChainUrl = spec.evolution_chain.url;

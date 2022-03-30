@@ -3,8 +3,6 @@ import "./Type.css";
 
 const Type = ({ pokemonItem, isLarge }) => {
   let typesArray = pokemonItem?.types;
-  console.log(typesArray);
-  console.log(pokemonItem);
   return (
     <div className={isLarge ? "type-container-large" : "type-container-small"}>
       {typesArray?.map((item) => {

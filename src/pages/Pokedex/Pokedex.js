@@ -139,12 +139,9 @@ const Home = () => {
         </select>
       </div>
       <div className="pokedexContainer">
-        {pokemon?.map(
-          (poke) => (
-            console.log(poke),
-            (<PokemonCard pokemonItem={poke} key={poke.name} />)
-          )
-        )}
+        {pokemon?.map((poke) => (
+          <PokemonCard pokemonItem={poke} key={poke.name} />
+        ))}
       </div>
     </div>
   );

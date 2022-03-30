@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Pokedex from "pokedex-promise-v2";
 import Pokeball from "../../components/Pokeball/Pokeball";
 import Heading from "./Heading";
-import Type from "../../components/Type/Type"
+import Type from "../../components/Type/Type";
 import Pagination from "./Pagination";
 import Stats from "./Stats";
 import Image from "./Image";
@@ -20,9 +20,7 @@ const Pokemon = () => {
   const getPokemonDetails = async (name) => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
-    console.log(item);
     const spec = await P.getPokemonSpeciesByName(name);
-    console.log(spec);
 
     // await way with while loop:
     const evoChainUrl = spec.evolution_chain.url;

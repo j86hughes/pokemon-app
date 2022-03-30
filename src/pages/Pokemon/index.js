@@ -24,6 +24,8 @@ const Pokemon = () => {
     const cat = await fetch(item.species.url)
     const catSpec = await cat.json()
     item.category = catSpec.genera[7].genus
+    console.log(spec)
+    console.log(item)
   
 
     // await way with while loop:

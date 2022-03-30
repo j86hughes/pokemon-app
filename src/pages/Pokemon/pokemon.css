@@ -413,8 +413,8 @@ h1 {
 .info-div {
   display: flex;
   box-sizing: border-box;
-  width: 35%;
-  height: 210px;
+  width: 40%;
+  height: 250px;
   border-radius: 4px;
   float: right;
   margin-right: 48px;
@@ -425,7 +425,11 @@ h1 {
   color: white;
 }
 .info-value {
-  color: black;
+  font-family: "Exo", arial, sans-serif;
+  color: #212121;
+  font-weight: 500;
+  font-size: 125%;
+  white-space: normal;
 }
 #info-abilities {
   text-transform: capitalize;

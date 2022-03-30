@@ -23,11 +23,11 @@ const Info = ({ pokemonItem }) => {
         <ul className="info-ul1">
           <li className="info-li">
             <span className="info-label">Height</span>
-            <span>{decimalize(height)} m</span>
+            <span className="info-value">{decimalize(height)} m</span>
           </li>
           <li className="info-li">
             <span className="info-label">Weight</span>
-            <span>{decimalize(weight)} kg</span>
+            <span className="info-value">{decimalize(weight)} kg</span>
           </li>
           <li className="info-li">
             <span className="info-label">Gender</span>
@@ -47,7 +47,7 @@ const Info = ({ pokemonItem }) => {
         <ul className="info-ul2">
           <li className="info-li">
             <span className="info-label">Category</span>
-            {category}
+            <span className="info-value">{category}</span>
           </li>
           <li className="info-li">
             <span className="info-label">Abilities</span>

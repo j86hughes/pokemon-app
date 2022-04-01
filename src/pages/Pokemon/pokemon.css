@@ -21,8 +21,6 @@ body {
 
 .pokemon-container {
   background-color: white;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr; */
   padding: 16px;
   color: "black";
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -173,7 +171,7 @@ h1 {
   border: 1px solid #36454f;
   background-image: radial-gradient(#36454f 50%, white 50%);
 }
-.Jim {
+.evolution-wrapper {
   color: black;
   display: flex;
   flex-direction: column;
@@ -191,38 +189,20 @@ h1 {
   background-clip: initial;
   background-color: transparent;
   border-radius: 5px;
-  /* overflow: hidden;
-  position: relative; */
 }
-/* .Jim:after {
-  content: "";
-  position:absolute;
-  margin:-20px;
-  width:40px;
-  height:40px;
-  transform:rotate(45deg);
-  background-color: red;
-  box-shadow: 0 0 0 250px #522d5b;
-} */
 
-.Jims {
+.evolution-img {
   box-shadow: 0 4px 4px 0px #212121;
   background-color: #616161;
   border: 5px solid #fff;
   border-radius: 50%;
 }
-.Jimmers {
+.evolution-content-div {
   display: flex;
   justify-content: space-around;
 }
 
-/* .Jimh2span {
-  font-family: "Roboto", arial, sans-serif;
-  font-weight: 100;
-  color: #fff;
-  margin: 1em 0 0 1em;
-} */
-.Jimh2 {
+.evolution-h2 {
   font-family: "Roboto", arial, sans-serif;
   font-weight: 500;
   color: #fff;
@@ -230,10 +210,10 @@ h1 {
   text-transform: none;
   font-size: 137.5%;
 }
-.GIJOE {
+.evolution-pokemon-div {
   cursor: pointer;
 }
-.gi {
+.evolution-h3-1 {
   font-family: "Exo", arial, sans-serif;
   color: #fff;
   font-size: 125%;
@@ -245,7 +225,7 @@ h1 {
   line-height: 125%;
   font-weight: 500;
 }
-.ji {
+.evolution-h3-2 {
   font-family: "Exo", arial, sans-serif;
   color: #a4acaf;
   font-size: 20px;
@@ -455,17 +435,17 @@ h1 {
   margin-bottom: 20px;
 }
 
-.version-blue{
-border-radius: 50%;
-background-color: blue;
-width: 10%;
-color: white;
+.version-blue {
+  border-radius: 50%;
+  background-color: blue;
+  width: 10%;
+  color: white;
 }
-.version-red{
-border-radius: 50%;  
-background-color: red;
-width: 10%;
-color: white;
+.version-red {
+  border-radius: 50%;
+  background-color: red;
+  width: 10%;
+  color: white;
 }
 
 @font-face {

@@ -7,30 +7,29 @@ import "./pokemon.css";
 const Evolution = ({ pokemonItem }) => {
   let navigate = useNavigate();
   const evolutions = pokemonItem?.evoListItems?.map((item) => (
-    <div className="GIJOE" onClick={() => navigate(`/${item.name}`)}>
+    <div className="evolution-pokemon-div" onClick={() => navigate(`/${item.name}`)}>
       <img
-        className="Jims"
+        className="evolution-img"
         height={200}
         width={200}
         src={item.sprites?.other["official-artwork"]?.front_default}
       />
 
-      <span className="h3span">
-        <h3 className="gi">{formatName(item.name)}</h3>
-        <h3 className="ji">{formatNumber(item.id)}</h3>
+      <span className="evolution-span-1">
+        <h3 className="evolution-h3-1">{formatName(item.name)}</h3>
+        <h3 className="evolution-h3-2">{formatNumber(item.id)}</h3>
       </span>
 
       <Type pokemonItem={item} isLarge={false} />
     </div>
   ));
-  // console.log(evolutions)
-  return (
-    <div className="Jim">
-      <span className="Jimh2span">
-        <h2 className="Jimh2">Evolutions</h2>
-      </span>
 
-      <div className="Jimmers">{evolutions}</div>
+  return (
+    <div className="evolution-wrapper">
+      <span className="evolution-span-2">
+        <h2 className="evolution-h2">Evolutions</h2>
+      </span>
+      <div className="evolution-content-div">{evolutions}</div>
     </div>
   );
 };

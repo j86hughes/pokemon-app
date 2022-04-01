@@ -9,7 +9,7 @@ import Stats from "./Stats";
 import Image from "./Image";
 import Info from "./Info";
 import Evolution from "./Evolution";
-import Versions from "./Versions"
+import Versions from "./Versions";
 
 const P = new Pokedex();
 
@@ -22,16 +22,14 @@ const Pokemon = () => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
     item.spec = await P.getPokemonSpeciesByName(name);
-    const cat = await fetch(item.species.url)
-    const catSpec = await cat.json()
-    item.category = catSpec.genera[7].genus
-    console.log(item)
-   
+    const cat = await fetch(item.species.url);
+    const catSpec = await cat.json();
+    item.category = catSpec?.genera[7]?.genus;
+
     // await way with while loop:
     const evoChainUrl = item.spec.evolution_chain.url;
     const evo = await fetch(evoChainUrl);
     const evoObj = await evo.json();
-    // console.log(evoObj);
 
     const evoListNames = [];
     let evolves = evoObj.chain;
@@ -88,8 +86,8 @@ const Pokemon = () => {
   if (!pokemon) {
     return null;
   }
-  let blue = pokemon?.spec?.flavor_text_entries[0]?.flavor_text
-  let red = pokemon?.spec?.flavor_text_entries[3]?.flavor_text
+  let blue = pokemon?.spec?.flavor_text_entries[0]?.flavor_text;
+  let red = pokemon?.spec?.flavor_text_entries[3]?.flavor_text;
 
   return (
     <div className="pokemon-page">

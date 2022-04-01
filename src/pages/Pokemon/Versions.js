@@ -2,21 +2,20 @@ import React from "react";
 import "./pokemon.css";
 import { useState } from "react";
 
-const Versions = ( {blue, red} ) => {
-  const [Text, setText] = useState(blue)
+const Versions = ({ blue, red }) => {
+  const [color, setColor] = useState(true);
 
   return (
     <div className="Test">
       <div>
-        <p className="blue-p">{Text}</p>
-        <p className="red-p">{setText}</p>
+        <p className="versions-p">{color ? blue : red} </p>
       </div>
       <div>
         Versions:{" "}
-        <button className="version-blue" onClick={() => setText(blue)}>
+        <button className="version-blue" onClick={() => setColor(true)}>
           Blue
         </button>
-        <button className="version-red" onClick={() => setText(red)}>
+        <button className="version-red" onClick={() => setColor(false)}>
           Red
         </button>
       </div>

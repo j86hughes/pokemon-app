@@ -88,6 +88,7 @@ const Pokemon = () => {
   }
   let blue = pokemon?.spec?.flavor_text_entries[0]?.flavor_text;
   let red = pokemon?.spec?.flavor_text_entries[3]?.flavor_text;
+  console.log(pokemon)
 
   return (
     <div className="pokemon-page">
@@ -106,9 +107,7 @@ const Pokemon = () => {
           <Stats pokemonItem={pokemon} />
         </div>
 
-        {pokemon.evoListItems.length > 1 ? (
-          <Evolution pokemonItem={pokemon} />
-        ) : null}
+        <Evolution pokemonItem={pokemon} />
       </div>
     </div>
   );

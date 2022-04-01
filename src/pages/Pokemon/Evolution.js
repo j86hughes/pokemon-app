@@ -7,7 +7,10 @@ import "./pokemon.css";
 const Evolution = ({ pokemonItem }) => {
   let navigate = useNavigate();
   const evolutions = pokemonItem?.evoListItems?.map((item) => (
-    <div className="evolution-pokemon-div" onClick={() => navigate(`/${item.name}`)}>
+    <div
+      className="evolution-pokemon-div"
+      onClick={() => navigate(`/${item.name}`)}
+    >
       <img
         className="evolution-img"
         height={200}
@@ -29,6 +32,9 @@ const Evolution = ({ pokemonItem }) => {
       <span className="evolution-span-2">
         <h2 className="evolution-h2">Evolutions</h2>
       </span>
+      {pokemonItem.evoListItems.length <= 1 ? (
+        <p className="evolution-no-evolution">This Pokémon does not evolve</p>
+      ) : null}
       <div className="evolution-content-div">{evolutions}</div>
     </div>
   );

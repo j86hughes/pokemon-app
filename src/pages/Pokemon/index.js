@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import Pokedex from "pokedex-promise-v2";
 import Pokeball from "../../components/Pokeball/Pokeball";
 import Heading from "./Heading";
-import Type from "./Type";
+import Type from "../../components/Type/Type";
 import Pagination from "./Pagination";
 import Stats from "./Stats";
 import Image from "./Image";
 import Info from "./Info";
+import Evolution from "./Evolution";
+import Versions from "./Versions";
 
 const P = new Pokedex();
 
@@ -19,6 +21,32 @@ const Pokemon = () => {
   const getPokemonDetails = async (name) => {
     setLoading(true);
     const item = await P.getPokemonByName(name);
+    item.spec = await P.getPokemonSpeciesByName(name);
+    const cat = await fetch(item.species.url);
+    const catSpec = await cat.json();
+    item.category = catSpec?.genera[7]?.genus;
+
+    // await way with while loop:
+    const evoChainUrl = item.spec.evolution_chain.url;
+    const evo = await fetch(evoChainUrl);
+    const evoObj = await evo.json();
+
+    const evoListNames = [];
+    let evolves = evoObj.chain;
+    while (evolves) {
+      evoListNames.push(evolves.species.name);
+      evolves = evolves.evolves_to[0];
+    }
+
+    let evoListItems = await Promise.all(
+      evoListNames.map(async (name) => {
+        const item = await P.getPokemonByName(name);
+        return item;
+      })
+    );
+
+    item.evoListItems = evoListItems;
+
     item.prevPokemon = await P.getPokemonByName(
       item.id === 1 ? 898 : item.id - 1
     );
@@ -58,6 +86,8 @@ const Pokemon = () => {
   if (!pokemon) {
     return null;
   }
+  let blue = pokemon?.spec?.flavor_text_entries?.[0]?.flavor_text;
+  let red = pokemon?.spec?.flavor_text_entries?.[3]?.flavor_text;
 
   return (
     <div className="pokemon-page">
@@ -69,11 +99,14 @@ const Pokemon = () => {
             <Image
               src={pokemon.sprites?.other?.["official-artwork"]?.front_default}
             />
+            <Versions blue={blue} red={red} />
             <Info pokemonItem={pokemon} />
-            <Type pokemonItem={pokemon} />
+            <Type pokemonItem={pokemon} isLarge={true} />
           </div>
           <Stats pokemonItem={pokemon} />
         </div>
+
+        <Evolution pokemonItem={pokemon} />
       </div>
     </div>
   );

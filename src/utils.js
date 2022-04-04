@@ -9,5 +9,15 @@ export const formatName = (name) => {
   if (name === "mr-mime") {
     return name.slice(0, 2) + ". " + name.slice(3);
   }
-  return name.split('-')[0];
+  return name?.split('-')[0];
+};
+
+export const formatNumber = (number) => {
+  if (number < 10) {
+    return `#00${number}`;
+  }
+  if (number < 100) {
+    return `#0${number}`;
+  }
+  return `#${number}`;
 };

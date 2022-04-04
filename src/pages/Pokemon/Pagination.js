@@ -5,8 +5,8 @@ import "./pokemon.css";
 
 const Pagination = ({ pokemonItem }) => {
   let navigate = useNavigate();
-  const previous = formatName(pokemonItem.prevPokemon.name);
-  const next = formatName(pokemonItem.nextPokemon.name)
+  const previous = formatName(pokemonItem?.prevPokemon?.name);
+  const next = formatName(pokemonItem?.nextPokemon?.name);
 
   return (
     <section className=" pagination section pokedex-pokemon-header">

@@ -21,8 +21,6 @@ body {
 
 .pokemon-container {
   background-color: white;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr; */
   padding: 16px;
   color: "black";
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -173,7 +171,69 @@ h1 {
   border: 1px solid #36454f;
   background-image: radial-gradient(#36454f 50%, white 50%);
 }
+.evolution-wrapper {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 400px;
+  text-transform: capitalize;
+  background: transparent
+    url("https://assets.pokemon.com/static2/_ui/img/chrome/body_gray_bg.png");
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/body_gray_bg.png");
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: transparent;
+  border-radius: 5px;
+}
 
+.evolution-img {
+  box-shadow: 0 4px 4px 0px #212121;
+  background-color: #616161;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+.evolution-content-div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.evolution-h2 {
+  font-family: "Roboto", arial, sans-serif;
+  font-weight: 500;
+  color: #fff;
+  margin: 1em 0 0 1em;
+  text-transform: none;
+  font-size: 137.5%;
+}
+.evolution-pokemon-div {
+  cursor: pointer;
+}
+.evolution-h3-1 {
+  font-family: "Exo", arial, sans-serif;
+  color: #fff;
+  font-size: 125%;
+  clear: both;
+  float: left;
+  margin: 0.75em 0;
+  text-align: center;
+  width: 100%;
+  line-height: 125%;
+  font-weight: 500;
+}
+.evolution-h3-2 {
+  font-family: "Exo", arial, sans-serif;
+  color: #a4acaf;
+  font-size: 20px;
+  font-weight: 100;
+}
+.evolution-no-evolution{
+  color: white;
+}
 .pagination {
   height: 150px;
   background-color: white;
@@ -224,14 +284,6 @@ h1 {
 }
 .col3 {
   grid-column: span 3;
-}
-
-.type-wrapper {
-  width: 40%;
-  float: right;
-}
-.type-div {
-  display: flex;
 }
 
 .main-contents {
@@ -344,8 +396,8 @@ h1 {
 .info-div {
   display: flex;
   box-sizing: border-box;
-  width: 35%;
-  height: 210px;
+  width: 40%;
+  height: 250px;
   border-radius: 4px;
   float: right;
   margin-right: 48px;
@@ -356,7 +408,11 @@ h1 {
   color: white;
 }
 .info-value {
-  color: black;
+  font-family: "Exo", arial, sans-serif;
+  color: #212121;
+  font-weight: 500;
+  font-size: 125%;
+  white-space: normal;
 }
 #info-abilities {
   text-transform: capitalize;
@@ -364,10 +420,10 @@ h1 {
 #info-gender {
   text-transform: capitalize;
 }
-.ul-div1 {
+.info-ul-div1 {
   width: 50%;
 }
-.ul-div2 {
+.info-ul-div2 {
   width: 50%;
 }
 .info-ul1 {
@@ -382,100 +438,16 @@ h1 {
   margin-bottom: 20px;
 }
 
-.types-card {
-  margin-right: 1%;
-  border-radius: 3px;
-  width: 40%;
-  text-align: center;
-}
-
-.grass {
-  background-color: #9bcc50;
-  color: #212121;
-}
-
-.poison {
-  background-color: #b97fc9;
+.version-blue {
+  border-radius: 50%;
+  background-color: blue;
+  width: 10%;
   color: white;
 }
-
-.fire {
-  background-color: #fd7d24;
-  color: white;
-}
-
-.water {
-  background-color: #4592c4;
-  color: white;
-}
-
-.flying {
-  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
-  color: #212121;
-}
-
-.bug {
-  background-color: #729f3f;
-  color: white;
-}
-
-.normal {
-  background-color: #a4acaf;
-  color: #212121;
-}
-
-.electric {
-  background-color: #eed535;
-  color: #212121;
-}
-
-.ground {
-  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
-  color: #212121;
-}
-
-.fairy {
-  background-color: #fdb9e9;
-  color: #212121;
-}
-
-.fighting {
-  background-color: #d56723;
-  color: white;
-}
-
-.psychic {
-  background-color: #f366b9;
-  color: white;
-}
-
-.rock {
-  background-color: #a38c21;
-  color: white;
-}
-
-.steel {
-  background-color: #9eb7b8;
-  color: #212121;
-}
-
-.ice {
-  background-color: #51c4e7;
-  color: #212121;
-}
-
-.ghost {
-  background-color: #7b62a3;
-  color: white;
-}
-
-.dragon {
-  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
-  color: white;
-}
-
-.dark {
-  background-color: #707070;
+.version-red {
+  border-radius: 50%;
+  background-color: red;
+  width: 10%;
   color: white;
 }
 

@@ -19,7 +19,7 @@ const Info = ({ pokemonItem }) => {
 
   return (
     <div className="info-div" height={200} width={400}>
-      <div className="ul-div1">
+      <div className="info-ul-div1">
         <ul className="info-ul1">
           <li className="info-li">
             <span className="info-label">Height</span>
@@ -43,7 +43,7 @@ const Info = ({ pokemonItem }) => {
           </li>
         </ul>
       </div>
-      <div className="ul-div2">
+      <div className="info-ul-div2">
         <ul className="info-ul2">
           <li className="info-li">
             <span className="info-label">Category</span>

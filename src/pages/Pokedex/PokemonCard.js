@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
-import { formatName, formatNumber } from "../../utils";
+import { formatName, formatNumber, getTypeArray } from "../../utils";
 import Type from "../../components/Type/Type";
 
 const PokemonCard = ({ pokemonItem }) => {
@@ -9,6 +9,7 @@ const PokemonCard = ({ pokemonItem }) => {
   const pokemonImage =
     pokemonItem.sprites?.other?.["official-artwork"]?.front_default;
   const name = formatName(pokemonItem.name);
+  const typesArray = getTypeArray(pokemonItem.types);
 
   return (
     <div
@@ -29,7 +30,7 @@ const PokemonCard = ({ pokemonItem }) => {
         <div className="pokemonId">{formatNumber(pokemonItem.id)}</div>
         <div className="pokemonName">{name}</div>
         <div className="cardTypeContainer">
-          <Type isLarge={false} pokemonItem={pokemonItem} />
+          <Type isLarge={false} typesArray={typesArray} />
         </div>
       </div>
     </div>

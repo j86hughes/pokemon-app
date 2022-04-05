@@ -1,10 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { formatName, formatNumber } from "../../utils";
+import { formatName, formatNumber, getTypeArray } from "../../utils";
 import Type from "../../components/Type/Type";
 import "./pokemon.css";
 
 const Evolution = ({ pokemonItem }) => {
+
+  const typesArray = getTypeArray(pokemonItem.types)
+
   let navigate = useNavigate();
   const evolutions = pokemonItem?.evoListItems?.map((item) => (
     <div
@@ -23,7 +26,7 @@ const Evolution = ({ pokemonItem }) => {
         <h3 className="evolution-h3-2">{formatNumber(item.id)}</h3>
       </span>
 
-      <Type pokemonItem={item} isLarge={false} />
+      <Type typesArray={typesArray} isLarge={false} />
     </div>
   ));
 

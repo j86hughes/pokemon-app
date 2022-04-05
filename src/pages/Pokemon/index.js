@@ -10,6 +10,7 @@ import Image from "./Image";
 import Info from "./Info";
 import Evolution from "./Evolution";
 import Versions from "./Versions";
+import Weakness from "./Weakness";
 
 const P = new Pokedex();
 
@@ -25,6 +26,19 @@ const Pokemon = () => {
     const cat = await fetch(item.species.url);
     const catSpec = await cat.json();
     item.category = catSpec?.genera[7]?.genus;
+
+    const typeInfo1 = await fetch(item.types[0].type.url);
+    const typeStuff1 = await typeInfo1.json();
+    item.damageStuff1 = typeStuff1.damage_relations;
+    if (item.types.length > 0) {
+      try {
+        const typeInfo2 = await fetch(item.types[1].type.url);
+        const typeStuff2 = await typeInfo2.json();
+        item.damageStuff2 = typeStuff2.damage_relations;
+      } catch (e) {
+        console.log(e);
+      }
+    }
 
     // await way with while loop:
     const evoChainUrl = item.spec.evolution_chain.url;
@@ -88,6 +102,9 @@ const Pokemon = () => {
   }
   let blue = pokemon?.spec?.flavor_text_entries?.[0]?.flavor_text;
   let red = pokemon?.spec?.flavor_text_entries?.[3]?.flavor_text;
+  let damageStuff1 = pokemon?.damageStuff1;
+  let damageStuff2 = pokemon?.damageStuff2;
+  console.log(damageStuff2)
 
   return (
     <div className="pokemon-page">
@@ -102,6 +119,7 @@ const Pokemon = () => {
             <Versions blue={blue} red={red} />
             <Info pokemonItem={pokemon} />
             <Type pokemonItem={pokemon} isLarge={true} />
+            <Weakness damageStuff1={damageStuff1} damageStuff2={damageStuff2} />
           </div>
           <Stats pokemonItem={pokemon} />
         </div>

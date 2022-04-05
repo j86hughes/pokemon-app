@@ -10,12 +10,8 @@ const Weakness = ({ damageStuff1, damageStuff2 }) => {
   ));
 
   const alpha = weakness1.concat(weakness2);
-
-//   const JimsSon = [];
-//   jim.forEach((item) => JimsSon.push(item.props.children[1]));
-
   const beta = [...new Set(alpha)];
-//   console.log(jimmy);
+
   let weakness =  beta.map((item) => (
     <span className={item}> {item}</span>
   ));

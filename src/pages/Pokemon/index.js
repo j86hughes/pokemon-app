@@ -100,11 +100,11 @@ const Pokemon = () => {
   if (!pokemon) {
     return null;
   }
+
   let blue = pokemon?.spec?.flavor_text_entries?.[0]?.flavor_text;
   let red = pokemon?.spec?.flavor_text_entries?.[3]?.flavor_text;
   let damageStuff1 = pokemon?.damageStuff1;
   let damageStuff2 = pokemon?.damageStuff2;
-  console.log(damageStuff2)
 
   return (
     <div className="pokemon-page">

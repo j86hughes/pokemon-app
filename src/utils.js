@@ -21,3 +21,8 @@ export const formatNumber = (number) => {
   }
   return `#${number}`;
 };
+
+export const getTypeArray = (typesArray) => {
+  const typesStringsArray = typesArray.map((item) => item.type.name)
+  return typesStringsArray
+}

@@ -437,7 +437,9 @@ h1 {
   flex-direction: column;
   margin-bottom: 20px;
 }
-
+.version-span{
+  margin-left: 9px;
+}
 .version-blue {
   border-radius: 50%;
   background-color: blue;

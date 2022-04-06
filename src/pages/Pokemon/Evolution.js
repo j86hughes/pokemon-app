@@ -2,7 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { formatName, formatNumber, getTypeArray } from "../../utils";
 import Type from "../../components/Type/Type";
+// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import "./pokemon.css";
+// import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 
 const Evolution = ({ pokemonItem }) => {
 
@@ -20,6 +22,7 @@ const Evolution = ({ pokemonItem }) => {
         width={200}
         src={item.sprites?.other["official-artwork"]?.front_default}
       />
+      {/* {indexOf(item) === (evolutions.length - 1) ? <ArrowForwardIos></ArrowForwardIos> : null} */}
 
       <span className="evolution-span-1">
         <h3 className="evolution-h3-1">{formatName(item.name)}</h3>

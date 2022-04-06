@@ -1,6 +1,7 @@
 import React from "react";
 import "./pokemon.css";
 import { useState } from "react";
+import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 
 const Versions = ({ blue, red }) => {
   const [showBlue, setShowBlue] = useState(true);
@@ -12,12 +13,16 @@ const Versions = ({ blue, red }) => {
       </div>
       <div>
         Versions:{" "}
-        <button className="version-blue" onClick={() => setShowBlue(true)}>
+        <span className="verion-span">
+        <CatchingPokemonIcon className="version-blue" onClick={() => setShowBlue(true)}>
           Blue
-        </button>
-        <button className="version-red" onClick={() => setShowBlue(false)}>
+        </CatchingPokemonIcon>
+        </span>
+        <span className="version-span">
+        <CatchingPokemonIcon className="version-red" onClick={() => setShowBlue(false)}>
           Red
-        </button>
+        </CatchingPokemonIcon>
+        </span>
       </div>
     </div>
   );

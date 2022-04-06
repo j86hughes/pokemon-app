@@ -1,4 +1,6 @@
 import React from "react";
+import MaleIcon from '@mui/icons-material/Male';
+import FemaleIcon from '@mui/icons-material/Female';
 import "./pokemon.css";
 
 const Info = ({ pokemonItem }) => {
@@ -32,10 +34,12 @@ const Info = ({ pokemonItem }) => {
           <li className="info-li">
             <span className="info-label">Gender</span>
             {pokemonItem.canBeMale ? (
-              <span className="info-value">Male</span>
+              <span className="info-value">    <MaleIcon className="malePokemon"></MaleIcon>
+              </span>
             ) : null}
             {pokemonItem.canBeFemale ? (
-              <span className="info-value">Female</span>
+              <span className="info-value">    <FemaleIcon className="femalePokemon"></FemaleIcon>
+              </span>
             ) : null}
             {pokemonItem.unknown ? (
               <span className="info-value">Unknown</span>

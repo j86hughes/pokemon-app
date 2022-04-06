@@ -13,7 +13,7 @@ const Versions = ({ blue, red }) => {
       </div>
       <div>
         Versions:{" "}
-        <span className="verion-span">
+        <span className="version-span">
         <CatchingPokemonIcon className="version-blue" onClick={() => setShowBlue(true)}>
           Blue
         </CatchingPokemonIcon>

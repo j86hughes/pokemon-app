@@ -2,13 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { formatName, formatNumber, getTypeArray } from "../../utils";
 import Type from "../../components/Type/Type";
-// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import "./pokemon.css";
-// import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 
 const Evolution = ({ pokemonItem }) => {
-
-  const typesArray = getTypeArray(pokemonItem.types)
+  const typesArray = getTypeArray(pokemonItem.types);
 
   let navigate = useNavigate();
   const evolutions = pokemonItem?.evoListItems?.map((item) => (
@@ -22,13 +19,11 @@ const Evolution = ({ pokemonItem }) => {
         width={200}
         src={item.sprites?.other["official-artwork"]?.front_default}
       />
-      {/* {indexOf(item) === (evolutions.length - 1) ? <ArrowForwardIos></ArrowForwardIos> : null} */}
 
       <span className="evolution-span-1">
         <h3 className="evolution-h3-1">{formatName(item.name)}</h3>
         <h3 className="evolution-h3-2">{formatNumber(item.id)}</h3>
       </span>
-
       <Type typesArray={typesArray} isLarge={false} />
     </div>
   ));
@@ -42,6 +37,7 @@ const Evolution = ({ pokemonItem }) => {
         <p className="evolution-no-evolution">This Pokémon does not evolve</p>
       ) : null}
       <div className="evolution-content-div">{evolutions}</div>
+      {console.log(evolutions)}
     </div>
   );
 };

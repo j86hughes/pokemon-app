@@ -37,7 +37,6 @@ const Evolution = ({ pokemonItem }) => {
         <p className="evolution-no-evolution">This Pokémon does not evolve</p>
       ) : null}
       <div className="evolution-content-div">{evolutions}</div>
-      {console.log(evolutions)}
     </div>
   );
 };

@@ -1,12 +1,14 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { formatName } from "../../utils";
+import { useNavigate } from "react-router-dom";
+import { formatName, formatNumber } from "../../utils";
 import "./pokemon.css";
 
 const Pagination = ({ pokemonItem }) => {
   let navigate = useNavigate();
   const previous = formatName(pokemonItem?.prevPokemon?.name);
   const next = formatName(pokemonItem?.nextPokemon?.name);
+  const prevId = formatNumber(pokemonItem.prevPokemon.id)
+  const nextId = formatNumber(pokemonItem.nextPokemon.id)
 
   return (
     <section className=" pagination section pokedex-pokemon-header">
@@ -17,7 +19,7 @@ const Pagination = ({ pokemonItem }) => {
         >
           <div className="left">
             <span className="icon icon_arrow_sm_left" />
-            <span className="pokemon-number">{pokemonItem.prevPokemon.id}</span>
+            <span className="pokemon-number">{prevId}</span>
             <span className="pokemon-name">{previous}</span>
           </div>
         </div>
@@ -28,7 +30,7 @@ const Pagination = ({ pokemonItem }) => {
           <div className="right">
             <span className="icon icon_arrow_sm_right" />
             <span className="pokemon-name">{next}</span>
-            <span className="pokemon-number">{pokemonItem.nextPokemon.id}</span>
+            <span className="pokemon-number">{nextId}</span>
           </div>
         </div>
       </div>

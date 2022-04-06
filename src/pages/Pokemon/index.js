@@ -12,6 +12,7 @@ import Evolution from "./Evolution";
 import Versions from "./Versions";
 import Weakness from "./Weakness";
 import { getTypeArray } from "../../utils";
+import Explore from "./Explore"
 
 const P = new Pokedex();
 
@@ -129,6 +130,7 @@ const Pokemon = () => {
 
         <Evolution pokemonItem={pokemon} />
       </div>
+      <Explore />
     </div>
   );
 };

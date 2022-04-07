@@ -32,6 +32,9 @@
   padding-left: 3%;
   text-transform: capitalize;
 }
+.cardTypeContainer{
+  width: 100%;
+}
 
 .pokemonImage {
   width: 100%;

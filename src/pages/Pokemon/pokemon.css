@@ -437,7 +437,9 @@ h1 {
   flex-direction: column;
   margin-bottom: 20px;
 }
-
+.version-span {
+  margin-left: 9px;
+}
 .version-blue {
   border-radius: 50%;
   background-color: blue;
@@ -463,7 +465,24 @@ h1 {
   text-align: center;
   text-transform: capitalize;
 }
-
+.explore-div {
+  background-color: #ee6b2f;
+  color: #fff;
+  border-radius: 5px;
+  width: 25%;
+  cursor: pointer;
+  height: 50px;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+.explore-link {
+  font-family: "Exo", arial, sans-serif;
+  font-weight: 500;
+  font-size: 105%;
+}
 
 @font-face {
   font-family: "Pokemon";

@@ -5,8 +5,7 @@ import Type from "../../components/Type/Type";
 import "./pokemon.css";
 
 const Evolution = ({ pokemonItem }) => {
-
-  const typesArray = getTypeArray(pokemonItem.types)
+  const typesArray = getTypeArray(pokemonItem.types);
 
   let navigate = useNavigate();
   const evolutions = pokemonItem?.evoListItems?.map((item) => (
@@ -25,7 +24,6 @@ const Evolution = ({ pokemonItem }) => {
         <h3 className="evolution-h3-1">{formatName(item.name)}</h3>
         <h3 className="evolution-h3-2">{formatNumber(item.id)}</h3>
       </span>
-
       <Type typesArray={typesArray} isLarge={false} />
     </div>
   ));

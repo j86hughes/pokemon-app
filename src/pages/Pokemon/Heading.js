@@ -1,5 +1,5 @@
 import React from "react";
-import "./pokemon.css";
+import "./Pokemon.css";
 import { formatName, formatNumber } from "../../utils";
 
 const Heading = ({ pokemonItem }) => {

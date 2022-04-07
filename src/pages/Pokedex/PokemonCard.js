@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./home.css";
+import "./PokemonCard.css";
 import { formatName, formatNumber, getTypeArray } from "../../utils";
 import Type from "../../components/Type/Type";
 
@@ -20,8 +20,6 @@ const PokemonCard = ({ pokemonItem }) => {
       {pokemonImage && (
         <img
           className="pokemonImage"
-          height={200}
-          width={200}
           alt={pokemonItem.name}
           src={pokemonImage}
         />

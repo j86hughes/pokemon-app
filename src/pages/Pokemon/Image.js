@@ -1,5 +1,5 @@
 import React from "react";
-import "./pokemon.css";
+import "./Pokemon.css";
 
 const Image = ({ src, name }) => {
   return (

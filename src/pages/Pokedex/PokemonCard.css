@@ -1,0 +1,84 @@
+.pokemonCardContainer {
+  margin: 16px;
+}
+.pokemonCardContainer:hover {
+  animation-name: bounce;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.copyContainer {
+  display: flex;
+  width: auto;
+  background-color: white;
+  flex: 1;
+  flex-direction: column;
+  text-align: left;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 16px;
+  padding-left: 3%;
+  text-transform: capitalize;
+}
+
+.pokemonImage {
+  width: 100%;
+  height: auto;
+  background-color: #F2F2F2;
+  border-radius: 3%;
+  cursor: pointer;
+  height: 200px;
+  width: 200px;
+}
+
+.pokemonId {
+  font-family: "Exo";
+  color: #919191;
+  font-weight: 600;
+  font-size: 80%;
+  margin-top: 2%;
+}
+
+.pokemonName {
+  font-family: "Exo";
+  font-size: 22px;
+  margin-top: 5%;
+  font-weight: 500;
+  color: #313131;
+}
+
+.typesContainer {
+  display: flex;
+  flex: 1;
+  margin-top: 5%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 11px;
+}
+
+.typesCard {
+  font-family: "Exo";
+  font-size: 11px;
+  margin-right: 4px;
+  border-radius: 3px;
+  width: 38px;
+  max-width: 110px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+}

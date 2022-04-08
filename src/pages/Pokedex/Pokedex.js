@@ -3,6 +3,7 @@ import Pokedex from "pokedex-promise-v2";
 import PokemonCard from "./PokemonCard";
 import "./Pokedex.css";
 import Pokeball from "../../components/Pokeball/Pokeball";
+import Search from "./Search/Search";
 
 const P = new Pokedex();
 
@@ -123,6 +124,7 @@ const Home = () => {
       <div className="titleContainer">
       <h1 className="titleH1">Pokédex</h1>
       </div>
+      <Search />
       <div className="filtersContainer">
       <button
         className="randomizer"

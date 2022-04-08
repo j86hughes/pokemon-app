@@ -4,21 +4,28 @@ Nav {
   height: 87px;
   width: 100%;
   box-sizing: border-box;
+  font-family: "Roboto",arial,sans-serif;
+  font-weight: normal;
+  font-size: 87.5%;
+  color: #464646
 }
 
 @media (min-width: 0px) {
   Nav {
     display: none;
+    width: 95.3%;
   }
 }
 @media (min-width: 600px) {
   Nav {
     display: none;
+    width: 96.6%;
   }
 }
 @media (min-width: 900px) {
   Nav {
-    display: flex;
+    display: block;
+    width: 100%;
   }
 }
 
@@ -29,7 +36,7 @@ Nav {
 #tv-tab,
 #play-tab,
 #news-tab {
-  border-bottom: 3px solid;
+  border-bottom: 5px solid;
 }
 
 .content-wrapper {

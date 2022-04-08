@@ -10,6 +10,13 @@
   background-color: white;
   width: 100%;
 }
+
+@media (min-width: 900px) {
+  .titleContainer {
+    padding-left: 16px;
+  }
+}
+
 .titleH1 {
   font-family: Exo;
   font-weight: 100;
@@ -20,7 +27,32 @@
   padding: 8px;
   background-color: white;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  width: 100%
+}
+
+@media (min-width: 0px) {
+  .pokedexResultsContainer {
+    width: 95.3%;
+  }
+}
+
+@media (min-width: 600px) {
+  .pokedexResultsContainer {
+    grid-template-columns: 1fr 1fr;
+    width: 96.6%;
+  }
+}
+@media (min-width: 900px) {
+  .pokedexResultsContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .pokedexResultsContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .filtersContainer {
@@ -31,6 +63,14 @@
   width: 100%;
   background-color: white;
   padding-bottom: 28px;
+}
+
+@media (min-width: 900px) {
+  .filtersContainer {
+    padding: 8px;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
 
 .randomizer {
@@ -47,8 +87,20 @@
   transition: 100ms ease-in;
   margin-bottom: 16px;
 }
+@media (min-width: 900px) {
+  .randomizer{
+  width: 34.7%;
+  margin-bottom: 0;
+  }
+}
+
 .selectWrapper {
   width: 35%;
+}
+@media (min-width: 900px) {
+  .selectWrapper{
+  width: 40%;
+  }
 }
 
 #sortOrder {

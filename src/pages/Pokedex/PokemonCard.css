@@ -1,6 +1,22 @@
 .pokemonCardContainer {
   margin: 16px;
 }
+@media (min-width: 0px) {
+  .pokemonCardContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (min-width: 600px) {
+  .pokemonCardContainer {
+    width: 88%;
+  }
+}
+@media (min-width: 900px) {
+  .pokemonCardContainer {
+    display: flex;
+  }
+}
 .pokemonCardContainer:hover {
   animation-name: bounce;
   animation-duration: 0.2s;
@@ -32,14 +48,14 @@
   padding-left: 3%;
   text-transform: capitalize;
 }
-.cardTypeContainer{
+.cardTypeContainer {
   width: 100%;
 }
 
 .pokemonImage {
   width: 100%;
   height: auto;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   border-radius: 3%;
   cursor: pointer;
   height: 200px;

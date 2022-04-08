@@ -10,7 +10,6 @@
 }
 
 .types-card-small {
-  display: flex;
   border-radius: 3px;
   line-height: 18px;
   max-width: 110px;
@@ -23,7 +22,6 @@
   width: 100%;
 }
 .types-card-large {
-  display: flex;
   text-transform: capitalize;
   margin-right: 1%;
   text-align: center;

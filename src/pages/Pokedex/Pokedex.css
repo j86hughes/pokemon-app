@@ -51,7 +51,7 @@
   width: 35%;
 }
 
-.sortOrder {
+#sortOrder {
   background-color: #313131;
   font-family: Exo;
   color: white;

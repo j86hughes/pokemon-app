@@ -9,10 +9,22 @@ const Nav = () => {
           <a className="nav-link">Home</a>
         </div>
         <div className="nav-div" id="pokedex-tab">
-          <a className="nav-link">Pokedex</a>
+          <a className="nav-link">Pokédex</a>
         </div>
-        <div className="nav-div" id="about-tab">
-          <a className="nav-link">About</a>
+        <div className="nav-div" id="games-tab">
+          <a className="nav-link">Video Games & Apps</a>
+        </div>
+        <div className="nav-div" id="trading-tab">
+          <a className="nav-link">Trading Card Game</a>
+        </div>
+        <div className="nav-div" id="tv-tab">
+          <a className="nav-link">Pokémon TV</a>
+        </div>
+        <div className="nav-div" id="play-tab">
+          <a className="nav-link">Play! Pokémon Events</a>
+        </div>
+        <div className="nav-div" id="news-tab">
+          <a className="nav-link">News</a>
         </div>
       </div>
     </nav>

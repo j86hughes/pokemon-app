@@ -4,41 +4,94 @@ Nav {
   height: 87px;
   width: 100%;
   box-sizing: border-box;
-  /* grid-column: span 3; */
 }
+
+@media (min-width: 0px) {
+  Nav {
+    display: none;
+  }
+}
+@media (min-width: 600px) {
+  Nav {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  Nav {
+    display: flex;
+  }
+}
+
 #home-tab,
 #pokedex-tab,
-#about-tab {
+#games-tab,
+#trading-tab,
+#tv-tab,
+#play-tab,
+#news-tab {
   border-bottom: 3px solid;
 }
 
 .content-wrapper {
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
 }
 
 #home-tab {
-  border-color: red;
+  border-color: #919191;
   transition: 3ms ease;
   cursor: pointer;
 }
 #home-tab:hover {
-  background-color: red;
+  background-color: #919191;
 }
 #pokedex-tab {
-  border-color: yellow;
+  border-color: #e3350d;
   transition: 3ms ease;
   cursor: pointer;
 }
 #pokedex-tab:hover {
-  background-color: yellow;
+  background-color: #e3350d;
 }
-#about-tab {
-  border-color: grey;
+#games-tab {
+  border-color: #ee6b2f;
   transition: 3ms ease;
   cursor: pointer;
 }
-#about-tab:hover {
-  background-color: grey;
+#games-tab:hover {
+  background-color: #ee6b2f;
+}
+#trading-tab {
+  border-color: #e6bc2f;
+  transition: 3ms ease;
+  cursor: pointer;
+}
+#trading-tab:hover {
+  background-color: #e6bc2f;
+}
+#tv-tab {
+  border-color: #4dad5b;
+  transition: 3ms ease;
+  cursor: pointer;
+}
+#tv-tab:hover {
+  background-color: #4dad5b;
+}
+#play-tab {
+  border-color: #30a7d7;
+  transition: 3ms ease;
+  cursor: pointer;
+}
+#play-tab:hover {
+  background-color: #30a7d7;
+}
+#news-tab {
+  border-color: #1b53ba;
+  transition: 3ms ease;
+  cursor: pointer;
+}
+#news-tab:hover {
+  background-color: #1b53ba;
 }

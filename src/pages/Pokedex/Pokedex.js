@@ -134,8 +134,8 @@ const Home = () => {
       </button>
       <div className="selectWrapper">
         <select 
-        // id="sortOrder" 
-        className="sortOrder" onChange={handleSelectChange}>
+        id="sortOrder" 
+        onChange={handleSelectChange}>
           <option value="noSort">Sort results by...</option>
           <option value="numberAsc">Lowest Number (First)</option>
           <option value="numberDesc">Highest Number (First)</option>

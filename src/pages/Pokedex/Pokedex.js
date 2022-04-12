@@ -20,7 +20,6 @@ const Home = () => {
 
   const getRandomPokemon = async () => {
     setLoading(true);
-
     const pokemonList = await P.getPokemonsList({
       limit: totalPokemon,
       offset: 0,
@@ -122,29 +121,27 @@ const Home = () => {
   return (
     <div className="pokedexContainer">
       <div className="titleContainer">
-      <h1 className="titleH1">Pokédex</h1>
+        <h1 className="titleH1">Pokédex</h1>
       </div>
       <Search />
       <div className="filtersContainer">
-      <button
-        className="randomizer"
-        type="button"
-        alt="Surprise me!"
-        onClick={getRandomPokemon}
-      >
-        Surprise Me!
-      </button>
-      <div className="selectWrapper">
-        <select 
-        id="sortOrder" 
-        onChange={handleSelectChange}>
-          <option value="noSort">Sort results by...</option>
-          <option value="numberAsc">Lowest Number (First)</option>
-          <option value="numberDesc">Highest Number (First)</option>
-          <option value="nameAsc">A-Z</option>
-          <option value="nameDesc">Z-A</option>
-        </select>
-      </div>
+        <button
+          className="randomizer"
+          type="button"
+          alt="Surprise me!"
+          onClick={getRandomPokemon}
+        >
+          Surprise Me!
+        </button>
+        <div className="selectWrapper">
+          <select id="sortOrder" onChange={handleSelectChange}>
+            <option value="noSort">Sort results by...</option>
+            <option value="numberAsc">Lowest Number (First)</option>
+            <option value="numberDesc">Highest Number (First)</option>
+            <option value="nameAsc">A-Z</option>
+            <option value="nameDesc">Z-A</option>
+          </select>
+        </div>
       </div>
       <div className="pokedexResultsContainer">
         {pokemon?.map((poke) => (

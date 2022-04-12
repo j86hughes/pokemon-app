@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { formatName, formatNumber } from "../../utils";
-import "./Pokemon.css";
+import "./pokemon.css";
 
 const Pagination = ({ pokemonItem }) => {
   let navigate = useNavigate();

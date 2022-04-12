@@ -1,178 +1,179 @@
 .searchDiv {
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  display: block;
-  clear: both;
-  background: #616161;
-  border-color: #212121;
-  border-style: solid;
-  border-width: 1px 0 0 0;
-  overflow: hidden;
-  width: 100%;
-  height: 200px;
-}
-
-@media (min-width: 900px) {
-  .searchDiv {
-    padding-left: 16px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    display: block;
+    clear: both;
+    background: #616161;
+    border-color: #212121;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
   }
-}
-
-.search-mini-div {
-  background: #313131;
-}
-
-.push-1 {
-  margin-left: 7.2525%;
-}
-
-.column-6,
-.push-1 {
-  float: left;
-  margin-right: -100%;
-  width: 41.96%;
-}
-
-.filter-text-search {
-  margin-top: 2em;
-  position: relative;
-}
-
-.nameornumber {
-  font-family: "Flexo-Regular", arial, sans-serif;
-  float: left;
-  font-size: 167.5%;
-  text-transform: none;
-  width: 100%;
-}
-
-.twitter-typeahead {
-  position: relative;
-  display: inline-block;
-  margin-right: -100%;
-  width: 72.5425%;
-  border: 3px solid #616161;
-  clear: both;
-  margin-top: 0.325em;
-  background-color: #fff;
-}
-
-.input1 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border-color: transparent;
-  box-shadow: none;
-  opacity: 1;
-  background: none 0% 0% / auto repeat scroll padding-box border-box
-    rgb(255, 255, 255);
-}
-.input2 {
-  position: relative;
-  vertical-align: top;
-  background-color: transparent;
-  background-color: transparent;
-  border: none;
-  color: #313131;
-  margin: 0;
-  width: 100%;
-  float: left;
-  margin-right: -100%;
-  width: 72.5425%;
-  border: 3px solid #616161;
-  clear: both;
-  color: #313131;
-  margin-top: 0.325em;
-  background-color: #fff;
-  border-radius: 5px;
-}
-
-.button-search {
-  border-radius: 5px;
-  font-size: 105%;
-  line-height: 125%;
-  margin: 1.5625%;
-  padding: 0.75em 1.25em 0.675em;
-  vertical-align: middle;
-  text-transform: none;
-  appearance: none;
-  border: none;
-  text-align: center;
-  cursor: pointer;
-  font-family: "Roboto", arial, sans-serif;
-  background-color: #ee6b2f;
-  float: left;
-  margin-right: -100%;
-  width: 12.95%;
-  margin-left: 79.8025%;
-  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/forms/input-search-bg.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #fff;
-  clear: none;
-  text-indent: -9999px;
-  height: 48px;
-  position: relative;
-  top: 2px;
-}
-
-.subtitle {
-  font-family: "Roboto", arial, sans-serif;
-  font-size: 100%;
-  font-weight: 500;
-  line-height: 125%;
-  margin: 0.5em 0;
-  color: #fff;
-  clear: both;
-  float: left;
-  display: block;
-  margin-top: 0;
-  margin-bottom: 1.5em;
-}
-
-div.column-6.push-7 {
-  font-family: "Flexo-Regular", arial, sans-serif;
-  font-size: 16px;
-  color: #fff;
-  float: left;
-  margin-right: -100%;
-  width: 41.96%;
-  margin-left: 50.7825%;
-}
-
-div.content-block.content-block-full {
-  font-family: "Flexo-Regular", arial, sans-serif;
-  font-size: 16px;
-  color: #fff;
-  float: left;
-  position: relative;
-  clear: both;
-  display: block;
-  width: 100%;
-  margin: 2em 0 0.5em 0;
-}
-
-div.banner.banner-green {
-  font-family: "Flexo-Regular", arial, sans-serif;
-  font-size: 16px;
-  color: #fff;
-  transition: background-color 0.1s linear;
-  background-color: #4dad5b;
-  border-radius: 5px;
-  float: left;
-  padding-bottom: 0.5em;
-  width: 100%;
-}
-
-.searchH2 {
-  color: #fff;
-  margin: 0.75em 0.5em 0 1em;
-  line-height: 125%;
-  text-transform: none;
-  font-family: "Flexo-Medium", arial, sans-serif;
-  margin-bottom: 0.75em;
-  font-size: 125%;
-}
+  
+  @media (min-width: 900px) {
+    .searchDiv {
+      padding-left: 16px;
+    }
+  }
+  
+  .search-mini-div {
+    background: #313131;
+  }
+  
+  .push-1 {
+    margin-left: 7.2525%;
+  }
+  
+  .column-6,
+  .push-1 {
+    float: left;
+    margin-right: -100%;
+    width: 41.96%;
+  }
+  
+  .filter-text-search {
+    margin-top: 2em;
+    position: relative;
+  }
+  
+  .nameornumber {
+    font-family: "Flexo-Regular", arial, sans-serif;
+    float: left;
+    font-size: 167.5%;
+    text-transform: none;
+    width: 100%;
+  }
+  
+  .twitter-typeahead {
+    position: relative;
+    display: inline-block;
+    margin-right: -100%;
+    width: 72.5425%;
+    border: 3px solid #616161;
+    clear: both;
+    margin-top: 0.325em;
+    background-color: #fff;
+  }
+  
+  .input1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-color: transparent;
+    box-shadow: none;
+    opacity: 1;
+    background: none 0% 0% / auto repeat scroll padding-box border-box
+      rgb(255, 255, 255);
+  }
+  .input2 {
+    position: relative;
+    vertical-align: top;
+    background-color: transparent;
+    background-color: transparent;
+    border: none;
+    color: #313131;
+    margin: 0;
+    width: 100%;
+    float: left;
+    margin-right: -100%;
+    width: 72.5425%;
+    border: 3px solid #616161;
+    clear: both;
+    color: #313131;
+    margin-top: 0.325em;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  
+  .button-search {
+    border-radius: 5px;
+    font-size: 105%;
+    line-height: 125%;
+    margin: 1.5625%;
+    padding: 0.75em 1.25em 0.675em;
+    vertical-align: middle;
+    text-transform: none;
+    appearance: none;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Roboto", arial, sans-serif;
+    background-color: #ee6b2f;
+    float: left;
+    margin-right: -100%;
+    width: 12.95%;
+    margin-left: 79.8025%;
+    background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/forms/input-search-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    clear: none;
+    text-indent: -9999px;
+    height: 48px;
+    position: relative;
+    top: 2px;
+  }
+  
+  .subtitle {
+    font-family: "Roboto", arial, sans-serif;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 125%;
+    margin: 0.5em 0;
+    color: #fff;
+    clear: both;
+    float: left;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+  }
+  
+  div.column-6.push-7 {
+    font-family: "Flexo-Regular", arial, sans-serif;
+    font-size: 16px;
+    color: #fff;
+    float: left;
+    margin-right: -100%;
+    width: 41.96%;
+    margin-left: 50.7825%;
+  }
+  
+  div.content-block.content-block-full {
+    font-family: "Flexo-Regular", arial, sans-serif;
+    font-size: 16px;
+    color: #fff;
+    float: left;
+    position: relative;
+    clear: both;
+    display: block;
+    width: 100%;
+    margin: 2em 0 0.5em 0;
+  }
+  
+  div.banner.banner-green {
+    font-family: "Flexo-Regular", arial, sans-serif;
+    font-size: 16px;
+    color: #fff;
+    transition: background-color 0.1s linear;
+    background-color: #4dad5b;
+    border-radius: 5px;
+    float: left;
+    padding-bottom: 0.5em;
+    width: 100%;
+  }
+  
+  .searchH2 {
+    color: #fff;
+    margin: 0.75em 0.5em 0 1em;
+    line-height: 125%;
+    text-transform: none;
+    font-family: "Flexo-Medium", arial, sans-serif;
+    margin-bottom: 0.75em;
+    font-size: 125%;
+  }
+  

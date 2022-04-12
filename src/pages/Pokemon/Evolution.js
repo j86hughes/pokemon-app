@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { formatName, formatNumber, getTypeArray } from "../../utils";
 import Type from "../../components/Type/Type";
-import "./Pokemon.css";
+import "./pokemon.css";
 
 const Evolution = ({ pokemonItem }) => {
   const typesArray = getTypeArray(pokemonItem.types);

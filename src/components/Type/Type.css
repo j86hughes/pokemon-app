@@ -1,26 +1,27 @@
-.type-container {
+.type-container-small {
   display: flex;
   width: 100%;
+  text-align: center;
 }
 .type-container-large {
   display: flex;
   width: 100%;
+  text-align: center;
 }
 
 .types-card-small {
-  display: flex;
   border-radius: 3px;
   line-height: 18px;
   max-width: 110px;
   margin: 0 1.5625% 0 0;
   width: 38.4375%;
   float: left;
-  text-transform: none;
+  text-transform: capitalize;
   font-size: 11px;
   text-align: center;
+  width: 100%;
 }
 .types-card-large {
-  display: flex;
   text-transform: capitalize;
   margin-right: 1%;
   text-align: center;

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Pokedex from "pokedex-promise-v2";
 import PokemonCard from "./PokemonCard";
-import "./home.css";
+import "./Pokedex.css";
 import Pokeball from "../../components/Pokeball/Pokeball";
+import Search from "./Search/Search";
 
 const P = new Pokedex();
 
@@ -13,13 +14,14 @@ const getPokemonDetails = async (pokemon) => {
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
+  console.log(pokemon)
   const [loading, setLoading] = useState(false);
+  const [start, end] = useState(12);
 
   const totalPokemon = 898;
 
   const getRandomPokemon = async () => {
     setLoading(true);
-
     const pokemonList = await P.getPokemonsList({
       limit: totalPokemon,
       offset: 0,
@@ -46,6 +48,7 @@ const Home = () => {
       limit: 12,
       offset: 0,
     });
+
     if (pokemonList?.results) {
       const pokemonListWithDetails = await Promise.all(
         pokemonList.results?.map(getPokemonDetails)
@@ -53,6 +56,21 @@ const Home = () => {
 
       setPokemon(pokemonListWithDetails);
       setLoading(false);
+    }
+  };
+
+  const loadMore = async () => {
+    const pokemonList = await P.getPokemonsList({
+      limit: start,
+      offset: 0,
+    });
+
+    if (pokemonList?.results) {
+      const pokemonListWithDetails = await Promise.all(
+        pokemonList.results?.map(getPokemonDetails)
+      );
+
+      setPokemon(pokemonListWithDetails);
     }
   };
 
@@ -119,30 +137,42 @@ const Home = () => {
   };
 
   return (
-    <div className="App">
-      <h1>Pokédex</h1>
-      <button
-        className="randomizer"
-        type="button"
-        alt="Surprise me!"
-        onClick={getRandomPokemon}
-      >
-        Surprise Me!
-      </button>
-      <div className="selectWrapper">
-        <select id="sortOrder" onChange={handleSelectChange}>
-          <option value="noSort">Sort results by...</option>
-          <option value="numberAsc">Lowest Number (First)</option>
-          <option value="numberDesc">Highest Number (First)</option>
-          <option value="nameAsc">A-Z</option>
-          <option value="nameDesc">Z-A</option>
-        </select>
+    <div className="pokedexContainer">
+      <div className="titleContainer">
+        <h1 className="titleH1">Pokédex</h1>
       </div>
-      <div className="pokedexContainer">
+      <Search pokemonItem={pokemon}/>
+      <div className="filtersContainer">
+        <button
+          className="randomizer"
+          type="button"
+          alt="Surprise me!"
+          onClick={getRandomPokemon}
+        >
+          Surprise Me!
+        </button>
+        <div className="selectWrapper">
+          <select id="sortOrder" onChange={handleSelectChange}>
+            <option value="noSort">Sort results by...</option>
+            <option value="numberAsc">Lowest Number (First)</option>
+            <option value="numberDesc">Highest Number (First)</option>
+            <option value="nameAsc">A-Z</option>
+            <option value="nameDesc">Z-A</option>
+          </select>
+        </div>
+      </div>
+      <div className="pokedexResultsContainer">
         {pokemon?.map((poke) => (
           <PokemonCard pokemonItem={poke} key={poke.name} />
         ))}
       </div>
+      <button
+        onClick={() => {
+          loadMore(end(start + 12));
+        }}
+      >
+        Load More
+      </button>
     </div>
   );
 };

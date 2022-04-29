@@ -14,7 +14,9 @@ const getPokemonDetails = async (pokemon) => {
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
+  console.log(pokemon)
   const [loading, setLoading] = useState(false);
+  const [start, end] = useState(12);
 
   const totalPokemon = 898;
 
@@ -46,6 +48,7 @@ const Home = () => {
       limit: 12,
       offset: 0,
     });
+
     if (pokemonList?.results) {
       const pokemonListWithDetails = await Promise.all(
         pokemonList.results?.map(getPokemonDetails)
@@ -53,6 +56,21 @@ const Home = () => {
 
       setPokemon(pokemonListWithDetails);
       setLoading(false);
+    }
+  };
+
+  const loadMore = async () => {
+    const pokemonList = await P.getPokemonsList({
+      limit: start,
+      offset: 0,
+    });
+
+    if (pokemonList?.results) {
+      const pokemonListWithDetails = await Promise.all(
+        pokemonList.results?.map(getPokemonDetails)
+      );
+
+      setPokemon(pokemonListWithDetails);
     }
   };
 
@@ -123,7 +141,7 @@ const Home = () => {
       <div className="titleContainer">
         <h1 className="titleH1">Pokédex</h1>
       </div>
-      <Search />
+      <Search pokemonItem={pokemon}/>
       <div className="filtersContainer">
         <button
           className="randomizer"
@@ -148,6 +166,13 @@ const Home = () => {
           <PokemonCard pokemonItem={poke} key={poke.name} />
         ))}
       </div>
+      <button
+        onClick={() => {
+          loadMore(end(start + 12));
+        }}
+      >
+        Load More
+      </button>
     </div>
   );
 };

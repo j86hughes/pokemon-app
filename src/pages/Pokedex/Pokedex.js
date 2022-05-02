@@ -14,7 +14,6 @@ const getPokemonDetails = async (pokemon) => {
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
-  console.log(pokemon)
   const [loading, setLoading] = useState(false);
   const [start, end] = useState(12);
 

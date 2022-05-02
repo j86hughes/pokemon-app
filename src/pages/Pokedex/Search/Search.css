@@ -186,25 +186,59 @@
 
 
 
-   .container {
+    .container {
     padding-top: 30px;
     width: 300px;
     margin: auto;
+  } 
+
+  .search-container{
+    padding-top: 30px;
+    width: 300px;
+    margin: auto;
+    display: block;
   }
   
   .input {
     padding: 5px 15px;
     width: 300px;
+    font-family: Exo;
+    font-size: 16px;
   }
   
   .pokemon-list {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     display: block;
   }
 
-  /* div.pokedexResultsContainer{
+  .button-result{
+    text-transform: capitalize;
+  }
+
+  /* #root > div > div > div > div.container > div > div{
+    display: block;
+    text-align: center;
+    max-height: 150px;
+    overflow: hidden;
+  } */
+
+  /* #root > div > div > div > div.container{
+    padding-top: 30px;
+    width: 300px;
+    margin: auto;
     display: block;
   } */
+
+  .jim{
+    text-transform: capitalize;
+    font-size: 16px; 
+    font-family: Exo;
+  }
+  .clicked-name{
+    text-transform: capitalize;
+    font-size: 16px;
+    font-family: Exo;
+  }
   
   .pokemon {
     list-style: none;

@@ -31,7 +31,7 @@ const Search = () => {
   const [name, setName] = useState("");
   // the search result
   const [foundPokemon, setFoundPokemon] = useState("");
-  const [cls, setCls] = useState("pokemon-list > div");
+  // const [cls, setCls] = useState("");
   const pokemons = pokemon.map((poke) => poke.name);
 
   const filter = (e) => {
@@ -71,8 +71,7 @@ const Search = () => {
       <div className="pokemon-list">
         {foundPokemon && foundPokemon.length > 0 ? (
           <OutsideClickHandler
-          className={cls}
-          onClick={() => setCls((cls) => (cls === "green" ? "pokemon-list > div" : "green"))}
+            className="pokedexResultsDiv"
             onOutsideClick={() => {
               setFoundPokemon("");
             }}

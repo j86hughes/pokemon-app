@@ -3,10 +3,10 @@ export const formatName = (name) => {
   if (hyphenNames.includes(name)) {
     return name;
   }
-  if (name === "farfetchd") {
+  if (name === "farfetchd" || name === "sirfetchd") {
     return name.slice(0, 8) + "'" + name.slice(8);
   }
-  if (name === "mr-mime") {
+  if (name === "mr-mime" || name === "mr-rime") {
     return name.slice(0, 2) + ". " + name.slice(3);
   }
   return name?.split('-')[0];

@@ -20,6 +20,13 @@
     color: #424242;
     font-family: "Exo", sans-serif;
   }
+
+    .pokemon-name {
+    color: black;
+    font-family: "VT323", monospace;
+    text-transform: uppercase;
+    font-weight: 100;
+  }
   
   .container {
     background-color: white;
@@ -68,12 +75,7 @@
     background-color: #616161;
   }
   
-  .pokemon-name {
-    color: black;
-    font-family: "VT323", monospace;
-    text-transform: uppercase;
-    font-weight: 100;
-  }
+
   
   .pokeball {
     position: fixed;
@@ -209,6 +211,7 @@
     background-color: #616161;
     width: 50%;
     transition: 300ms ease;
+    cursor: pointer;
   }
   .previous:hover {
     background-color: #30a7d7;
@@ -217,6 +220,7 @@
     background-color: #616161;
     width: 50%;
     transition: 300ms ease;
+    cursor: pointer;
   }
   .next:hover {
     background-color: #30a7d7;
@@ -391,12 +395,14 @@
     background-color: blue;
     width: 10%;
     color: white;
+    cursor: pointer;
   }
   .version-red {
     border-radius: 50%;
     background-color: red;
     width: 10%;
     color: white;
+    cursor: pointer;
   }
   .weakness-card {
     display: flex;

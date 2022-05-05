@@ -4,6 +4,7 @@ import PokemonCard from "./PokemonCard";
 import "./Pokedex.css";
 import Pokeball from "../../components/Pokeball/Pokeball";
 import Search from "./Search/Search";
+// import InfiniteScroll from "react-infinite-scroll-component";
 
 const P = new Pokedex();
 
@@ -140,7 +141,7 @@ const Home = () => {
       <div className="titleContainer">
         <h1 className="titleH1">Pokédex</h1>
       </div>
-      <Search pokemonItem={pokemon}/>
+      <Search pokemonItem={pokemon} />
       <div className="filtersContainer">
         <button
           className="randomizer"
@@ -165,13 +166,21 @@ const Home = () => {
           <PokemonCard pokemonItem={poke} key={poke.name} />
         ))}
       </div>
-      <button
+      <div className="load-more-button-container">
+      <button className="load-more-button"
         onClick={() => {
           loadMore(end(start + 12));
         }}
       >
-        Load More
+        Load More Pokémon
       </button>
+      </div>
+      {/* <InfiniteScroll
+        dataLength={totalPokemon} //This is important field to render the next data
+        next={loadMore(end(start + 12))}
+        hasMore={true}
+      >
+      </InfiniteScroll> */}
     </div>
   );
 };

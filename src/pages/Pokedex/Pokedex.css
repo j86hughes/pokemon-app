@@ -131,6 +131,23 @@
     background-color: #30a7d7;
     color: #fff;
 }
+.load-all-button{
+  display: inline-block;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: Exo;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    line-height: 125%;
+    margin: 1.5625%;
+    padding: 0.75em 1.25em 0.675em;
+    vertical-align: middle;
+    text-align: center;
+    text-transform: none;
+    background-color: #ee6b2f;
+    color: #fff;
+}
 .load-more-button-container{
   display: flex;
   justify-content: center;

@@ -4,7 +4,8 @@ import PokemonCard from "./PokemonCard";
 import "./Pokedex.css";
 import Pokeball from "../../components/Pokeball/Pokeball";
 import Search from "./Search/Search";
-// import InfiniteScroll from "react-infinite-scroll-component";
+
+ 
 
 const P = new Pokedex();
 
@@ -58,6 +59,24 @@ const Home = () => {
       setLoading(false);
     }
   };
+
+  const getAllPokemon = async () => {
+    setLoading(true);
+    const pokemonList = await P.getPokemonsList({
+      limit: totalPokemon,
+      offset: 0,
+    });
+
+    if (pokemonList?.results) {
+      const pokemonListWithDetails = await Promise.all(
+        pokemonList.results?.map(getPokemonDetails)
+      );
+      setPokemon(pokemonListWithDetails);
+      setLoading(false);
+    }
+  };
+
+
 
   const loadMore = async () => {
     const pokemonList = await P.getPokemonsList({
@@ -136,6 +155,8 @@ const Home = () => {
     setPokemon(sortedPokemon);
   };
 
+
+
   return (
     <div className="pokedexContainer">
       <div className="titleContainer">
@@ -171,16 +192,13 @@ const Home = () => {
         onClick={() => {
           loadMore(end(start + 12));
         }}
+        // onClick={MyList()}
       >
         Load More Pokémon
       </button>
+      <button className="load-all-button" onClick={() => {getAllPokemon()}}>Load All Pokémon</button>
       </div>
-      {/* <InfiniteScroll
-        dataLength={totalPokemon} //This is important field to render the next data
-        next={loadMore(end(start + 12))}
-        hasMore={true}
-      >
-      </InfiniteScroll> */}
+  
     </div>
   );
 };

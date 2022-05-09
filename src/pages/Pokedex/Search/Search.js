@@ -31,7 +31,7 @@ const Search = () => {
   const [name, setName] = useState("");
   // the search result
   const [foundPokemon, setFoundPokemon] = useState("");
-  // const [cls, setCls] = useState("");
+
   const pokemons = pokemon.map((poke) => poke.name);
 
   const filter = (e) => {
@@ -58,7 +58,8 @@ const Search = () => {
           value={name}
           onChange={filter}
           className="search-input"
-          onClick={foundPokemon}
+   
+          onClick={filter}
         />
 
         <button
@@ -79,8 +80,9 @@ const Search = () => {
             {foundPokemon?.map((poke) => (
               <div
                 className="jimmy"
-                onClick={() =>
-                  setName(poke.charAt(0).toUpperCase() + poke.slice(1))
+                onClick={() =>{
+                  setName(poke.charAt(0).toUpperCase() + poke.slice(1)); setFoundPokemon("")
+                }
                 }
               >
                 {" "}

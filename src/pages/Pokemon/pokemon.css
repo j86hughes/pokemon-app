@@ -60,16 +60,7 @@
     float: right;
     padding-right: 3%;
   }
-  #sortOrder {
-    background-color: #313131;
-    font-family: Exo;
-    color: white;
-    width: 100%;
-    padding: 2.7% 0%;
-    border-radius: 5px;
-    font-size: 100%;
-    font-weight: 500;
-  }
+  
   
   .custom-select-wrapper .custom-select-menu > ul {
     background-color: #616161;
